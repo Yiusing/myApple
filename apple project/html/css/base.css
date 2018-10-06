@@ -1,0 +1,5 @@
+/*初始化*/
+body,p,ul,li{
+    margin:0;
+    padding:0;
+}
