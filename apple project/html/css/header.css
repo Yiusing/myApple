@@ -1,5 +1,5 @@
 #header{
-    width:1366px;
+    width:100%;
 }
 /*广告栏*/
 div.ad{
@@ -42,7 +42,7 @@ div.nav div.nav_content ul li a{
 }
 /*设置动画渐变颜色*/
 div.nav div.nav_content ul li a:hover{
-    color: #a6a6a6;s
+    color: #a6a6a6;
 }
 img{
     transition:all .2s linear;

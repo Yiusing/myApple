@@ -1,0 +1,147 @@
+/*固定顶部*/
+iframe.myHeader{
+    position:fixed;
+    z-index:500;
+}
+
+/*设置全局样式*/
+body{
+    background:#fff;
+}
+
+div.content{
+    padding-top:88px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+
+/*一整行都是链接*/
+.link{
+    display:block;
+    width:100%;
+    height:inherit;
+    position:absolute;
+    z-index:10;
+}
+
+/*设置行内的子链接浮于底层链接上*/
+.top_link{
+    position:relative;
+    z-index:100;
+    margin-right:20px;
+    color:#6bf;
+    font-size:19px;
+}
+
+
+/*前三行统一布局*/
+div.row1,div.row2,div.row3,div.row4,div.row5,div.row6{
+    width:100%;
+    height:580px;
+    background-repeat: no-repeat;
+    color:#fff;
+    text-align: center;
+    margin-bottom: 10px;
+    position:relative;
+
+}
+
+.row_p{
+    font-size:23px;
+    margin:10px 0;
+}
+.row_content{
+    padding-top:45px;
+}
+/*row1*/
+div.row1{
+    background-image:url(../img/index/hero-iphone-xs_large.jpg);
+    background-position: center 70%;
+    background-color:#000;
+
+}
+
+
+/*row2*/
+div.row2{
+    background-image:url(../img/index/iphone_xr_large.jpg);
+    background-position: center bottom;
+    background-color:#000;
+
+}
+
+div.row2 p.pre_sell{
+    font-size:17px;
+    color:#ccc;
+    margin-top:15px;
+}
+
+/*row3*/
+div.row3{
+    background-image:url(../img/index/apple_watch_series_4_large.jpg);
+    background-color:#fff;
+    background-position: 65% center;
+}
+div.row3_position{
+    position:absolute;
+    left:220px;
+    top:160px;
+}
+div.row3 p{
+    color:#000;
+}
+div.row3 a{
+    color:#0070c9;
+}
+
+/*row4至row6的统一设置*/
+.row_box{
+    width:50%;
+    height:100%;
+    box-sizing: border-box;
+  border:6px solid #fff;
+
+}
+.row_p2{
+    font-size:19px;
+    margin:5px 0;
+}
+.row_a{
+    font-size:15px;
+    color:#fff;
+}
+/*row4*/
+/*left*/
+div.row4_box_left{
+    background-image: url(../img/index/apple_music_large.jpg);
+    background-position: center center;
+}
+.row4_img{
+    position:absolute;
+    bottom:50px;
+    left:330px;
+}
+/*right*/
+div.row4_box_right{
+    background-image: url(../img/index/give_back_large.jpg);
+    background-position: center center;
+    margin-left:0;
+    color:#000;
+}
+div.row4_box_right h3{
+    font-size:40px;
+    width:50%;
+    margin:0 auto;
+    font-weight: 500;
+}
+
+.inner_box{
+    width:100%;
+    height:100%;
+    position:relative;
+}
