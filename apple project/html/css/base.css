@@ -1,5 +1,23 @@
 /*初始化*/
-body,p,ul,li{
+body,p,ul,li,h1,h2,h3,h4,h5,h6{
     margin:0;
     padding:0;
+    box-sizing: border-box;
+}
+
+/*初始化列表*/
+ul{
+    list-style: none;
+}
+
+/*取消因被float影响的父元素高度*/
+.clear:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+
+/*左浮动*/
+.floatLeft{
+    float:left;
 }
