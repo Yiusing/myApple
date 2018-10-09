@@ -14,6 +14,7 @@ div.content{
 }
 a{
     text-decoration: none;
+    color:#0070c9;
 }
 a:hover{
     text-decoration: underline;
@@ -34,7 +35,6 @@ a:hover{
     position:relative;
     z-index:100;
     margin-right:20px;
-    color:#6bf;
     font-size:19px;
 }
 
@@ -48,7 +48,6 @@ div.row1,div.row2,div.row3,div.row4,div.row5,div.row6{
     text-align: center;
     margin-bottom: 10px;
     position:relative;
-
 }
 
 .row_p{
@@ -65,7 +64,9 @@ div.row1{
     background-color:#000;
 
 }
-
+div.row1 a{
+    color:#6bf;
+}
 
 /*row2*/
 div.row2{
@@ -86,14 +87,12 @@ div.row3{
     background-image:url(../img/index/apple_watch_series_4_large.jpg);
     background-color:#fff;
     background-position: 65% center;
+    color:#000;
 }
 div.row3_position{
     position:absolute;
     left:220px;
     top:160px;
-}
-div.row3 p{
-    color:#000;
 }
 div.row3 a{
     color:#0070c9;
@@ -104,22 +103,37 @@ div.row3 a{
     width:50%;
     height:100%;
     box-sizing: border-box;
-  border:6px solid #fff;
-
+    border-left:6px solid #fff;
+    border-right:6px solid #fff;
+    background-position:bottom center;
+    background-repeat: no-repeat;
+    color:#000;
 }
-.row_p2{
+.row_box a{
+    font-size:17px;
+}
+.row_box p{
     font-size:19px;
     margin:5px 0;
 }
-.row_a{
-    font-size:15px;
-    color:#fff;
+.row_box h3{
+    font-size:40px;
+    font-weight: 500;
+}
+.inner_box{
+    width:100%;
+    height:100%;
+    position:relative;
 }
 /*row4*/
 /*left*/
 div.row4_box_left{
     background-image: url(../img/index/apple_music_large.jpg);
-    background-position: center center;
+    color:#fff;
+}
+div.row4_box_left a{
+    font-size:15px;
+    color:#fff;
 }
 .row4_img{
     position:absolute;
@@ -129,19 +143,40 @@ div.row4_box_left{
 /*right*/
 div.row4_box_right{
     background-image: url(../img/index/give_back_large.jpg);
-    background-position: center center;
-    margin-left:0;
-    color:#000;
 }
 div.row4_box_right h3{
-    font-size:40px;
     width:50%;
     margin:0 auto;
-    font-weight: 500;
 }
 
-.inner_box{
-    width:100%;
-    height:100%;
-    position:relative;
+/*row5*/
+/*left*/
+div.row5_box_left{
+    background-image: url(../img/index/macbook_pro_performance_large.jpg);
+    color:#fff;
 }
+div.row5_box_left a{
+    color:#6bf;
+}
+
+/*right*/
+div.row5_box_right{
+    background-image: url(../img/index/ipad_large.jpg);
+}
+div.row5_box_right a{
+    color:#0070c9;
+}
+
+/*row6*/
+/*left*/
+div.row6_box_left{
+    background-image: url(../img/index/airpods_large.jpg);
+}
+div.row6_box_left a{
+    color:#0070c9;
+}
+/*right*/
+div.row6_box_right{
+    background-image: url(../img/index/ios_large.jpg);
+}
+

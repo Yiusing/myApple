@@ -1,0 +1,378 @@
+/*Header*/
+    .myHeader{
+        background:#000;
+    }
+    div.content{
+        width:100%;
+    }
+
+/*统一样式*/
+    div{
+        box-sizing: border-box;
+    }
+    h2,h3,h4{
+        color:#111;
+    }
+    a{
+        color:#0070c9;
+        text-decoration: none;
+        font-size: 21px;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    .small_a{
+        font-size:17px;
+    }
+    /*black link*/
+    .black_link{
+        color:#6bf;
+    }
+    /*link_style*/
+    .link_style{
+        font-size:21px;
+        margin-right:20px;
+    }
+    /*Product fontStyle*/
+    .product_header_h2{
+        font-size:70px;
+    }
+    .product_header_h3{
+        font-size:30px;
+        margin-bottom:15px;
+    }
+    /*background style*/
+    .background_style{
+        background-repeat: no-repeat;
+        background-position: center 90%;
+        background-color: #fafafa;
+    }
+    div.product_content{
+        width:100%;
+        color:#000;
+        text-align: center;
+        padding-top:50px;
+    }
+    .white_text{
+        color:#fff !important;
+    }
+    .content_h2{
+        font-size:48px;
+        margin-bottom: 20px;
+    }
+    .content_h3{
+        font-size:40px;
+        margin-bottom: 10px;
+    }
+    .content_h4{
+        font-size:30px;
+        margin-bottom: 10px;
+    }
+    .small_p {
+        font-size: 17px;
+        line-height: 26px;
+        margin: 20px 0;
+    }
+    .content_p{
+        font-size:21px;
+        margin:20px 0;
+        color:#333;
+    }
+    .MacBook_Pro,.iMac_Pro,.iMac,.MacBook,.compare,.change,.shop,.accessories,.macOs-and-iCloud,.app,.macOS_Mojave,.education,.bussiness{
+        width:100%;
+        margin-top:50px;
+        overflow: hidden;
+    }
+
+/*Carousel*/
+    div.carousel{
+        height:600px;
+        position: relative;
+        overflow: hidden;
+    }
+    div.carousel a{
+        color:#fff;
+    }
+    div.carousel a:hover{
+        text-decoration: none;
+    }
+    /*backgroundVideo*/
+    div.carousel video{
+        position:absolute;
+        z-index: 1;
+    }
+    /*carousel_content*/
+    div.carousel_box{
+        width:100%;
+        height:100%;
+        position:absolute;
+        z-index: 10;
+    }
+    div.carousel_content{
+        position: relative;
+        color:#fff;
+        height:100%;
+        width:75%;
+        margin:0 auto;
+    }
+    div.carousel_content h3{
+        font-size:26px;
+        font-weight:600;
+        padding-top:83px;
+    }
+    div.carousel_content div.carousel_indicators{
+        position: absolute;
+        top:210px;
+        width:100%;
+    }
+    div.carousel_indicators a{
+        font-size:90px;
+        font-weight: 600;
+    }
+    a.carousel_indicators_right{
+        float:right;
+        opacity: 0.25;
+        transition: .5s linear;
+    }
+    a.carousel_indicators_right:hover{
+        opacity:1;
+    }
+    div.carousel_content_bottom{
+        position: absolute;
+        width:100%;
+        top:350px;
+        margin-left:10px;
+        font-size:18px;
+        font-weight: 600;
+    }
+    div.carousel_content_bottom p.p1{
+        width:52%;
+        margin-bottom:15px;
+    }
+    div.carousel_content_bottom p.p2{
+        width:48%;
+        display: none;
+        margin-bottom:15px;
+    }
+    div.carousel_content_bottom a:hover{
+        text-decoration: underline;
+    }
+    div.carousel_control{
+        width:44px;
+        height:25px;
+        position:absolute;
+        bottom:20px;
+    }
+    div.carousel_control ul li{
+        float:left;
+        margin:5px 6px;
+    }
+    div.carousel_control ul li a{
+        border:5px solid #888;
+        opacity: .5;
+        border-radius: 50%;
+        display: block;
+    }
+    .active{
+        border-color: #fff !important;
+        opacity: .8 !important;
+    }
+    div.carousel_control ul li a:hover{
+        border-color: #fff;
+        opacity: .8;
+    }
+
+
+
+/*MacBook Pro*/
+div.MacBook_Pro{
+    height:873px;
+    background-image: url(../img/Mac/hero_large.jpg);
+}
+
+
+/*iMac Pro*/
+div.iMac_Pro{
+    height:968px;
+    background-image: url(../img/Mac/imac_pro_01_large.jpg);
+    background-color: #1A1A1A;
+    background-position: center bottom;
+}
+
+/*iMac*/
+div.iMac{
+    height:1107px;
+    background-image: url(../img/Mac/imac_large.jpg);
+}
+
+/*MacBook*/
+div.MacBook{
+    height:705px;
+    background-image: url(../img/Mac/macbook_large.jpg);
+}
+
+/*Compare*/
+div.compare{
+    height:630px;
+    background-image: url(../img/Mac/compare_large.jpg);
+}
+
+/*change*/
+div.change{
+    height:506px;
+    padding:130px 200px;
+}
+
+/*shop*/
+div.inner_content{
+    width:80%;
+    padding:140px 0;
+    margin:0 auto;
+    text-align: center;
+}
+div.shop_left{
+    width:50%;
+    float:left;
+    padding:0 160px;
+}
+div.shop_right{
+    width:50%;
+    float:left;
+}
+div.inner_content h2{
+    margin:10px 0;
+}
+div.inner_content p{
+    margin-bottom: 20px;
+}
+
+/*Mac 配件*/
+div.accessories{
+    height:650px;
+    background-image:url(../img/Mac/accessories_large.jpg);
+}
+
+/*macOs and iCloud*/
+div.macOs-and-iCloud div.macOs-and-iCloud_img{
+    text-align: center;
+    margin-top:76px;
+}
+div.inner_box{
+    width:980px;
+    margin:60px auto;
+}
+div.inner_left{
+    width:41%;
+    height:100%;
+    float:left;
+    margin-left:75px;
+}
+div.inner_right{
+    width:45%;
+    height:100%;
+    float:right;
+}
+
+/*内置APP&专业APP*/
+div.app_top{
+    width:100%;
+    padding:96px 148px 0;
+    text-align: center;
+}
+div.app_list{
+    width:729px;
+    margin:0 auto;
+    padding-top:70px;
+    border-bottom: 1px solid #cacaca;
+}
+div.app_list ul{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+div.app_list ul li{
+    padding-bottom:10px;
+}
+div.app_list ul li a{
+    color:#000;
+    font-size:14px;
+}
+div.app_list ul li a:hover{
+    color:#6bf;
+    text-decoration: none;
+}
+/*img*/
+div.app_img{
+    width:80%;
+    margin:0 auto;
+    padding:80px 0;
+}
+div.app_img_out{
+    width:606px;
+    height:489px;
+    position:relative;
+    float:left;
+    background-repeat: no-repeat;
+}
+div.app_img_in{
+    width:565px;
+    height:313px;
+    position: absolute;
+    top:25px;
+    left:25px;
+    background-repeat: no-repeat;
+}
+/*内置APP图片*/
+div.inner_app_img_out{
+    background-image: url(../img/Mac/bia_hw_large.png);
+}
+div.inner_app_img_in{
+    background-image:url(../img/Mac/bia_photos_large.jpg);
+}
+/*专业APP图片*/
+div.pro_app_img_out{
+    background-image: url(../img/Mac/gallery_hw_large.png);
+}
+div.pro_app_img_in{
+    background-image:url(../img/Mac/pro_finalcut_large.jpg);
+    left:75px;
+    top:18px;
+}
+div.app_img_detail{
+    float:left;
+    width:354px;
+    margin:100px 0 0 50px;
+}
+
+/*macOS_Mojave*/
+div.macOS_Mojave_content{
+    height:650px;
+    background-image: url(../img/Mac/mojave_large.jpg);
+    text-align: center;
+    padding-top:270px;
+}
+div.macOS_Mojave_content h2{
+    font-size:24px;
+    color:#fff;
+}
+div.macOS_Mojave_content h3{
+    font-size: 40px;
+    margin-bottom: 15px;
+    color:#fff;
+}
+
+/*Education*/
+div.education_box_content{
+    text-align: center;
+    padding:50px 0;
+}
+p.link_margin{
+    margin-bottom:20px;
+}
+/*bussiness*/
+div.bussiness_content{
+    text-align: center;
+    padding:50px 0 100px;
+}
+
+
