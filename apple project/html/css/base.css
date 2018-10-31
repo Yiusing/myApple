@@ -1,9 +1,44 @@
 /*初始化*/
-body,p,ul,li,h1,h2,h3,h4,h5,h6{
+body{
+    margin:0;
+    padding:0;
+}
+p,ul,li,h1,h2,h3,h4,h5,h6,figure{
     margin:0;
     padding:0;
     box-sizing: border-box;
 }
+
+body{
+    font-size:17px;
+    line-height:1.47059;
+    font-weight:400;
+    letter-spacing:-.022em;
+    background-color:#fff;
+    color:#333;
+    font-style:normal
+}
+
+/*h1-h6文字颜色统一颜色*/
+h1,h2,h3,h4,h5,h6{
+    color:#111
+}
+
+/*全局链接样式*/
+a{
+    color:#0070c9;
+}
+a:link,a:visited{
+    text-decoration:none
+}
+a:hover{
+    text-decoration:underline
+}
+a:active{
+    text-decoration:none
+}
+
+
 
 /*初始化列表*/
 ul{
@@ -27,51 +62,88 @@ ul{
 /*头部设置*/
 .myHeader{
     width:100%;
-    height:105px;
+    height:92px;
+    background:#000;
 }
 /*脚部设置*/
 .myFooter{
     width:100%;
-    height:495px;
-}
-.footer_bgc{
-    padding-top:15px;
-    background-color:#f2f2f2;
+    height:525px;
 }
 
-/*content_PS*/
-div.content_ps{
-    width:80%;
-    margin:0 auto;
-}
-p.ps_style{
-    font-size:11px;
-    color:#888;
-}
 
-/*Top Nav*/
-div.top_nav{
-    width:100%;
-    background:#141414;
-    margin-top:-4px;
-    padding: 15px 0;
+
+
+/*黑色主题*/
+.theme-dark{
+    background:#000;
 }
-div.top_nav ul{
-    width:65%;
-    margin:0 auto;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
+.theme-dark{
+    color:#ffe5db;
 }
-div.top_nav ul li a{
-    color:#fff;
-    font-size:11px;
-    text-decoration: none;
-}
-div.top_nav ul li a:hover{
+.theme-dark a{
     color:#6bf;
 }
-/*新款文字颜色*/
-.new{
+.theme-dark h2, .theme-dark h3,.theme-dark h4,.theme-dark h5{
+    color:#fff !important;
+}
+
+
+.hide{
+    display:none;
+}
+.fade{
+    opacity: 0;
+}
+
+/*顶部二级导航*/
+.chapternav.theme-dark{
+    background-color:#141414;
+}
+.chapternav{
+    background-color:rgba(242,242,242,0.7);
+    margin-top:-6px;
+    padding:15px;
+    position:absolute;
+    width:100%;
+    z-index: 1;
+}
+.chapternav>.chapternav-items{
+    width:70%;
+    margin:0 auto;
+    display: flex;
+    justify-content:space-between;
+    text-align: center;
+}
+.chapternav-link{
+    display:block;
+    color:#111;
+    font-size:11px;
+}
+.chapternav-link:hover{
+    text-decoration: none;
+    color:#0070c9;
+}
+.theme-dark .chapternav-link{
+    color:#fff !important;
+}
+.theme-dark .chapternav-link:hover{
+    color:#6bf !important;
+}
+.chapternav-new{
     color:#f46c0e;
+}
+
+.section-content{
+    margin:0 auto;
+    width:980px;
+    text-align: center;
+}
+
+.row{
+    position:relative !important;
+    z-index: 1 !important;
+}
+.link-mg{
+    margin:0 10px;
 }

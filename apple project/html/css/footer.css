@@ -1,73 +1,62 @@
-a:link,.record{
+/*Footer统一样式*/
+#footer{
     font-size:12px;
-    text-decoration: none;
+    background:#f2f2f2;
+    color:#333;
 }
 
-a:hover{
-    text-decoration:underline;
-}
-
-div.footer_content_nav a,div.footer_copyRight a{
+#footer a{
     color:#555;
 }
-
-
-body{
-    width:100%;
-}
-
-div.footer{
-    width: 80%;
-    margin:20px auto;
-
-}
-
-.myFont{
-    color:#888;
+#footer h3{
     font-size:12px;
+    color:rgb(51,51,51);
+}
+#footer>div.ft-content{
+    width: 80%;
+    margin:0 auto;
 }
 
-.myMargin{
-    margin-bottom:30px;
-}
 
-/*footer_content*/
-div.footer_content{
-    border:1px solid transparent;
-    border-top-color:#d6d6d6;
-    border-bottom-color: #d6d6d6;
-    padding:20px 0 10px;
+#footer>div.ft-content>section{
+    padding:20px 0;
+    color:#888;
 }
-div.footer_content_nav>div{
-    width:20%;
+/*Footer目录*/
+#footer>div.ft-content>nav{
+    border-top:1px solid #d6d6d6;
+}
+#footer>div.ft-content>nav>div{
     float:left;
+    margin-right:100px;
 }
-div.footer_content_nav div ul li{
-    margin:7px 0;
+#footer>div.ft-content>nav>div>div{
+    margin-top:20px;
 }
-div.footer_content div.ps{
-    margin-top:30px;
+#footer>div.ft-content>nav>div>div>ul>li{
+    margin:10px 0;
 }
-div.footer_content div.ps a{
+
+/*Footer底部*/
+#footer>div>.ft-bottom>.ft-bottom-shop{
+    border-bottom:1px solid #d6d6d6;
+    padding-bottom:10px;
+}
+#footer>div>.ft-bottom>.ft-bottom-shop a{
     color:#0070c9;
 }
 
-/*Footer_copyRight*/
-div.footer_copyRight div p.myFont{
-    padding:4px 0 7px;
+#footer>div>.ft-bottom>.ft-bottom-content{
+    padding:10px 0;
 }
-div.footer_copyRight div ul{
-    margin-left:20px;
-}
-div.footer_copyRight div ul li{
+#footer>div>.ft-bottom>.ft-bottom-content>p,#footer>div>.ft-bottom>.ft-bottom-content>ul>li{
     float:left;
-    margin:0 4px;
 }
-div.footer_copyRight div ul li b{
-    color: #d9d9d9;
+#footer>div>.ft-bottom>.ft-bottom-content>ul{
+    float:left;
+    margin-left:30px;
 }
-
-div.footer_copyRight div p.record{
-    clear:left;
-    color:#666;
+#footer>div>.ft-bottom>.ft-bottom-content>ul>li>b{
+    margin:0 10px;
+    color:#d6d6d6;
 }
