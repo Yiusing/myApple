@@ -147,3 +147,26 @@ ul{
 .link-mg{
     margin:0 10px;
 }
+
+/*清楚boot左右内边距*/
+.clearpx{
+    padding-left:0 !important;
+    padding-right:0 !important;
+}
+
+/*按钮*/
+.button{
+    padding:5px 15px;
+    border-radius:5px;
+    background:linear-gradient(#42a1ec,#0070c9);
+    color:#fff;
+    text-decoration: none;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:400;
+    border:1px solid #07c;
+}
+.button:hover{
+    background:linear-gradient(#51a9ee,#147bcd);
+    border-color:#1482d0;
+}
