@@ -20,13 +20,11 @@
     margin-bottom:13px;
 }
 
-
-
 /*轮播*/
 .gallery{
     position:relative;
     height:600px;
-    padding-top:116px;
+    padding-top:113px;
 }
 .gallery-container{
     height:100%;
@@ -170,8 +168,9 @@
     background-repeat: no-repeat;
 }
 .product-img-macbook-pro{
-    margin-left:-5%;
+    background-position:center bottom;
     background-image: url(../img/Mac/hero_large.jpg);
+    background-color:rgb(19,18,24);
 }
 .product-img-imac-pro{
     background-image: url(../img/Mac/imac_pro_01_large.jpg);
@@ -365,16 +364,17 @@
 .gallery-app{
     position: absolute;
     width:980px;
+    display:flex;
+    justify-content: space-around;
 }
 .screen{
     position: relative;
     background-repeat: no-repeat;
 }
 .gallery-app-content{
-    position:absolute;
-    width:374px;
+    width:30%;
     text-align: left;
-    right:-40px;
+    padding-top:6rem;
 }
 .app-content-inner>.gallery-app>.gallery-app-content{
     top:100px;

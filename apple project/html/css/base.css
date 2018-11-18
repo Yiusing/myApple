@@ -68,7 +68,7 @@ ul{
 /*脚部设置*/
 .myFooter{
     width:100%;
-    height:525px;
+    height:87vh;
 }
 
 
@@ -103,7 +103,8 @@ ul{
 .chapternav{
     background-color:rgba(242,242,242,0.7);
     margin-top:-6px;
-    padding:15px;
+    padding-bottom:15px;
+    padding-top:15px;
     position:absolute;
     width:100%;
     z-index: 1;
@@ -148,10 +149,14 @@ ul{
     margin:0 10px;
 }
 
-/*清楚boot左右内边距*/
+/*清楚boot左右边距*/
 .clearpx{
     padding-left:0 !important;
     padding-right:0 !important;
+}
+.clearmg{
+    margin-left:0 !important;
+    margin-right: 0 !important;
 }
 
 /*按钮*/
@@ -169,4 +174,7 @@ ul{
 .button:hover{
     background:linear-gradient(#51a9ee,#147bcd);
     border-color:#1482d0;
+}
+.pos-rel{
+    position:relative !important;
 }
