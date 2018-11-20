@@ -1,0 +1,279 @@
+body{
+    font-size:17px;
+    color:#333;
+}
+.nav{
+    width:100%;
+    opacity: .9;
+    background:#fff;
+    position:absolute !important;
+    display:flex;
+    justify-content: space-between;
+    padding:15px 150px;
+    z-index:2;
+    top:90px;
+    white-space: nowrap;
+}
+
+.nav-list{
+    display:flex;
+    justify-content: space-around;
+}
+.nav-list .list-item{
+    margin-left:40px;
+}
+.nav-title{
+    font-size:1.5rem;
+    font-weight:600;
+}
+.nav-list .list-link{
+    color:#000;
+    font-size:.8rem;
+    line-height: 2.2rem;
+}
+.nav .active{
+    opacity:.6;
+    pointer-events: none;
+}
+
+/** main **/
+.main{
+    margin-top:-8px;
+    white-space: nowrap;
+}
+/******** wrapper *********/
+.wrapper{
+    padding-top:135px;
+    padding-bottom:80px;
+    background:url(../img/register/apple_id_recovery_2880x340.jpg)
+}
+.wrapper-headline{
+    font-size:2.5rem;
+    text-align: center;
+    color:#fff;
+    font-weight:600;
+    text-shadow:0 0 30px rgba(0,0,0,.5);
+}
+/********** rgs ***********/
+.rgs-Style{
+    border-radius: 5px;
+    padding:5px 15px 5px;
+    border:1px solid #d6d6d6;
+    color:#333;
+    font-size:1.2rem;
+    width:100%;
+}
+.rgs-Style:focus{
+    outline: none;
+    border-color:#0070c9;
+    box-shadow:0 0 0 3px rgba(131,192,253,.5) ;
+}
+.rgs-content{
+    text-align: center;
+}
+.rgs-content .flow-section , .rgs-content .rgs-intro{
+    width:80%;
+    margin:0 auto;
+}
+.rgs-intro{
+    padding-top:30px;
+}
+
+.rgs-intro .rgs-intro-text{
+    font-size:1.2rem;
+    color:#000;
+}
+
+.flow-section{
+    border-bottom:1px solid #e7e7e8;
+    padding-bottom:20px;
+}
+.flow-section:not(:nth-child(2)){
+    padding-top:15px;
+}
+.flow-section .section-subtitle{
+    font-size:1rem;
+    color:#666;
+    font-weight:600;
+    margin-bottom:5px;
+}
+.flow-section-content{
+    width: 50%;
+    margin:10px auto;
+    padding:0 20px;
+    text-align: left;
+    position:relative;
+    min-width: 460px;
+}
+.flow-section:nth-child(2)  .flow-section-content:first-child{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:30px;
+}
+.flow-section:nth-child(2) .flow-section-content:first-child .rgs-Style:last-child{
+    margin-left:15px;
+}
+.select-style{
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.select-icon{
+    width:20px;
+    height:12px;
+    background-image: url(../img/icon/arrow.png);
+    background-repeat: no-repeat;
+    position:absolute;
+    right:30px;
+    top:18px;
+    pointer-events: none;
+    background-size:80%;
+}
+.bth-tips{
+    position:absolute;
+    right:-10px;
+    top:10px;
+    z-index: 3;
+}
+.tips-icon{
+    cursor: help;
+    background:url(../img/icon/tips.png);
+    display: inline-block;
+    width:20px;
+    height:20px;
+    background-size:100%;
+}
+.tips-content{
+    white-space: normal;
+    width:300px;
+    font-size:.9rem;
+    border-radius: 5px;
+    background:rgb(242,242,242);
+    padding:15px;
+    position:absolute;
+    top:-85px;
+    left:-130px;
+}
+.tips-content:after{
+    content:"";
+    display: block;
+    position: absolute;
+    border:15px solid transparent;
+    bottom:-12px;
+    left:125px;
+    border-top-color:rgb(242,242,242);
+    border-bottom:none;
+}
+/****** account&password  ****/
+.account-remind{
+    color:#666;
+    font-size:.95rem;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+/***<  secques  **/
+.secques-mt{
+    margin-top:40px;
+}
+.question-details{
+    font-size:.9rem;
+    color:#666;
+}
+/***<  update  **/
+.flow-section-content.update{
+    display: flex;
+    flex-direction: column;
+}
+.checkbox-style{
+    width:18px;
+    height:18px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border:1px solid #d6d6d6;
+    border-radius: 3px;
+    position:absolute;
+    left:0;
+    top:4px;
+}
+.checkbox-style:checked{
+    background-color:#0070c9;
+    background-image: url(../img/icon/right_icon.png);
+    background-size: 100% 100%;
+}
+
+.checkbox-style:focus{
+    border:1px solid #0070c9;
+    box-shadow:0 0 0 3px rgba(131,192,253,.5);
+}
+.update-checkbox{
+    padding-left:25px;
+    cursor: pointer;
+}
+.checkbox-text{
+    font-size:.8rem;
+    color:#666;
+}
+/***********  idms  ***********/
+.flow-section-content.idms{
+    display:flex;
+    justify-content:space-between;
+}
+.imds-input{
+    margin-left:30px;
+    flex-grow: 1;
+}
+.idms-links{
+    margin-top: 15px;
+}
+.idms-links-list{
+    display: flex;
+}
+.idms-links .idms-links-list .list-item{
+    font-size:.9rem;
+}
+.idms-links .idms-links-list .list-item:first-child{
+    padding-right:10px;
+    margin-right:10px;
+    border-right:1px solid #cacad1;
+}
+.idms-reload-icon{
+    background:url(../img/icon/reload.png)
+}
+.idms-sound-icon{
+    background:url(../img/icon/sound.png)
+}
+.idms-icon{
+    margin-right:5px;
+    vertical-align: middle;
+    background-size:100% 100%;
+    display: inline-block;
+    width:16px;
+    height:16px;
+}
+/******  privacy *******/
+.flow-section.privacy{
+    border:none;
+    font-size:.7rem;
+    white-space: normal;
+}
+.privacy .flow-section-content{
+    text-align: center;
+    color:#666;
+}
+.privacy-icon{
+    width:35px;
+    height:28px;
+    background:url(../img/register/privacy-icon.png) no-repeat;
+    background-size:100%;
+    margin: 10px auto;
+}
+/******* continue *********/
+.continue{
+    padding-bottom:50px;
+}
+.continue .button{
+    display: inline-block;
+    margin:0 auto 50px;
+}

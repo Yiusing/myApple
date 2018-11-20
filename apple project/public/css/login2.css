@@ -1,0 +1,206 @@
+body{
+    font-size:17px;
+    color:#333;
+}
+.nav{
+    width:100%;
+    opacity: .9;
+    background:#fff;
+    position:absolute !important;
+    display:flex;
+    justify-content: space-between;
+    padding:15px 150px;
+    z-index:2;
+    top:90px;
+    white-space: nowrap;
+}
+
+.nav-list{
+    display:flex;
+    justify-content: space-around;
+}
+.nav-list .list-item{
+    margin-left:40px;
+}
+.nav-title{
+    font-size:1.5rem;
+    font-weight:600;
+}
+.nav-list .list-link{
+    color:#000;
+    font-size:.8rem;
+    line-height: 2.2rem;
+}
+.nav .active{
+    opacity:.6;
+    pointer-events: none;
+}
+
+/** main **/
+.main{
+    margin-top:-8px;
+    white-space: nowrap;
+}
+/******** wrapper *********/
+.wrapper{
+    padding-top:190px;
+    background:url(../img/login2/apple_id_desktop_2880x1260.jpg) no-repeat;
+    background-size:cover;
+    height:643px;
+    background-color:#666;
+}
+.wrapper-content{
+    margin:0 auto;
+    text-align: center;
+    min-width:350px;
+}
+.wrapper-headline{
+    margin-top:10px;
+    margin-bottom:13px;
+    font-size:1.3rem;
+    font-weight:400;
+    text-align: center;
+    color:#fff;
+    text-shadow:0 0 30px rgba(0,0,0,.5);
+    letter-spacing:.011em;
+}
+.line{
+    width:calc(100% - 2px);
+    margin:0 auto;
+}
+.account,.pwd{
+    border:1px solid transparent;
+    background:#fff;
+    border-radius: 6px;
+    position: relative;
+    box-sizing: border-box;
+    background-clip:padding-box;
+}
+.line{
+    height:1px;
+    background:#d6d6d6;
+}
+.account{
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius:0 ;
+}
+.pwd{
+    border-top:none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.ac-style{
+    border:1px solid #d6d6d6;
+    width:100%;
+    border-radius: 6px;
+    outline: none;
+    color:#494949;
+    box-shadow: none;
+    height:42px;
+    padding-left:15px;
+    padding-right:40px;
+    box-sizing: border-box;
+}
+.account .ac-style{
+    border-bottom:none;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.pwd .ac-style{
+    border-top:none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.sub-btn{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline:none;
+    background: transparent;
+    border:1px solid transparent;
+    position:absolute;
+    right:6px;
+    top:7px;
+}
+.sub-btn[disabled] .sub-icon{
+    background:url(../img/login2/sub-icon-dis.png) no-repeat;
+    background-size:100%;
+    cursor: default;
+}
+.sub-icon{
+    cursor: pointer;
+    width:26px;
+    height:26px;
+    display: block;
+    background:url(../img/login2/sub-icon.png) no-repeat;
+    background-size: 100%;
+}
+.pwd.slide{
+    height:42px;
+}
+.remeber{
+    color:#fff;
+    margin-top:20px;
+}
+.remeber-check{
+    cursor:pointer;
+}
+.checkbox-style{
+    cursor:pointer;
+    width:18px;
+    height:18px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 3px;
+    vertical-align: sub;
+    margin-right:5px;
+    background-color:#fff;
+}
+.checkbox-style:checked{
+    background-color:#0070c9;
+    background-image: url(../img/icon/right_icon.png);
+    background-size: 100% 100%;
+}
+
+.checkbox-style:focus{
+    border:1px solid #0070c9;
+    box-shadow:0 0 0 3px rgba(131,192,253,.5);
+}
+.forget{
+    margin-top:160px;
+}
+.forget-link{
+    color:#fff;
+    font-size:.9rem;
+}
+.forget-link:hover{
+    color:#fff;
+}
+/********** serve ***********/
+.serve{
+    width:80%;
+    margin:70px auto 150px;
+    text-align: center;
+}
+.serve-title{
+    font-size:2.5rem;
+    color:#111;
+    font-weight:600;
+}
+.serve-subtitle{
+    width:50%;
+    margin:10px auto;
+    padding:5px 75px;
+    white-space: normal;
+    min-width:400px;
+}
+.serve-img{
+    min-width:400px;
+    width:60%;
+    height:68px;
+    background:url(../img/login2/app_icons@2x.png) no-repeat;
+    background-size:100%;
+    margin:30px auto;
+}

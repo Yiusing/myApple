@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/login2.css">
+    <link rel="stylesheet" href="css/base.css">
+    <title>login2</title>
+</head>
+<body>
+<!--Top-->
+<iframe src="header.html" frameborder="0"  class="myHeader"></iframe>
+<nav class="nav">
+    <div class="nav-title">Apple ID</div>
+    <div class="navs">
+        <ul class="nav-list">
+            <li class="list-item"><a href="javascript:;" aria-disabled="false" class="list-link">登录</a></li>
+            <li class="list-item active"><a href="javascript:;" aria-disabled="true" class="list-link">创建您的 Apple ID</a></li>
+            <li class="list-item"><a href="javascript:;" aria-disabled="false" class="list-link">常见问题解答</a></li>
+        </ul>
+    </div>
+</nav>
+<!--main content-->
+<div id="main" class="main">
+    <div class="row wrapper clearmg">
+        <div class="wrapper-content onfucs-style">
+            <img src="img/login2/aid_logo@2x.png" alt="" style="width:200px">
+            <h1 class="col-md-12 wrapper-headline">管理您的 Apple 账户</h1>
+            <div class="ac-pw-inputs">
+                <div class="account">
+                    <input type="text" placeholder="Apple ID" name="account" class="ac-style">
+                    <!--验证成功后修改圆角-->
+                    <button class="sub-btn">
+                        <span class="sub-icon"></span>
+                    </button>
+                </div>
+                <div class="line"></div>
+                <div class="pwd">
+                    <input type="password" placeholder="密码" name="pwd" class="ac-style">
+                    <button class="sub-btn">
+                        <span class="sub-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <!--<script src="js/jquery-3.3.1.js"></script>
+            <script>
+              $(".ac-pw-inputs").on("focus","INPUT",function(){
+                  var $inputs = $(this);
+                  if($inputs.is("[name=account]")){
+                      $inputs.parent().css("borderColor","#0070c9")
+                  }else if($inputs.is("[name=pwd]")){
+                      $inputs.parent().css("borderColor","#0070c9")
+                  }
+                  $(this).parent().siblings(".line").css("backgroundColor","#0070c9");
+              })
+              .on("blur","INPUT",function(){
+                  var $inputs = $(this);
+                  $inputs.parent().css("borderColor","transparent").siblings(".line").css("backgroundColor","#d6d6d6");
+              })
+            </script>-->
+            <div class="remeber">
+                <label class="remeber-check">
+                    <input type="checkbox" name="remeber" class="checkbox-style">
+                    记住我的 Apple ID
+                </label>
+            </div>
+            <div class="forget">
+                <a href="javascript:;" class="forget-link">忘记了 Apple ID 或密码?</a>
+            </div>
+        </div>
+    </div>
+    <div class="serve">
+        <h1 class="serve-title">您的帐户适用于 Apple 的所有服务</h1>
+        <div class="serve-subtitle">
+            使用一个 Apple ID 和密码即可访问所有 Apple 服务。
+            <a href="javascript:;">了解有关 Apple ID 的更多信息 &gt;</a>
+        </div>
+        <div class="serve-img"></div>
+        <a href="javascript:;">创建您的 Apple ID &gt;</a>
+    </div>
+</div>
+</div>
+<!--Footer-->
+<iframe src="footer.html" frameborder="0" class="myFooter"></iframe>
+</body>
+</html>

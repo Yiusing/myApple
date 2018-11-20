@@ -1,0 +1,51 @@
+/*广告栏*/
+body{
+    background:rgba(0,0,0,0) !important;
+}
+
+#header>div.adv-wrapper{
+    background:#444;
+}
+
+#header>div.adv-wrapper>div.adv-wrapper-text{
+    line-height: 44px;
+    font-size:12px;
+    color:#a8a8aa;
+    width:75%;
+    margin:0 auto;
+    text-align:right;
+}
+
+/*导航*/
+#header>nav{
+    background:rgba(0,0,0,.8);
+}
+
+#header>nav>div.gn-content{
+    width:80%;
+    margin:0 auto;
+}
+#header>nav>div>ul.gn-content-list{
+    display:flex;
+    justify-content:space-around;
+}
+
+#header>nav>div.gn-content>ul.gn-content-list>li>a{
+    line-height:44px;
+    color: #dadada;
+    font-size:13px;
+}
+
+#header a:hover{
+    text-decoration: none;
+}
+
+/*设置主导航鼠标滑过渐变*/
+#header>nav>div>ul.gn-content-list>li{
+    transition:all .2s linear;
+    height:44px;
+}
+#header>nav>div>ul.gn-content-list>li:hover{
+    opacity:.5;
+}
+

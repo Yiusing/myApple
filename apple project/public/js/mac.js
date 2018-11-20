@@ -164,7 +164,7 @@ $(function(){
             ///////// 控制左右链接  ////////////
             $("[data-slide=left]").addClass("active").siblings().removeClass("active");
             //////// 控制背景video /////
-            if($btn.is("[data-target=code]")){
+            if($("[data-slide=left]").children().is("[data-target=code]")){
                 $("#code").removeClass("gFade")
                     .siblings("#photo")
                     .addClass("gFade")
@@ -174,7 +174,8 @@ $(function(){
                     .addClass("active")
                     .siblings()
                     .removeClass("active");
-            }else{
+            }else if($("[data-slide=left]").children("[data-target=photo]")){
+                console.log(1)
                 $("#photo").removeClass("gFade")
                     .siblings("#code")
                     .addClass("gFade")
