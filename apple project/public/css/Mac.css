@@ -98,7 +98,6 @@
 }
 .gallery-tabnav-item.active{
     opacity: 1 !important;
-
 }
 .gallery-tabnav-link:hover{
     text-decoration: none;

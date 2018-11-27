@@ -11,7 +11,7 @@ body{
     justify-content: space-between;
     padding:15px 150px;
     z-index:2;
-    top:90px;
+    top:88px;
     white-space: nowrap;
 }
 
@@ -38,7 +38,6 @@ body{
 
 /** main **/
 .main{
-    margin-top:-8px;
     white-space: nowrap;
 }
 /******** wrapper *********/
@@ -276,4 +275,9 @@ body{
 .continue .button{
     display: inline-block;
     margin:0 auto 50px;
+}
+
+.error-style{
+    border-color:#de071c;
+    background:rgba(222,7,28,.1);
 }

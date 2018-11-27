@@ -9,223 +9,230 @@
 </head>
 <body>
 <!--Top-->
-<iframe src="header.html" frameborder="0"  class="myHeader"></iframe>
-<nav class="nav">
-    <div class="nav-title">Apple ID</div>
-    <div class="navs">
-        <ul class="nav-list">
-            <li class="list-item"><a href="javascript:;" aria-disabled="false" class="list-link">登录</a></li>
-            <li class="list-item active"><a href="javascript:;" aria-disabled="true" class="list-link">创建您的 Apple ID</a></li>
-            <li class="list-item"><a href="javascript:;" aria-disabled="false" class="list-link">常见问题解答</a></li>
-        </ul>
-    </div>
-</nav>
-<!--main content-->
-<div id="main" class="main">
-    <div class="row wrapper clearmg">
-        <h1 class="col-md-12 wrapper-headline">创建您的 Apple ID</h1>
-    </div>
-    <div class="row rgs-content clearmg">
-        <!--intr-->
-        <div class="rgs-intro">
-            <p class="rgs-intro-text">只需一个 Apple ID，您即可访问 Apple 所有内容。</p>
-            <p class="rgs-intro-text">已有 Apple ID？ <a href="javascript:;">在此查找&gt;</a></p>
+<header id="header"></header>
+<div id="app">
+    <nav class="nav">
+        <div class="nav-title">Apple ID</div>
+        <div class="navs">
+            <ul class="nav-list">
+                <li class="list-item"><a href="login2.html" aria-disabled="false" class="list-link">登录</a></li>
+                <li class="list-item active"><a href="javascript:;" aria-disabled="true" class="list-link">创建您的 Apple ID</a></li>
+                <li class="list-item"><a href="javascript:;" aria-disabled="false" class="list-link">常见问题解答</a></li>
+            </ul>
         </div>
-        <!-- name&country -->
-        <div class="flow-section">
-            <!--name-->
-            <div class="flow-section-content">
-                <input type="text" placeholder="姓氏" class="rgs-Style">
-                <input type="text" placeholder="名字" class="rgs-Style">
+    </nav>
+    <!--main content-->
+    <div id="main" class="main">
+        <div class="row wrapper clearmg">
+            <h1 class="col-md-12 wrapper-headline">创建您的 Apple ID</h1>
+        </div>
+        <div class="row rgs-content clearmg" @keyup.13="checkAll()" >
+            <!--intr-->
+            <div class="rgs-intro">
+                <p class="rgs-intro-text">只需一个 Apple ID，您即可访问 Apple 所有内容。</p>
+                <p class="rgs-intro-text">已有 Apple ID？ <a href="javascript:;">在此查找&gt;</a></p>
             </div>
-            <!--country-->
-            <div class="flow-section-content">
-                <h3 class="section-subtitle">国家或地区</h3>
-                <div class="pos-rel">
-                    <select name="rgs-country" id="rgs-country" class="rgs-Style select-style">
-                        <option value="CHN">中国(大陆)</option>
-                        <option value="USA">美国</option>
-                        <option value="JPN">日本</option>
-                        <option value="VNM">越南</option>
-                        <option value="GBR">英国</option>
-                        <option value="KOR">韩国</option>
-                        <option value="FRA">法国</option>
-                    </select>
-                    <span class="select-icon"></span>
+            <!-- name&country -->
+            <div class="flow-section">
+                <!--name-->
+                <div class="flow-section-content">
+                    <input type="text" placeholder="姓氏" class="rgs-Style" v-model="lastName" :class="flag.lastName?errorStyle:''">
+                    <input type="text" placeholder="名字" class="rgs-Style" v-model="firstName" :class="flag.firstName?errorStyle:''">
                 </div>
-            </div>
-            <!--brithday-->
-            <div class="flow-section-content">
-                <input type="text" placeholder="出生日期" class="rgs-Style">
-                <div class="bth-tips">
-                    <span class="tips-icon"></span>
-                    <div class="tips-content fade">
-                        出生日期会帮助验证您的身份或启用特定 Apple 服务。
+                <!--country-->
+                <div class="flow-section-content">
+                    <h3 class="section-subtitle">国家或地区</h3>
+                    <div class="pos-rel">
+                        <select name="rgs-country" id="rgs-country" class="rgs-Style select-style">
+                            <option value="CHN">中国(大陆)</option>
+                            <option value="USA">美国</option>
+                            <option value="JPN">日本</option>
+                            <option value="VNM">越南</option>
+                            <option value="GBR">英国</option>
+                            <option value="KOR">韩国</option>
+                            <option value="FRA">法国</option>
+                        </select>
+                        <span class="select-icon"></span>
+                    </div>
+                </div>
+                <!--brithday-->
+                <div class="flow-section-content">
+                    <input type="text" placeholder="出生日期" class="rgs-Style" :class="flag.birthday?errorStyle:''" name="birthday" value="1yyy年mm月dd日" v-model="birthday" @click="cursorPoint()" @keydown.prevent="changeBir($event)" @mouseenter="flag && showBirthday('en',true)" @mouseleave="flag && showBirthday('en',false)" @focus="flag2 && showBirthday('fc',true)" @blur="flag2 && showBirthday('fc',false)" >
+                    <div class="bth-tips">
+                        <span class="tips-icon" @mouseenter="showTips(true)" @mouseleave="showTips(false)"></span>
+                        <div class="tips-content" v-show="!isHide">
+                            出生日期会帮助验证您的身份或启用特定 Apple 服务。
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- account&password -->
-        <div class="flow-section">
-            <!--account-->
-            <div class="flow-section-content">
-                <input type="text" placeholder="name@example.com" class="rgs-Style">
-                <p class="account-remind">这将是您的新 Apple ID。</p>
+            <!-- account&password -->
+            <div class="flow-section">
+                <!--account-->
+                <div class="flow-section-content">
+                    <input type="text" placeholder="name@example.com" class="rgs-Style" :class="flag.email?errorStyle:''">
+                    <p class="account-remind">这将是您的新 Apple ID。</p>
+                </div>
+                <!--password-->
+                <div class="flow-section-content">
+                    <input type="password" placeholder="密码" class="rgs-Style" :class="flag.pwd?errorStyle:''">
+                </div>
+                <!-- password-confirm -->
+                <div class="flow-section-content">
+                    <input type="password" placeholder="确认密码" class="rgs-Style" :class="flag.rPwd?errorStyle:''">
+                </div>
             </div>
-            <!--password-->
-            <div class="flow-section-content">
-                <input type="password" placeholder="密码" class="rgs-Style">
-            </div>
-            <!-- password-confirm -->
-            <div class="flow-section-content">
-                <input type="password" placeholder="确认密码" class="rgs-Style">
-            </div>
-        </div>
-        <!-- secques-->
-        <div class="flow-section">
-            <!--question 1-->
-            <div class="flow-section-content">
-                <div class="pos-rel">
-                    <select name="sec-question1" id="sec-question1" class="rgs-Style select-style">
-                        <option value disabled selected="selected">安全提示问题 1</option>
+            <!-- secques-->
+            <div class="flow-section">
+                <!--question 1-->
+                <div class="flow-section-content">
+                    <div class="pos-rel">
+                        <select name="sec-question1" id="sec-question1" class="rgs-Style select-style">
+                            <option value disabled selected="selected">安全提示问题 1</option>
 
-                        <option value="130">
-                            你少年时代最好的朋友叫什么名字？
-                        </option>
-                        <option value="131">
-                            你的第一个宠物叫什么名字？
-                        </option>
-                        <option value="132">
-                            你学会做的第一道菜是什么？
-                        </option>
-                        <option value="133">
-                            你第一次去电影院看的是哪一部电影？
-                        </option>
-                        <option value="134">
-                            你第一次坐飞机是去哪里？
-                        </option>
-                        <option value="135">
-                            你上小学时最喜欢的老师姓什么？
-                        </option>
-                    </select>
-                    <span class="select-icon"></span>
+                            <option value="130">
+                                你少年时代最好的朋友叫什么名字？
+                            </option>
+                            <option value="131">
+                                你的第一个宠物叫什么名字？
+                            </option>
+                            <option value="132">
+                                你学会做的第一道菜是什么？
+                            </option>
+                            <option value="133">
+                                你第一次去电影院看的是哪一部电影？
+                            </option>
+                            <option value="134">
+                                你第一次坐飞机是去哪里？
+                            </option>
+                            <option value="135">
+                                你上小学时最喜欢的老师姓什么？
+                            </option>
+                        </select>
+                        <span class="select-icon"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="flow-section-content">
-                <input type="text" placeholder="答案" class="rgs-Style">
-            </div>
-            <!--question 2-->
-            <div class="flow-section-content secques-mt">
-                <div class="pos-rel">
-                    <select name="sec-question2" id="sec-question2" class="rgs-Style select-style">
-                        <option value="" disabled="" selected="selected">安全提示问题 2</option>
+                <div class="flow-section-content">
+                    <input type="text" placeholder="答案" class="rgs-Style" :class="flag.qs1?errorStyle:''">
+                </div>
+                <!--question 2-->
+                <div class="flow-section-content secques-mt">
+                    <div class="pos-rel">
+                        <select name="sec-question2" id="sec-question2" class="rgs-Style select-style">
+                            <option value="" disabled="" selected="selected">安全提示问题 2</option>
 
-                        <option value="136" dir="auto">
-                            你的理想工作是什么？
-                        </option>
-                        <option value="137" dir="auto">
-                            你小时候最喜欢哪一本书？
-                        </option>
-                        <option value="138" dir="auto">
-                            你拥有的第一辆车是什么型号？
-                        </option>
-                        <option value="139" dir="auto">
-                            你童年时代的绰号是什么？
-                        </option>
-                        <option value="140" dir="auto">
-                            你在学生时代最喜欢哪个电影明星或角色？
-                        </option>
-                        <option value="141" dir="auto">
-                            你在学生时代最喜欢哪个歌手或乐队？
-                        </option>
-                    </select>
-                    <span class="select-icon"></span>
+                            <option value="136" dir="auto">
+                                你的理想工作是什么？
+                            </option>
+                            <option value="137" dir="auto">
+                                你小时候最喜欢哪一本书？
+                            </option>
+                            <option value="138" dir="auto">
+                                你拥有的第一辆车是什么型号？
+                            </option>
+                            <option value="139" dir="auto">
+                                你童年时代的绰号是什么？
+                            </option>
+                            <option value="140" dir="auto">
+                                你在学生时代最喜欢哪个电影明星或角色？
+                            </option>
+                            <option value="141" dir="auto">
+                                你在学生时代最喜欢哪个歌手或乐队？
+                            </option>
+                        </select>
+                        <span class="select-icon"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="flow-section-content">
-                <input type="text" placeholder="答案" class="rgs-Style">
-            </div>
-            <!--question 3-->
-            <div class="flow-section-content secques-mt">
-                <div class="pos-rel">
-                    <select name="sec-question3" id="sec-question3" class="rgs-Style select-style">
-                        <option value="" disabled="" selected="selected">安全提示问题 3</option>
+                <div class="flow-section-content">
+                    <input type="text" placeholder="答案" class="rgs-Style" :class="flag.qs2?errorStyle:''">
+                </div>
+                <!--question 3-->
+                <div class="flow-section-content secques-mt">
+                    <div class="pos-rel">
+                        <select name="sec-question3" id="sec-question3" class="rgs-Style select-style">
+                            <option value="" disabled="" selected="selected">安全提示问题 3</option>
 
-                        <option value="142" dir="auto">
-                            你的父母是在哪里认识的？
-                        </option>
-                        <option value="143" dir="auto">
-                            你的第一个上司叫什么名字？
-                        </option>
-                        <option value="144" dir="auto">
-                            您从小长大的那条街叫什么？
-                        </option>
-                        <option value="145" dir="auto">
-                            你去过的第一个海滨浴场是哪一个？
-                        </option>
-                        <option value="146" dir="auto">
-                            你购买的第一张专辑是什么？
-                        </option>
-                        <option value="147" dir="auto">
-                            您最喜欢哪个球队？
-                        </option>
-                    </select>
-                    <span class="select-icon"></span>
+                            <option value="142" dir="auto">
+                                你的父母是在哪里认识的？
+                            </option>
+                            <option value="143" dir="auto">
+                                你的第一个上司叫什么名字？
+                            </option>
+                            <option value="144" dir="auto">
+                                您从小长大的那条街叫什么？
+                            </option>
+                            <option value="145" dir="auto">
+                                你去过的第一个海滨浴场是哪一个？
+                            </option>
+                            <option value="146" dir="auto">
+                                你购买的第一张专辑是什么？
+                            </option>
+                            <option value="147" dir="auto">
+                                您最喜欢哪个球队？
+                            </option>
+                        </select>
+                        <span class="select-icon"></span>
+                    </div>
+                </div>
+                <div class="flow-section-content">
+                    <input type="text" placeholder="答案" class="rgs-Style" :class="flag.qs3?errorStyle:''">
+                </div>
+                <p class="question-details">这些问题将用于验证您的身份，以及在您忘记密码时恢复您的密码。</p>
+            </div>
+            <!--update-->
+            <div class="flow-section">
+                <div class="flow-section-content update">
+                    <label class="update-checkbox pos-rel">
+                        <input type="checkbox" class="checkbox-style" name="news">
+                        <span>公告</span>
+                        <p class="checkbox-text">获取有关 Apple 产品、服务和软件的公告、推荐和更新。</p>
+                    </label>
+                    <label class="update-checkbox pos-rel">
+                        <input type="checkbox" class="checkbox-style" name="itunes">
+                        <span>App、音乐、电影以及更多内容 </span>
+                        <p class="checkbox-text">获取有关 App、音乐、电影、电视、图书、播客等的最新发布、独家内容、特别优惠和推荐。</p>
+                    </label>
                 </div>
             </div>
-            <div class="flow-section-content">
-                <input type="text" placeholder="答案" class="rgs-Style">
-            </div>
-            <p class="question-details">这些问题将用于验证您的身份，以及在您忘记密码时恢复您的密码。</p>
-        </div>
-        <!--update-->
-        <div class="flow-section">
-            <div class="flow-section-content update">
-                <label class="update-checkbox pos-rel">
-                    <input type="checkbox" class="checkbox-style" name="news">
-                    <span>公告</span>
-                    <p class="checkbox-text">获取有关 Apple 产品、服务和软件的公告、推荐和更新。</p>
-                </label>
-                <label class="update-checkbox pos-rel">
-                    <input type="checkbox" class="checkbox-style" name="itunes">
-                    <span>App、音乐、电影以及更多内容 </span>
-                    <p class="checkbox-text">获取有关 App、音乐、电影、电视、图书、播客等的最新发布、独家内容、特别优惠和推荐。</p>
-                </label>
-            </div>
-        </div>
-        <!--idms-->
-        <div class="flow-section">
-            <div class="flow-section-content idms">
-                <!--idms-photos-->
-                <div class="idms-photos">
-                    <img src="img/idms/1.jpg" alt="1">
-                </div>
-                <!--imds-input-->
-                <div class="imds-input">
-                    <input type="text" name="imds" placeholder="键入图中的字符" class="rgs-Style">
-                    <div class="idms-links">
-                        <ul class="idms-links-list">
-                            <li class="list-item"><a href="javascript:;" class="list-link"><span class="idms-reload-icon idms-icon"></span>新代码</a></li>
-                            <li class="list-item"><a href="javascript:;" class="list-link"><span class="idms-sound-icon idms-icon"></span>视力障碍</a></li>
-                        </ul>
+            <!--idms-->
+            <div class="flow-section">
+                <div class="flow-section-content idms">
+                    <!--idms-photos-->
+                    <div class="idms-photos">
+                        <img :src="imds.pic" alt="1">
+                    </div>
+                    <!--imds-input-->
+                    <div class="imds-input">
+                        <input type="text" name="imds" placeholder="键入图中的字符" class="rgs-Style" :class="flag.imds?errorStyle:''">
+                        <div class="idms-links">
+                            <ul class="idms-links-list">
+                                <li class="list-item"><a href="javascript:;" class="list-link" @click="changeIdms()"><span class="idms-reload-icon idms-icon"></span>新代码</a></li>
+                                <li class="list-item"><a href="javascript:;" class="list-link"><span class="idms-sound-icon idms-icon"></span>视力障碍</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--privacy-->
-        <div class="flow-section privacy">
-            <div class="flow-section-content">
-                <div class="privacy-icon"></div>
-                您的 Apple ID 信息被用于确保您能够安全登录并访问您的数据。出于安全性、支持和报告的目的，Apple 会记录您的某些使用情况数据。<a href="javascript:;">了解 Apple 如何保护您的隐私。</a>
+            <!--privacy-->
+            <div class="flow-section privacy">
+                <div class="flow-section-content">
+                    <div class="privacy-icon"></div>
+                    您的 Apple ID 信息被用于确保您能够安全登录并访问您的数据。出于安全性、支持和报告的目的，Apple 会记录您的某些使用情况数据。<a href="javascript:;">了解 Apple 如何保护您的隐私。</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row continue clearmg">
-        <button class="button">继续</button>
-    </div>
+        <div class="row continue clearmg">
+            <button class="button" @click="checkAll()">继续</button>
+        </div>
     </div>
 </div>
 <!--Footer-->
-<iframe src="footer.html" frameborder="0" class="myFooter"></iframe>
+<footer id="footer"></footer>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/header.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/register.js"></script>
+<!--<script src="js/1.js"></script>-->
 </body>
 </html>

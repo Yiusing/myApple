@@ -1,0 +1,55 @@
+new Vue({
+    el:"#app",
+    data:{
+        iconActive:{
+            active:false
+        },
+        borderColor:{
+            "act-bdcolor":false,
+            "pwd-bdcolor":false
+        },
+        isChecked:false,
+        loading:false,
+        account:"",
+        showPwd:{
+            height:"0"
+        },
+        actActive:{
+            active:false
+        }
+    },
+    methods:{
+        changeBdColor(type,way){
+            if(type=="act"){
+                this.borderColor["act-bdcolor"]= way=="show";
+            }else{
+                this.borderColor["pwd-bdcolor"]= way=="show";
+            }
+        },
+        nextStep(){
+            this.loading=true;
+            setTimeout(()=>{
+                this.isChecked=true;
+                this.showPwd.height="43px";
+                this.actActive.active=true;
+                this.loading=false;
+            },500)
+        }
+    },
+    watch:{
+        account(){
+            if(this.account==""){
+                this.iconActive.active=false;
+
+                this.loading=false;
+                this.showPwd.height="0px";
+                setTimeout(()=>{
+                    this.actActive.active=false;
+                    this.isChecked=false;
+                    },400)
+            }else{
+                this.iconActive.active=true;
+            }
+        }
+    }
+})

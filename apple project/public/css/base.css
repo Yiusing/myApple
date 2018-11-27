@@ -167,3 +167,6 @@ ul{
 .pos-rel{
     position:relative !important;
 }
+.paddlenav-arrow.disabled{
+    display: none;
+}

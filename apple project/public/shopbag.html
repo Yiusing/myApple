@@ -9,318 +9,320 @@
 </head>
 <body>
 <!--Top-->
-<iframe src="header.html" frameborder="0"  class="myHeader"></iframe>
-<!--main content-->
-<div id="main" class="main">
-    <!--bag-banner-->
-    <div class="bag-banner row">
-        <div class="col-md-12 box box-style">
+<header id="header"></header>
+<div id="app">
+    <!--main content-->
+    <div id="main" class="main">
+        <!--bag-banner-->
+        <div class="bag-banner row">
+            <div class="col-md-12 box box-style">
             <span>
                 <img src="img/shopbag/delivery-message-banner.png" alt="">
             </span>
-            <span class="bag-banner-title">
+                <span class="bag-banner-title">
                 享受免费送货上门服务。
             </span>
-        </div>
-    </div>
-    <!--cart-->
-    <div class="cart box-style row">
-        <div class="box col-md-12">
-            <!--标题-->
-            <div class="col-md-12 clearpx">
-                <div class="clearpx box-header">
-                    <h1 class="box-title">购物袋内的产品</h1>
-                </div>
             </div>
-            <!--购物袋商品-->
-            <div class="col-md-12 thr cart-products">
-                <div class="row">
-                    <!--商品图片-->
-                    <div class="col-md-3 products-img-box">
-                        <a href="javascript:;" class="products-img-link">
-                            <img src="img/shopbag/MBP13GNT-201807.jpg">
-                        </a>
+        </div>
+        <!--cart-->
+        <div class="cart box-style row">
+            <div class="box col-md-12">
+                <!--标题-->
+                <div class="col-md-12 clearpx">
+                    <div class="clearpx box-header">
+                        <h1 class="box-title">购物袋内的产品</h1>
                     </div>
-                    <!--详情-->
-                    <div class="col-md-9">
-                        <div class="products-title">
-                            <a href="javascript:;" class="products-title-link">
+                </div>
+                <!--购物袋商品-->
+                <div class="col-md-12 thr cart-products">
+                    <div class="row">
+                        <!--商品图片-->
+                        <div class="col-md-3 products-img-box">
+                            <a href="javascript:;" class="products-img-link">
+                                <img src="img/shopbag/MBP13GNT-201807.jpg">
+                            </a>
+                        </div>
+                        <!--详情-->
+                        <div class="col-md-9">
+                            <div class="products-title">
+                                <a href="javascript:;" class="products-title-link">
                                     13 英寸 MacBook Pro - 深空灰色
+                                </a>
+                                <ul class="price-quantity">
+                                    <li class="item">
+                                        <span>RMB {{res.price|addCommas}}</span>
+                                    </li>
+                                    <li class="item quantity">
+                                        <button class="button" @click="changeCount(-1)">-</button>
+                                        <input type="text" value="1" v-model="count">
+                                        <button class="button" @click="changeCount(+1)">+</button>
+                                    </li>
+                                    <li class="item">
+                                        <span class="quantity-price">RMB {{total|addCommas}} </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="shipping-product-admin thr">
+                                <span class="availShip">发货： 1-3 个工作日</span>
+                                <a href="javascript:;" class="product-admin">删除</a>
+                                <div class="product-number">
+                                    <span>编号: Z0UH</span>
+                                </div>
+                            </div>
+                            <div class="product-details-group clear">
+                                <!--硬件-->
+                                <div class="gs">
+                                    <span class="fwb">硬件</span>
+                                    <ul class="gs-list">
+                                        <li class="item">2.5GHz 双核第七代 Intel Core i7 处理器，Turbo Boost 最高可达 4.0GHz</li>
+                                        <li class="item">Intel Iris Plus Graphics 640 图形处理器</li>
+                                        <li class="item">8GB 2133MHz LPDDR3 内存</li>
+                                        <li class="item">128GB 固态硬盘</li>
+                                        <li class="item">两个雷雳 3 端口</li>
+                                        <li class="item">背光键盘 - 中文 - 拼音</li>
+                                        <li class="item">配件套件</li>
+                                        <li class="item">Force Touch 触控板</li>
+                                    </ul>
+                                </div>
+                                <!--软件-->
+                                <div class="gs">
+                                    <span>软件</span>
+                                    <ul class="gs-list">
+                                        <li class="item">macOS</li>
+                                        <li class="item">照片、iMovie、GarageBand</li>
+                                        <li class="item">Pages、Numbers、Keynote</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-gift">
+                                <div class="product-gift-btn">
+                                    <div class="product-gift-link" v-show="!giftShow">礼品选项</div>
+                                    <a href="javascript:;" class="product-gift-link" @click="showMore()" v-show="giftShow">{{giftOpt}}</a>
+                                </div>
+                                <div class="product-gift-details accordion accordion-hide" :style="totalheight">
+                                    <ul class="pgd-list-group">
+                                        <li class="item">
+                                            <input type="radio" class="pgd-list-radio" name="gift" v-model="giftPack" value="0">
+                                            <div class="gift-txt-box">
+                                                <span>在送货清单上添加礼品赠言 - 免费</span>
+                                                <div :style="giftPack==0?height:0" class="gift-textarea accordion">
+                                                    <textarea name="gift-text" cols="30" rows="10" placeholder="添加免费礼物留言"></textarea>
+                                                    <ul>
+                                                        <li><a href="javascript:;" @click="showMore(true)">取消</a></li>
+                                                        <li class="pipe"><a href="javascript:;">确认添加留言</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="item">
+                                            <input type="radio" class="pgd-list-radio" name="gift" v-model="giftPack" value="1">
+                                            <div class="gift-txt-box">
+                                                <span class="info">白色礼品包装及贺卡 - RMB 39</span>
+                                                <div class="accordion gift-textarea" :style="giftPack==1?height:0">
+                                                    <textarea name="gift-text" cols="30" rows="10" placeholder="在贺卡上添加文字(可选)"></textarea>
+                                                    <ul>
+                                                        <li><a href="javascript:;" @click="showMore()">取消</a></li>
+                                                        <li class="pipe"><a href="javascript:;">添加礼品包装</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12 thr cart-products">
+                    <div class="row">
+                        <!--商品图片-->
+                        <div class="col-md-3 products-img-box">
+                            <a href="javascript:;" class="products-img-link">
+                                <img src="img/shopbag/MBP13GNT-201807.jpg">
                             </a>
-                            <ul class="price-quantity">
-                                <li class="item">
-                                    <span>RMB 12,459</span>
-                                </li>
-                                <li class="item quantity">
-                                    <button class="button">+</button>
-                                    <input type="text" value="1">
-                                    <button class="button">-</button>
-                                </li>
-                                <li class="item">
-                                    <span class="quantity-price">RMB 12,459</span>
-                                </li>
-                            </ul>
                         </div>
-                        <div class="shipping-product-admin thr">
-                            <span class="availShip">发货： 1-3 个工作日</span>
-                            <a href="javascript:;" class="product-admin">删除</a>
-                            <div class="product-number">
-                                <span>编号: Z0UH</span>
-                            </div>
-                        </div>
-                        <div class="product-details-group clear">
-                            <!--硬件-->
-                            <div class="gs">
-                                <span class="fwb">硬件</span>
-                                <ul class="gs-list">
-                                    <li class="item">2.5GHz 双核第七代 Intel Core i7 处理器，Turbo Boost 最高可达 4.0GHz</li>
-                                    <li class="item">Intel Iris Plus Graphics 640 图形处理器</li>
-                                    <li class="item">8GB 2133MHz LPDDR3 内存</li>
-                                    <li class="item">128GB 固态硬盘</li>
-                                    <li class="item">两个雷雳 3 端口</li>
-                                    <li class="item">背光键盘 - 中文 - 拼音</li>
-                                    <li class="item">配件套件</li>
-                                    <li class="item">Force Touch 触控板</li>
+                        <!--详情-->
+                        <div class="col-md-9">
+                            <div class="products-title">
+                                <a href="javascript:;" class="products-title-link">
+                                    13 英寸 MacBook Pro - 深空灰色
+                                </a>
+                                <ul class="price-quantity">
+                                    <li class="item">
+                                        <span>RMB 20,069</span>
+                                    </li>
+                                    <li class="item quantity">
+                                        <button class="button">-</button>
+                                        <input type="text" value="1">
+                                        <button class="button">+</button>
+                                    </li>
+                                    <li class="item">
+                                        <span class="quantity-price">RMB 20,069</span>
+                                    </li>
                                 </ul>
                             </div>
-                            <!--软件-->
-                            <div class="gs">
-                                <span>软件</span>
-                                <ul class="gs-list">
-                                    <li class="item">macOS</li>
-                                    <li class="item">照片、iMovie、GarageBand</li>
-                                    <li class="item">Pages、Numbers、Keynote</li>
-                                </ul>
+                            <div class="shipping-product-admin thr">
+                                <span class="availShip">发货： 1-3 个工作日</span>
+                                <a href="javascript:;" class="product-admin">删除</a>
+                                <div class="product-number">
+                                    <span>编号: Z0UH</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-gift">
-                            <div class="product-gift-btn">
+                            <div class="product-details-group clear">
+                                <!--硬件-->
+                                <div class="gs">
+                                    <span class="fwb">硬件</span>
+                                    <ul class="gs-list">
+                                        <li class="item">2.5GHz 双核第七代 Intel Core i7 处理器，Turbo Boost 最高可达 4.0GHz</li>
+                                        <li class="item">Intel Iris Plus Graphics 640 图形处理器</li>
+                                        <li class="item">16GB 2133MHz LPDDR3 内存</li>
+                                        <li class="item">1TB 固态硬盘</li>
+                                        <li class="item">两个雷雳 3 端口</li>
+                                        <li class="item">背光键盘 - 中文 - 拼音</li>
+                                        <li class="item">配件套件</li>
+                                        <li class="item">Force Touch 触控板</li>
+                                        <li class="item">Force Touch 触控板</li>
+                                    </ul>
+                                </div>
+                                <!--软件-->
+                                <div class="gs">
+                                    <span>软件</span>
+                                    <ul class="gs-list">
+                                        <li class="item">macOS</li>
+                                        <li class="item">照片、iMovie、GarageBand</li>
+                                        <li class="item">Pages、Numbers、Keynote</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-gift">
+                                <div class="product-gift-btn">
                                     <a href="javascript:;" class="product-gift-link">显示礼品选项</a>
-                            </div>
-                            <div class="product-gift-details accordion accordion-hide" data-show-height="computed">
-                                <ul class="pgd-list-group">
-                                    <li class="item">
-                                        <input type="radio" class="pgd-list-radio" name="gift">
-                                        <div class="gift-txt-box">
-                                            <span>在送货清单上添加礼品赠言 - 免费</span>
-                                            <div class="gift-textarea accordion" data-show-height="computed">
-                                                <textarea name="gift-text" cols="30" rows="10" placeholder="添加免费礼物留言"></textarea>
-                                                <ul>
-                                                    <li><a href="javascript:;">取消</a></li>
-                                                    <li class="pipe"><a href="javascript:;">确认添加留言</a></li>
-                                                </ul>
+                                </div>
+                                <div class="product-gift-details accordion accordion-hide" data-show-height="computed">
+                                    <ul class="pgd-list-group">
+                                        <li class="item">
+                                            <input type="radio" class="pgd-list-radio" name="gift">
+                                            <div class="gift-txt-box">
+                                                <span>在送货清单上添加礼品赠言 - 免费</span>
+                                                <div class="gift-textarea accordion" data-show-height="computed">
+                                                    <textarea name="gift-text" cols="30" rows="10" placeholder="添加免费礼物留言"></textarea>
+                                                    <ul>
+                                                        <li><a href="javascript:;">取消</a></li>
+                                                        <li class="pipe"><a href="javascript:;">确认添加留言</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li class="item">
-                                        <input type="radio" class="pgd-list-radio" name="gift">
-                                        <div class="gift-txt-box">
-                                            <span class="info">白色礼品包装及贺卡 - RMB 39</span>
-                                            <div class="accordion gift-textarea" data-show-height="computed">
-                                                <textarea name="gift-text" cols="30" rows="10" placeholder="在贺卡上添加文字(可选)"></textarea>
-                                                <ul>
-                                                    <li><a href="javascript:;">取消</a></li>
-                                                    <li class="pipe"><a href="javascript:;">添加礼品包装</a></li>
-                                                </ul>
+                                        </li>
+                                        <li class="item">
+                                            <input type="radio" class="pgd-list-radio" name="gift">
+                                            <div class="gift-txt-box">
+                                                <span class="info">白色礼品包装及贺卡 - RMB 39</span>
+                                                <div class="accordion gift-textarea"  data-show-height="computed">
+                                                    <textarea name="gift-text" cols="30" rows="10" placeholder="在贺卡上添加文字(可选)"></textarea>
+                                                    <ul>
+                                                        <li><a href="javascript:;">取消</a></li>
+                                                        <li class="pipe"><a href="javascript:;">添加礼品包装</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
+
                 </div>
-                
-            </div>
-            <div class="col-md-12 thr cart-products">
-                <div class="row">
-                    <!--商品图片-->
-                    <div class="col-md-3 products-img-box">
-                        <a href="javascript:;" class="products-img-link">
-                            <img src="img/shopbag/MBP13GNT-201807.jpg">
-                        </a>
-                    </div>
-                    <!--详情-->
-                    <div class="col-md-9">
-                        <div class="products-title">
-                            <a href="javascript:;" class="products-title-link">
-                                13 英寸 MacBook Pro - 深空灰色
+                <div class="col-md-12 thr cart-products">
+                    <div class="row">
+                        <!--商品图片-->
+                        <div class="col-md-3 products-img-box">
+                            <a href="javascript:;" class="products-img-link">
+                                <img src="img/shopbag/iphone-xs-silver-select-2018.jpg">
                             </a>
-                            <ul class="price-quantity">
-                                <li class="item">
-                                    <span>RMB 20,069</span>
-                                </li>
-                                <li class="item quantity">
-                                    <button class="button">+</button>
-                                    <input type="text" value="1">
-                                    <button class="button">-</button>
-                                </li>
-                                <li class="item">
-                                    <span class="quantity-price">RMB 20,069</span>
-                                </li>
-                            </ul>
                         </div>
-                        <div class="shipping-product-admin thr">
-                            <span class="availShip">发货： 1-3 个工作日</span>
-                            <a href="javascript:;" class="product-admin">删除</a>
-                            <div class="product-number">
-                                <span>编号: Z0UH</span>
-                            </div>
-                        </div>
-                        <div class="product-details-group clear">
-                            <!--硬件-->
-                            <div class="gs">
-                                <span class="fwb">硬件</span>
-                                <ul class="gs-list">
-                                    <li class="item">2.5GHz 双核第七代 Intel Core i7 处理器，Turbo Boost 最高可达 4.0GHz</li>
-                                    <li class="item">Intel Iris Plus Graphics 640 图形处理器</li>
-                                    <li class="item">16GB 2133MHz LPDDR3 内存</li>
-                                    <li class="item">1TB 固态硬盘</li>
-                                    <li class="item">两个雷雳 3 端口</li>
-                                    <li class="item">背光键盘 - 中文 - 拼音</li>
-                                    <li class="item">配件套件</li>
-                                    <li class="item">Force Touch 触控板</li>
-                                    <li class="item">Force Touch 触控板</li>
-                                </ul>
-                            </div>
-                            <!--软件-->
-                            <div class="gs">
-                                <span>软件</span>
-                                <ul class="gs-list">
-                                    <li class="item">macOS</li>
-                                    <li class="item">照片、iMovie、GarageBand</li>
-                                    <li class="item">Pages、Numbers、Keynote</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-gift">
-                            <div class="product-gift-btn">
-                                <a href="javascript:;" class="product-gift-link">显示礼品选项</a>
-                            </div>
-                            <div class="product-gift-details accordion accordion-hide" data-show-height="computed">
-                                <ul class="pgd-list-group">
+                        <!--详情-->
+                        <div class="col-md-9">
+                            <div class="products-title">
+                                <a href="javascript:;" class="products-title-link">
+                                    iPhone XS 64GB 银色
+                                </a>
+                                <ul class="price-quantity">
                                     <li class="item">
-                                        <input type="radio" class="pgd-list-radio" name="gift">
-                                        <div class="gift-txt-box">
-                                            <span>在送货清单上添加礼品赠言 - 免费</span>
-                                            <div class="gift-textarea accordion" data-show-height="computed">
-                                                <textarea name="gift-text" cols="30" rows="10" placeholder="添加免费礼物留言"></textarea>
-                                                <ul>
-                                                    <li><a href="javascript:;">取消</a></li>
-                                                    <li class="pipe"><a href="javascript:;">确认添加留言</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        <span>RMB 8,699</span>
+                                    </li>
+                                    <li class="item quantity">
+                                        <button class="button">-</button>
+                                        <input type="text" value="1">
+                                        <button class="button">+</button>
                                     </li>
                                     <li class="item">
-                                        <input type="radio" class="pgd-list-radio" name="gift">
-                                        <div class="gift-txt-box">
-                                            <span class="info">白色礼品包装及贺卡 - RMB 39</span>
-                                            <div class="accordion gift-textarea"  data-show-height="computed">
-                                                <textarea name="gift-text" cols="30" rows="10" placeholder="在贺卡上添加文字(可选)"></textarea>
-                                                <ul>
-                                                    <li><a href="javascript:;">取消</a></li>
-                                                    <li class="pipe"><a href="javascript:;">添加礼品包装</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        <span class="quantity-price">RMB 8,699</span>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-12 thr cart-products">
-                <div class="row">
-                    <!--商品图片-->
-                    <div class="col-md-3 products-img-box">
-                        <a href="javascript:;" class="products-img-link">
-                            <img src="img/shopbag/iphone-xs-silver-select-2018.jpg">
-                        </a>
-                    </div>
-                    <!--详情-->
-                    <div class="col-md-9">
-                        <div class="products-title">
-                            <a href="javascript:;" class="products-title-link">
-                                iPhone XS 64GB 银色
-                            </a>
-                            <ul class="price-quantity">
-                                <li class="item">
-                                    <span>RMB 8,699</span>
-                                </li>
-                                <li class="item quantity">
-                                    <button class="button">+</button>
-                                    <input type="text" value="1">
-                                    <button class="button">-</button>
-                                </li>
-                                <li class="item">
-                                    <span class="quantity-price">RMB 8,699</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="shipping-product-admin thr">
-                            <span class="availShip">送达日期: 有现货</span>
-                            <a href="javascript:;" class="product-admin">删除</a>
-                            <div class="product-number">
-                                <span>编号: MT9Q2CH/A</span>
+                            <div class="shipping-product-admin thr">
+                                <span class="availShip">送达日期: 有现货</span>
+                                <a href="javascript:;" class="product-admin">删除</a>
+                                <div class="product-number">
+                                    <span>编号: MT9Q2CH/A</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-gift">
-                            <div class="product-gift-btn">
-                                <a href="javascript:;" class="product-gift-link">显示礼品选项</a>
-                            </div>
-                            <div class="product-gift-details accordion accordion-hide" data-show-height="computed">
-                                <ul class="pgd-list-group">
-                                    <li class="item">
-                                        <div class="gift-txt-box">
-                                            <span>在送货清单上添加礼品赠言 - 免费</span>
-                                            <div class="gift-textarea accordion" data-show-height="computed">
-                                                <textarea name="gift-text" cols="30" rows="10" placeholder="添加免费礼物留言"></textarea>
-                                                <ul>
-                                                    <li><a href="javascript:;">取消</a></li>
-                                                    <li class="pipe"><a href="javascript:;">确认添加留言</a></li>
-                                                </ul>
+                            <div class="product-gift">
+                                <div class="product-gift-btn">
+                                    <a href="javascript:;" class="product-gift-link">显示礼品选项</a>
+                                </div>
+                                <div class="product-gift-details accordion accordion-hide" data-show-height="computed">
+                                    <ul class="pgd-list-group">
+                                        <li class="item">
+                                            <div class="gift-txt-box">
+                                                <span>在送货清单上添加礼品赠言 - 免费</span>
+                                                <div class="gift-textarea accordion" data-show-height="computed">
+                                                    <textarea name="gift-text" cols="30" rows="10" placeholder="添加免费礼物留言"></textarea>
+                                                    <ul>
+                                                        <li><a href="javascript:;">取消</a></li>
+                                                        <li class="pipe"><a href="javascript:;">确认添加留言</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </li>
-                                </ul>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
+                    </div>
+
+                </div>
+                <!--总计-->
+                <div class="col-md-12 thr">
+                    <div class="offer-summary">
+                        <table>
+                            <tr class="free-shipping">
+                                <td class="label">免费送货</td>
+                                <td>RMB 0</td>
+                            </tr>
+                            <tr class="offer-total">
+                                <td>总计</td>
+                                <td class="total-value">RMB 49,926</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    更有分期付款选择。
+                                    <br>
+                                    <a href="javascript:;">更多信息&gt;</a>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-
             </div>
-            <!--总计-->
-            <div class="col-md-12 thr">
-                <div class="offer-summary">
-                    <table>
-                        <tr class="free-shipping">
-                            <td class="label">免费送货</td>
-                            <td>RMB 0</td>
-                        </tr>
-                        <tr class="offer-total">
-                            <td>总计</td>
-                            <td class="total-value">RMB 49,926</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                更有分期付款选择。
-                                <br>
-                                <a href="javascript:;">更多信息&gt;</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <!--底部结账-->
-        <div class="col-md-12 thr cart-actions">
+            <!--底部结账-->
+            <div class="col-md-12 thr cart-actions">
                 <div class="cart-actions-group">
                     <div class="cart-actions-left">
                         <ul class="cart-actions-left-inner">
@@ -334,140 +336,146 @@
                         <button class="button">结账</button>
                     </div>
                 </div>
-        </div>
-    </div>
-    <!--cart-recommendations-->
-    <div class="cart-recommendations row box box-style">
-        <!--标题-->
-        <div class="col-md-12 clearpx">
-            <div class="clearpx box-header">
-                <h1 class="box-title">为你推荐</h1>
             </div>
         </div>
-        <!--内容-->
-        <div class="col-md-12 cart-rec-inner thr">
-            <div class="row">
-                <div class="col-md-6 cart-rec-inner-box clearpx">
-                    <!--图片-->
-                    <div>
-                        <a href="javascript:;">
-                            <img src="img/shopbag/APPLECARE-plus.jpg">
-                        </a>
-                    </div>
-                    <!--描述-->
-                    <div class="cart-rec-details">
-                        <h3 class="cart-rec-title">
-                            <a href="javascript:;">适用于 iPhone XS 或 iPhone XS Max 的 AppleCare+ 全方位服务计划</a>
-                        </h3>
-                        <p class="cart-rec-price">RMB 1,799</p>
-                        <a href="javascript:;" class="cart-button">添加到购物袋</a>
-                    </div>
-                </div>
-                <div class="col-md-6 cart-rec-inner-box clearpx">
-                    <!--图片-->
-                    <div>
-                        <a href="javascript:;">
-                            <img src="img/shopbag/MRWY2.jpg">
-                        </a>
-                    </div>
-                    <!--描述-->
-                    <div class="cart-rec-details">
-                        <h3 class="cart-rec-title">
-                            <a href="javascript:;">iPhone XS 皮革保护夹 - 松林绿色</a>
-                        </h3>
-                        <p class="cart-rec-price">RMB 849</p>
-                        <a href="javascript:;" class="cart-button">添加到购物袋</a>
-                    </div>
+        <!--cart-recommendations-->
+        <div class="cart-recommendations row box box-style">
+            <!--标题-->
+            <div class="col-md-12 clearpx">
+                <div class="clearpx box-header">
+                    <h1 class="box-title">为你推荐</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 cart-rec-inner-box clearpx">
-                    <!--图片-->
-                    <div>
-                        <a href="javascript:;">
-                            <img src="img/shopbag/MTET2.jpg">
-                        </a>
-                    </div>
-                    <!--描述-->
-                    <div class="cart-rec-details">
-                        <h3 class="cart-rec-title">
+            <!--内容-->
+            <div class="col-md-12 cart-rec-inner thr">
+                <div class="row">
+                    <div class="col-md-6 cart-rec-inner-box clearpx">
+                        <!--图片-->
+                        <div>
                             <a href="javascript:;">
-                                iPhone XS 皮革保护壳 - 海角蓝色</a>
-                        </h3>
-                        <p class="cart-rec-price">RMB 399</p>
-                        <a href="javascript:;" class="cart-button">添加到购物袋</a>
+                                <img src="img/shopbag/APPLECARE-plus.jpg">
+                            </a>
+                        </div>
+                        <!--描述-->
+                        <div class="cart-rec-details">
+                            <h3 class="cart-rec-title">
+                                <a href="javascript:;">适用于 iPhone XS 或 iPhone XS Max 的 AppleCare+ 全方位服务计划</a>
+                            </h3>
+                            <p class="cart-rec-price">RMB 1,799</p>
+                            <a href="javascript:;" class="cart-button">添加到购物袋</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 cart-rec-inner-box clearpx">
-                    <!--图片-->
-                    <div>
-                        <a href="javascript:;">
-                            <img src="img/shopbag/MTFA2.jpg">
-                        </a>
-                    </div>
-                    <!--描述-->
-                    <div class="cart-rec-details">
-                        <h3 class="cart-rec-title">
+                    <div class="col-md-6 cart-rec-inner-box clearpx">
+                        <!--图片-->
+                        <div>
                             <a href="javascript:;">
-                                iPhone XS 硅胶保护壳 - 杏桃色</a>
-                        </h3>
-                        <p class="cart-rec-price">RMB 329</p>
-                        <a href="javascript:;" class="cart-button">添加到购物袋</a>
+                                <img src="img/shopbag/MRWY2.jpg">
+                            </a>
+                        </div>
+                        <!--描述-->
+                        <div class="cart-rec-details">
+                            <h3 class="cart-rec-title">
+                                <a href="javascript:;">iPhone XS 皮革保护夹 - 松林绿色</a>
+                            </h3>
+                            <p class="cart-rec-price">RMB 849</p>
+                            <a href="javascript:;" class="cart-button">添加到购物袋</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 cart-rec-inner-box clearpx">
+                        <!--图片-->
+                        <div>
+                            <a href="javascript:;">
+                                <img src="img/shopbag/MTET2.jpg">
+                            </a>
+                        </div>
+                        <!--描述-->
+                        <div class="cart-rec-details">
+                            <h3 class="cart-rec-title">
+                                <a href="javascript:;">
+                                    iPhone XS 皮革保护壳 - 海角蓝色</a>
+                            </h3>
+                            <p class="cart-rec-price">RMB 399</p>
+                            <a href="javascript:;" class="cart-button">添加到购物袋</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 cart-rec-inner-box clearpx">
+                        <!--图片-->
+                        <div>
+                            <a href="javascript:;">
+                                <img src="img/shopbag/MTFA2.jpg">
+                            </a>
+                        </div>
+                        <!--描述-->
+                        <div class="cart-rec-details">
+                            <h3 class="cart-rec-title">
+                                <a href="javascript:;">
+                                    iPhone XS 硅胶保护壳 - 杏桃色</a>
+                            </h3>
+                            <p class="cart-rec-price">RMB 329</p>
+                            <a href="javascript:;" class="cart-button">添加到购物袋</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--questions-->
-    <div class="questions row box box-style">
-        <!--标题-->
-        <div class="col-md-12 clearpx">
-            <div class="clearpx box-header">
-                <h1 class="box-title">问题</h1>
+        <!--questions-->
+        <div class="questions row box box-style">
+            <!--标题-->
+            <div class="col-md-12 clearpx">
+                <div class="clearpx box-header">
+                    <h1 class="box-title">问题</h1>
+                </div>
             </div>
-        </div>
-        <!--内容-->
-        <div class="col-md-12 thr questions-section clearpx">
-            <div class="faq-list">
-                <h3 class="faq-title">我何时能收到订购的商品？</h3>
-                <p class="faq-details">
-                    送达日期是将您的产品送达您的收货地址的预计日期。这考虑到了仓库处理时间（即“发货”时间）和承运商的送达时间。
-                    <br>
-                    <br>
-                    我们会在结帐流程中提供有关发货选项和送达日期的更多信息。了解有关<a href="javascripg:;">发货与交货</a>的更多信息。
-                </p>
+            <!--内容-->
+            <div class="col-md-12 thr questions-section clearpx">
+                <div class="faq-list">
+                    <h3 class="faq-title">我何时能收到订购的商品？</h3>
+                    <p class="faq-details">
+                        送达日期是将您的产品送达您的收货地址的预计日期。这考虑到了仓库处理时间（即“发货”时间）和承运商的送达时间。
+                        <br>
+                        <br>
+                        我们会在结帐流程中提供有关发货选项和送达日期的更多信息。了解有关<a href="javascripg:;">发货与交货</a>的更多信息。
+                    </p>
+                </div>
+                <div class="faq-list">
+                    <h3 class="faq-title">我可以使用哪些付款方式？</h3>
+                    <p class="faq-details">
+                        所有运送选项均有多种付款方式供您选择，包括信用卡和借记卡。
+                        <br>
+                        <br>
+                        如需了解更多信息，请直接拨打 400-666-8800 咨询 Apple 业务代表。
+                        <br>
+                        <br>
+                        了解有关<a href="javascripg:;">付款</a>方式的更多信息。
+                    </p>
+                </div>
+                <div class="faq-list">
+                    <h3 class="faq-title">Apple 的退货和退款政策是如何规定的？</h3>
+                    <p class="faq-details">
+                        如果您对所购产品不满意，可以按照相关规定办理退货。了解有关<a href="javascripg:;">退货和退款</a>的更多信息。
+                    </p>
+                </div>
             </div>
-            <div class="faq-list">
-                <h3 class="faq-title">我可以使用哪些付款方式？</h3>
-                <p class="faq-details">
-                    所有运送选项均有多种付款方式供您选择，包括信用卡和借记卡。
-                    <br>
-                    <br>
-                    如需了解更多信息，请直接拨打 400-666-8800 咨询 Apple 业务代表。
-                    <br>
-                    <br>
-                    了解有关<a href="javascripg:;">付款</a>方式的更多信息。
-                </p>
+            <div class="col-md-12 thr questions-section clearpx">
+                <div class="faq-list">
+                    <h3 class="faq-title">Apple 是否提供教育折扣？</h3>
+                    <p class="faq-details">
+                        Apple 面向学生、教师以及学校的行政人员和职工提供特价优惠。如果您认为自己符合条件，请前往下订单并了解教育优惠方面的更多信息。<a href="javascripg:;"> Apple Store 教育商店</a>
+                    </p>
+                </div>
             </div>
-            <div class="faq-list">
-                <h3 class="faq-title">Apple 的退货和退款政策是如何规定的？</h3>
-                <p class="faq-details">
-                    如果您对所购产品不满意，可以按照相关规定办理退货。了解有关<a href="javascripg:;">退货和退款</a>的更多信息。
-                </p>
-            </div>
-        </div>
-        <div class="col-md-12 thr questions-section clearpx">
-            <div class="faq-list">
-                <h3 class="faq-title">Apple 是否提供教育折扣？</h3>
-                <p class="faq-details">
-                    Apple 面向学生、教师以及学校的行政人员和职工提供特价优惠。如果您认为自己符合条件，请前往下订单并了解教育优惠方面的更多信息。<a href="javascripg:;"> Apple Store 教育商店</a>
-                </p>
-            </div>
-        </div>
 
+        </div>
     </div>
 </div>
 <!--Footer-->
-<iframe src="footer.html" frameborder="0" class="myFooter"></iframe>
+<footer id="footer"></footer>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/header.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/shopbag.js"></script>
 </body>
 </html>

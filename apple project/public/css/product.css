@@ -2,6 +2,7 @@
     border-bottom:1px solid rgba(136,136,136,.4);
 }
 .localnav{
+    flex-wrap: nowrap;
     width:980px;
     margin:0 auto !important;
     padding:7px 0 10px;
@@ -51,6 +52,7 @@
 .as-configuration-maintitle{
     font-size:32px;
     font-weight:600;
+    min-width:480px;
 }
 .as-productsummary-addons{
     margin-top:12px;
@@ -59,6 +61,7 @@
     font-size:14px;
     font-weight:400;
     margin-bottom: 11px;
+    white-space: nowrap;
 }
 .as-title-count{
     font-size:17px;
@@ -93,6 +96,7 @@
 }
 .as-optionselector-option-content-title{
     width:35%;
+    min-width: 183px;
 }
 .form-choice{
     display: inline-block;
@@ -206,8 +210,16 @@
 }
 
 .as-configuration-img{
+    position:absolute;
     text-align: center;
+    left:10%;
 }
+.as-configuration-img.fixed{
+    position:fixed;
+    top:0;
+    left:8.9%;
+}
+
 .hero-img{
     width:410px;
     height:auto;
@@ -230,6 +242,10 @@
     background:#f8f8f8;
     z-index: 999;
     width:100%;
+    white-space: nowrap;
+}
+.as-actiontray .row{
+    flex-wrap: nowrap;
 }
 .as-actiontray-icon{
     display:inline-block;
@@ -272,20 +288,20 @@
 .ase-gallery{
     height:100vh;
     width:100%;
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
     z-index: 100000;
     background:#f2f2f2;
     overflow: hidden;
     opacity: 1;
-    transition:opacity .5s linear;
+    transition:opacity .4s ease;
 }
 .ase-gallery-scroll{
     height:100%;
     white-space: nowrap;
     transform:translateX(0);
-;
+    transition:all .4s linear;
 }
 .ase-gallery-item{
     display:inline-block;
@@ -328,26 +344,50 @@
 }
 .ase-gallery-close{
     position:absolute;
-    left:40px;
-    top:15px;
+    left:25px;
+    top:30px;
     cursor: pointer;
-    background:transparent;
-    border:none;
-    padding:20px;
+    display: inline-block;
+    width:30px;
+    height:30px;
+    transition: all .4s ease;
 }
+.close-icon{
+    background:url(../img/icon/close.png);
+    background-size:100%;
+}
+.close-icon:hover{
+    opacity: .6;
+}
+
 .ase-gallery-prevbtn{
-    left:20px;
-    top:50%;
+    left:3%;
+    background:url(../img/icon/arrL.png)
 }
 .ase-gallery-nextbtn{
-    top:50%;
-    right:20px;
+    right:3%;
+    background:url(../img/icon/arrR.png)
 }
 .paddlenav-arrow{
     position: absolute;
     cursor:pointer;
+    transition: all .4s ease;
+    background-size:100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width:40px;
+    height:40px;
+    top:50%;
+    margin-top:-20px;
+    opacity: .4;
+}
+.paddlenav-arrow:hover{
+    opacity: .8;
 }
 .gallery-fade{
     z-index: -1;
     opacity: 0;
+}
+#footer{
+    padding-bottom:130px;
 }

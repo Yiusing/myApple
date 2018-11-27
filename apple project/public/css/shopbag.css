@@ -2,6 +2,7 @@ body{
     background:#f1f1f1 !important;
 }
 .main{
+    padding-bottom:50px;
     width:980px;
     margin-left:auto;
     margin-right:auto;
@@ -163,8 +164,15 @@ body{
 .product-details-group{
     margin-top:20px;
 }
+.product-gift-link:first-child{
+    display: inline;
+}
 .product-gift-link{
     margin-top:10px;
+}
+.product-gift-link.disabled{
+    pointer-events: none;
+    color:#333;
 }
 .product-gift-btn{
     margin-top:10px;
@@ -211,7 +219,8 @@ body{
     justify-content: center;
 }
 .accordion{
-    transition:height .4s linear;
+    height:0;
+    transition:height .4s ease;
     overflow: hidden;
 }
 .accordion-hide{
