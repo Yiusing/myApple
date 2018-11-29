@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/base.css">
+    <!--<link rel="stylesheet" href="css/header.css">-->
     <title>register</title>
 </head>
 <body>
@@ -26,7 +27,7 @@
         <div class="row wrapper clearmg">
             <h1 class="col-md-12 wrapper-headline">创建您的 Apple ID</h1>
         </div>
-        <div class="row rgs-content clearmg" @keyup.13="checkAll()" >
+        <div class="row rgs-content clearmg" @keyup.13="checkAll()">
             <!--intr-->
             <div class="rgs-intro">
                 <p class="rgs-intro-text">只需一个 Apple ID，您即可访问 Apple 所有内容。</p>
@@ -36,8 +37,14 @@
             <div class="flow-section">
                 <!--name-->
                 <div class="flow-section-content">
-                    <input type="text" placeholder="姓氏" class="rgs-Style" v-model="lastName" :class="flag.lastName?errorStyle:''">
-                    <input type="text" placeholder="名字" class="rgs-Style" v-model="firstName" :class="flag.firstName?errorStyle:''">
+                    <div class="lastName-box">
+                        <input type="text" placeholder="姓氏" class="rgs-Style" v-model="lastName" :class="checkflag.lastName?errorStyle:''">
+                        <div class="error-msg" v-show="lnError">请输入姓氏。</div>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="名字" class="rgs-Style" v-model="firstName" :class="checkflag.firstName?errorStyle:''">
+                        <div class="error-msg" v-show="fnError">请输入名字。</div>
+                    </div>
                 </div>
                 <!--country-->
                 <div class="flow-section-content">
@@ -57,7 +64,8 @@
                 </div>
                 <!--brithday-->
                 <div class="flow-section-content">
-                    <input type="text" placeholder="出生日期" class="rgs-Style" :class="flag.birthday?errorStyle:''" name="birthday" value="1yyy年mm月dd日" v-model="birthday" @click="cursorPoint()" @keydown.prevent="changeBir($event)" @mouseenter="flag && showBirthday('en',true)" @mouseleave="flag && showBirthday('en',false)" @focus="flag2 && showBirthday('fc',true)" @blur="flag2 && showBirthday('fc',false)" >
+                    <input type="text" placeholder="出生日期" class="rgs-Style" :class="checkflag.birthday?errorStyle:''" name="birthday" value="1yyy年mm月dd日" v-model="birthday" @click="cursorPoint()" @keydown="changeBir($event)" @mouseenter="flag && showBirthday('en',true)" @mouseleave="flag && showBirthday('en',false)" @focus="flag2 && showBirthday('fc',true)" @blur="flag2 && showBirthday('fc',false)">
+                    <div class="error-msg" v-show="bthError">输入有效出生日期。</div>
                     <div class="bth-tips">
                         <span class="tips-icon" @mouseenter="showTips(true)" @mouseleave="showTips(false)"></span>
                         <div class="tips-content" v-show="!isHide">
@@ -70,16 +78,33 @@
             <div class="flow-section">
                 <!--account-->
                 <div class="flow-section-content">
-                    <input type="text" placeholder="name@example.com" class="rgs-Style" :class="flag.email?errorStyle:''">
+                    <input type="text" placeholder="name@example.com" class="rgs-Style" :class="checkflag.email?errorStyle:''" v-model="email">
+                    <div class="error-msg" v-show="emailError">输入有效的电子邮件地址以用作您的 Apple ID。</div>
                     <p class="account-remind">这将是您的新 Apple ID。</p>
                 </div>
                 <!--password-->
                 <div class="flow-section-content">
-                    <input type="password" placeholder="密码" class="rgs-Style" :class="flag.pwd?errorStyle:''">
+                    <input type="password" placeholder="密码" class="rgs-Style" :class="checkflag.pwd?errorStyle:''" v-model="password" @focus="showTips()" @blur="hideTips()">
+                    <div v-show="pwdTips" class="password-tips">
+                        <p>您的密码必须包含:</p>
+                        <ul class="pwd-tips">
+                            <li :class="progressFlag.p1?progressActive:''"><span class="pwd-icon"></span>至少8个字符</li>
+                            <li :class="progressFlag.p2?progressActive:''"><span class="pwd-icon"></span>大写与小写字母</li>
+                            <li :class="progressFlag.p3?progressActive:''"><span class="pwd-icon"></span>至少一个数字</li>
+                        </ul>
+                        <p v-text="`密码强度:${strength}`"></p>
+                        <div class="pwd-progress">
+                            <div class="progress-color" :class="progress"></div>
+                        </div>
+                        <div class="pwd-ps">
+                            避免使用您用于其他网站的密码，或易于被他人猜到的密码。
+                        </div>
+                    </div>
                 </div>
                 <!-- password-confirm -->
                 <div class="flow-section-content">
-                    <input type="password" placeholder="确认密码" class="rgs-Style" :class="flag.rPwd?errorStyle:''">
+                    <input type="password" placeholder="确认密码" class="rgs-Style" :class="checkflag.rPwd?errorStyle:''" v-model="rPwd" @blur="checkrPwd()">
+                    <p class="error-msg" v-show="rPwdError">您输入的密码不匹配</p>
                 </div>
             </div>
             <!-- secques-->
@@ -87,7 +112,7 @@
                 <!--question 1-->
                 <div class="flow-section-content">
                     <div class="pos-rel">
-                        <select name="sec-question1" id="sec-question1" class="rgs-Style select-style">
+                        <select name="sec-question1" id="sec-question1" class="rgs-Style select-style" v-model="qs1">
                             <option value disabled selected="selected">安全提示问题 1</option>
 
                             <option value="130">
@@ -113,12 +138,13 @@
                     </div>
                 </div>
                 <div class="flow-section-content">
-                    <input type="text" placeholder="答案" class="rgs-Style" :class="flag.qs1?errorStyle:''">
+                    <input type="text" placeholder="答案" class="rgs-Style" :class="checkflag.qs1?errorStyle:''" @blur="checkQuestion(1)" v-model="qs1Answer">
+                    <div class="error-msg" v-show="qs1Error" v-text="qs1ErrorMsg"></div>
                 </div>
                 <!--question 2-->
                 <div class="flow-section-content secques-mt">
                     <div class="pos-rel">
-                        <select name="sec-question2" id="sec-question2" class="rgs-Style select-style">
+                        <select name="sec-question2" id="sec-question2" class="rgs-Style select-style" v-model="qs2">
                             <option value="" disabled="" selected="selected">安全提示问题 2</option>
 
                             <option value="136" dir="auto">
@@ -144,12 +170,13 @@
                     </div>
                 </div>
                 <div class="flow-section-content">
-                    <input type="text" placeholder="答案" class="rgs-Style" :class="flag.qs2?errorStyle:''">
+                    <input type="text" placeholder="答案" class="rgs-Style" :class="checkflag.qs2?errorStyle:''" @blur="checkQuestion(2)" v-model="qs2Answer">
+                    <div class="error-msg" v-show="qs2Error" v-text="qs2ErrorMsg"></div>
                 </div>
                 <!--question 3-->
                 <div class="flow-section-content secques-mt">
                     <div class="pos-rel">
-                        <select name="sec-question3" id="sec-question3" class="rgs-Style select-style">
+                        <select name="sec-question3" id="sec-question3" class="rgs-Style select-style" v-model="qs3">
                             <option value="" disabled="" selected="selected">安全提示问题 3</option>
 
                             <option value="142" dir="auto">
@@ -175,7 +202,8 @@
                     </div>
                 </div>
                 <div class="flow-section-content">
-                    <input type="text" placeholder="答案" class="rgs-Style" :class="flag.qs3?errorStyle:''">
+                    <input type="text" placeholder="答案" class="rgs-Style" :class="checkflag.qs3?errorStyle:''" @blur="checkQuestion(3)" v-model="qs3Answer">
+                    <div class="error-msg" v-show="qs3Error" v-text="qs3ErrorMsg"></div>
                 </div>
                 <p class="question-details">这些问题将用于验证您的身份，以及在您忘记密码时恢复您的密码。</p>
             </div>
@@ -199,11 +227,12 @@
                 <div class="flow-section-content idms">
                     <!--idms-photos-->
                     <div class="idms-photos">
-                        <img :src="imds.pic" alt="1">
+                        <img :src="idms.pic" alt="1">
                     </div>
                     <!--imds-input-->
-                    <div class="imds-input">
-                        <input type="text" name="imds" placeholder="键入图中的字符" class="rgs-Style" :class="flag.imds?errorStyle:''">
+                    <div class="idms-input">
+                        <input type="text" name="idms" placeholder="键入图中的字符" class="rgs-Style" :class="checkflag.idms?errorStyle:''" v-model="idmsCode">
+                        <div class="error-msg" v-show="idmsError">请输入您看到或听到的字符以继续。</div>
                         <div class="idms-links">
                             <ul class="idms-links-list">
                                 <li class="list-item"><a href="javascript:;" class="list-link" @click="changeIdms()"><span class="idms-reload-icon idms-icon"></span>新代码</a></li>
@@ -230,6 +259,7 @@
 <footer id="footer"></footer>
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
 <script src="js/header.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/register.js"></script>

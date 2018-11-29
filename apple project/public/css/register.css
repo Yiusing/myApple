@@ -66,6 +66,7 @@ body{
     outline: none;
     border-color:#0070c9;
     box-shadow:0 0 0 3px rgba(131,192,253,.5) ;
+    background:#fff;
 }
 .rgs-content{
     text-align: center;
@@ -168,9 +169,94 @@ body{
 .account-remind{
     color:#666;
     font-size:.95rem;
-    margin-top:5px;
+    margin-top:13px;
     margin-bottom:5px;
 }
+.flow-section-content{
+    position:relative;
+}
+.password-tips{
+    position:absolute;
+    background:rgb(242,242,242);
+    border:1px solid rgb(213,213,213);
+    border-radius: 5px;
+    width:50%;
+    font-size:.9rem;
+    padding:20px;
+    z-index: 10;
+    white-space: normal;
+    left:22%;
+}
+.password-tips::after{
+    content:"";
+    display:block;
+    border:11px solid transparent;
+    border-bottom-color: rgb(242,242,242);
+    border-top:none;
+    position: absolute;
+    left:50%;
+    top:-10px;
+    transform: translateX(-50%);
+}
+.password-tips::before{
+    content:"";
+    display:block;
+    border:11px solid transparent;
+    border-bottom-color: rgb(213,213,213);
+    border-top:none;
+    position: absolute;
+    left:50%;
+    top:-11px;
+    transform: translateX(-50%);
+}
+.pwd-tips{
+    color: #878787;
+    margin-bottom:10px;
+    padding-left:25px;
+}
+.pwd-tips .active{
+    color:green;
+}
+.pwd-tips .active .pwd-icon{
+    background-image:url(../img/register/pwd-icon-success.png)
+}
+.pwd-icon{
+    position: absolute;
+    left:8%;
+    display: inline-block;
+    vertical-align: middle;
+    background:url(../img/register/pwd-icon.png) no-repeat;
+    width:16px;
+    height:16px;
+    background-size:100%;
+    margin-top:3px;
+}
+.pwd-progress{
+    width:100%;
+    height:7px;
+    background:rgb(185,185,185);
+    margin:3px 0;
+    position: relative;
+}
+.progress-color{
+    height:7px;
+    position:absolute;
+    transition:all .4s linear;
+    width:0%;
+}
+.progress-color.weak{
+    width:30%;
+    background:rgb(245,56,47);
+}
+.progress-color.medium{
+    width:55%;
+    background:rgb(240,144,37);
+}
+.progress-color.strong {
+    width:100%;
+    background:rgb(0,125,27)
+}
+
 /***<  secques  **/
 .secques-mt{
     margin-top:40px;
@@ -195,6 +281,7 @@ body{
     position:absolute;
     left:0;
     top:4px;
+    cursor:pointer;
 }
 .checkbox-style:checked{
     background-color:#0070c9;
@@ -219,7 +306,7 @@ body{
     display:flex;
     justify-content:space-between;
 }
-.imds-input{
+.idms-input{
     margin-left:30px;
     flex-grow: 1;
 }
@@ -280,4 +367,14 @@ body{
 .error-style{
     border-color:#de071c;
     background:rgba(222,7,28,.1);
+}
+
+.error-msg{
+    font-size:.8rem;
+    color:#de071c;
+    margin-top:8px;
+}
+
+.lastName-box{
+    margin-right:15px;
 }

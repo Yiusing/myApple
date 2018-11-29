@@ -8,7 +8,7 @@ new Vue({
         cursorIndex:[0,1,2,3,5,6,8,9,11],
         spliceIndex:0,
         char:"",
-        imds:{
+        idms:{
             pic:"img/idms/1.jpg",
             code:"CDXV"
         },
@@ -18,13 +18,16 @@ new Vue({
         firstName:"",
         lastName:"",
         email:"",
-        pwd:"",
+        password:"",
         rPwd:"",
         qs1:"",
+        qs1Answer:"",
         qs2:"",
+        qs2Answer:"",
         qs3:"",
-        idms:"",
-        flag:{
+        qs3Answer:"",
+        idmsCode:"",
+        checkflag:{
             firstName:false,
             lastName:false,
             birthday:false,
@@ -35,7 +38,34 @@ new Vue({
             qs2:false,
             qs3:false,
             idms:false
-        }
+        },
+        progress:{
+            weak:false,
+            medium:false,
+            strong:false
+        },
+        progressActive:{
+            active:true
+        },
+        progressFlag:{
+            p1:false,
+            p2:false,
+            p3:false
+        },
+        pwdTips:false,
+        strength:"",
+        rPwdError:false,
+        qs1Error:false,
+        qs2Error:false,
+        qs3Error:false,
+        idmsError:false,
+        fnError:false,
+        lnError:false,
+        bthError:false,
+        emailError:false,
+        qs1ErrorMsg:"选择一个问题。",
+        qs2ErrorMsg:"选择一个问题。",
+        qs3ErrorMsg:"选择一个问题。",
     },
     methods:{
         /***********  日期  ***************/
@@ -65,8 +95,10 @@ new Vue({
         },
         changeBir(e){
             //禁止输入文本，并且由按键的来获取用户输入的值
-            e.preventDefault();
             var keycode = e.keyCode;
+            if(keycode!=9){
+                e.preventDefault();
+            }
             //转换小键盘数值
             if(keycode>95&&keycode<106){
                 keycode-=48;
@@ -244,18 +276,168 @@ new Vue({
         checkAll(){
             ///// 验证姓氏和名字 /////
             var reg = /^[a-z0-9\u4e00-\u9fa5]{1,32}$/i;
-            if(!reg.test(this.lastName)){
-                this.flag.lastName=true;
+            this.lnError = this.checkflag.lastName=(!reg.test(this.lastName));
+            this.fnError = this.checkflag.firstName=(!reg.test(this.lastName));
+
+            //// 验证生日日期 /////
+            var reg = /^\d{4}年\d{2}月\d{2}日$/
+            this.bthError = this.checkflag.birthday=(!reg.test(this.birthday));
+
+            //验证邮箱
+            var reg = /^[\w-]+@[\w-]+(\.[\w-]+)+$/
+            this.emailError = this.checkflag.email=(!reg.test(this.email));
+
+            //验证密码
+            var reg = /^.*(?=.{8,16})(?=.*\d)(?=.*[A-Z]{1,})(?=.*[a-z]{1,}).*$/;
+            this.checkflag.pwd = (!reg.test(this.password))
+            this.rPwdError = this.checkflag.rPwd = (this.rPwd!=this.password || this.rPwd=="");
+
+            //// 验证验证码  /////
+            this.idmsError =  this.checkflag.idms =(this.idmsCode.toLocaleLowerCase()!=this.idms.code.toLocaleLowerCase())
+
+            //// 验证 ////
+            if(this.qs1!=""){
+                if(this.qs1Answer==""){
+                    this.qs1ErrorMsg="输入答案。"
+                }else{
+                    this.qs1Error=false;
+                    this.checkflag.qs1 = false;
+                }
+            }else{
+                this.checkflag.qs1 = true;
+                this.qs1Error=true;
+            }
+            if(this.qs2!=""){
+                if(this.qs2Answer==""){
+                    this.qs2ErrorMsg="输入答案。"
+                }else{
+                    this.qs2Error=false;
+                    this.checkflag.qs2 = false;
+                }
+            }else{
+                this.qs2Error=true;
+                this.checkflag.qs2 = true;
+            }
+            if(this.qs3!=""){
+                if(this.qs3Answer==""){
+                    this.qs3ErrorMsg="输入答案。"
+                }else{
+                    this.qs3Error=false;
+                    this.checkflag.qs3 = false;
+                }
+            }else{
+                this.qs3Error=true;
+                this.checkflag.qs3 = true;
+            }
+        },
+        showTips(){
+            this.pwdTips=true;
+        },
+        hideTips(){
+            this.pwdTips=false;
+        },
+        checkrPwd(){
+            this.rPwdError=(this.rPwd!=this.password);
+        },
+        checkQuestion(sel){
+            switch (sel) {
+                case 1:
+                    if(this.qs1!=""){
+                        if(this.qs1Answer==""){
+                            this.qs1ErrorMsg="输入答案。"
+                        }else{
+                            this.qs1Error=false;
+                        }
+                    }else{
+                        this.qs1Error=true;
+                    }
+                    break;
+                case 2:
+                    if(this.qs2!=""){
+                        if(this.qs2Answer==""){
+                            this.qs2ErrorMsg="输入答案。"
+                        }else{
+                            this.qs2Error=false;
+                        }
+                    }else{
+                        this.qs2Error=true;
+                    }
+                    break;
+                default:
+                    if(this.qs3!=""){
+                        if(this.qs3Answer==""){
+                            this.qs3ErrorMsg="输入答案。"
+                        }else{
+                            this.qs3Error=false;
+                        }
+                    }else{
+                        this.qs3Error=true;
+                    }
+                    break
             }
 
-        },
-        removeStyle(){
-            console.log(1)
-            this.errorStyle["error-style"]=false;
         }
     },
     watch:{
+        lastName(){
+            this.checkflag.lastName=false;
+        },
+        firstName(){
+            this.checkflag.firstName=false;
+        },
+        email(val){
+            //验证邮箱
+            var reg = /^[\w-]+@[\w-]+(\.[\w-]+)+$/
+            this.emailError = this.checkflag.email=(!reg.test(val));
+        },
+        password(val){
+            //验证密码
+            //判断弱和中等
+            var pattern = /^.*(?=.{8,16})(?=.*\d)(?=.*[A-Z]{1,})(?=.*[a-z]{1,}).*$/;
+            var pattern2 = /^.*(1234)+(12345)?(123456)?(654321)?(54321)?(4321)?.*$/;
+            this.progress.weak=(pattern2.test(val) && pattern.test(val));
+            this.progress.medium=(!pattern2.test(val) && pattern.test(val));
+            if(!pattern.test(val)){
+                this.strength="";
+            }
 
+            // if(pattern.test(val)){
+            //     this.progress.weak=pattern2.test(val);
+            //     this.progress.medium=!pattern2.test(val);
+            // }else{
+            //     this.progress.weak=false;
+            //     this.progress.medium=false;
+            // }
+
+            //弱
+            // var pattern = /^.*(?=.{8,16})(?=(123456)?)(?=(12345)?)(?=(1234)?)(?=(1234)?)(?=(123)?)(?=.*\d)(?=.*[A-Z]{1,})(?=.*[a-z]{1,}).*$/;
+            // this.progress.weak = pattern.test(val)
+            //中等
+            // pattern = /^.*(?=.{8,16})(?=.*\d)(?=.*[A-Z]{1,})(?=.*[a-z]{1,}).*$/;
+            // this.progress.medium = pattern.test(val)
+            //强
+            pattern = /^.*(?=.{8,16})(?=.*\d)(?=.*[A-Z]{1,})(?=.*[a-z]{1,})(?=.*[!@#$%^&*?\(\)]).*$/
+            this.progress.strong = pattern.test(val)
+
+            if(this.progress.weak){
+                this.strength="弱"
+            }
+            if(this.progress.medium){
+                this.strength="中等";
+            }
+            if (this.progress.strong){
+                this.strength="强";
+            }
+
+
+            //控制进度条
+            pattern = /^.*(?=.{8,16}).*$/
+            this.progressFlag.p1=pattern.test(val);
+            pattern = /^.*(?=.*[A-Z]{1,})(?=.*[a-z]{1,}).*$/
+            this.progressFlag.p2=pattern.test(val);
+            pattern = /^.*(?=.*\d).*$/
+            this.progressFlag.p3=pattern.test(val);
+        }
     },
     mounted(){
         /********  模拟发送请求取得数据 **********/

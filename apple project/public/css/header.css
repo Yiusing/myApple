@@ -2,6 +2,10 @@
 body{
     background:rgba(0,0,0,0) !important;
 }
+#header{
+    position: relative;
+    z-index: 3;
+}
 
 #header>div.adv-wrapper{
     background:#444;
@@ -24,10 +28,14 @@ body{
 #header>nav>div.gn-content{
     width:80%;
     margin:0 auto;
+    position: relative;
+
 }
 #header>nav>div>ul.gn-content-list{
     display:flex;
     justify-content:space-around;
+    position:relative;
+    z-index: 2;
 }
 
 #header>nav>div.gn-content>ul.gn-content-list>li>a{
@@ -41,11 +49,111 @@ body{
 }
 
 /*设置主导航鼠标滑过渐变*/
-#header>nav>div>ul.gn-content-list>li{
+
+#header>nav>div>ul.gn-content-list>li .gn-content-link{
+    display: inline-block;
     transition:all .2s linear;
-    height:44px;
+    cursor:pointer;
+    height:100%;
 }
-#header>nav>div>ul.gn-content-list>li:hover{
+#header>nav>div>ul.gn-content-list>li .gn-content-link:hover{
     opacity:.5;
 }
 
+/***********  购物袋  ***********/
+#header .bag-box{
+    position: absolute;
+    z-index: 1;
+    background:#fff;
+    width:288px;
+    right:-8%;
+    top:52px;
+    border:1px solid #d6d6d6;
+    border-radius: 2px;
+    font-size:.95rem;
+    white-space: nowrap;
+}
+
+.bag-inner{
+    padding:10px 20px;
+}
+#header .bag-link{
+    color:#0070c9;
+    display: block;
+    padding: 0 30px;
+    position: relative;
+}
+.bag-icon{
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    left: 0;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.bag-lists-item:first-child .bag-icon{
+    background-image:url("../img/header/bag.svg");
+}
+.bag-lists-item:nth-child(2) .bag-icon{
+    background-image:url("../img/header/favorites.svg");
+}
+.bag-lists-item:nth-child(3) .bag-icon{
+    background-image:url("../img/header/orders.svg");
+}
+.bag-lists-item:nth-child(4) .bag-icon{
+    background-image:url("../img/header/account.svg");
+}
+.bag-lists-item:last-child .bag-icon{
+    background-image:url("../img/header/signIn.svg");
+}
+#header .bag-link:hover{
+    text-decoration: underline;
+}
+.gn-content-list-item{
+    position:relative;
+    height:44px;
+}
+.bag-lists-item{
+    border-top:1px solid #e3e3e3;
+    padding:10px 0;
+}
+.angelbox{
+    height: 15px;
+    position: absolute;
+    width: 45px;
+    left: -14px;
+    bottom: -9px;
+    overflow: hidden;
+}
+.angel{
+    width:25px;
+    height:25px;
+    background:#fff;
+    position:absolute;
+    transform: rotateZ(45deg);
+    left:10px;
+    top: 7px;
+    border:1px solid #d6d6d6;
+    display: block;
+}
+.bag-details{
+    font-size:.95rem;
+    color:#888;
+    padding:35px 0;
+    text-align: center;
+}
+
+/* ------  遮罩 -------*/
+.ac-gn-curtain{
+    background: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    display: none;
+}

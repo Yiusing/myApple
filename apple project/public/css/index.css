@@ -1,9 +1,3 @@
-/*固定顶部*/
-iframe.myHeader{
-    position:fixed;
-    z-index:900;
-    background:transparent;
-}
 
 /*设置全局样式*/
 .iphone-xs{
@@ -19,6 +13,8 @@ iframe.myHeader{
     display:flex;
     width:100%;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
 }
 
 .hero{

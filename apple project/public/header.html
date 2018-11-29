@@ -1,4 +1,4 @@
-
+<header id="header" >
         <!--广告栏-->
         <div class="adv-wrapper">
             <div class="adv-wrapper-text">&lt;广告&gt;</div>
@@ -8,23 +8,47 @@
             <!--导航-->
             <div class="gn-content">
                 <ul class="gn-content-list">
-                    <li>
-                        <a href="index.html">
+                    <li class="gn-content-list-item">
+                        <a href="index.html" class="gn-content-link">
                             <img src="img/header/apple_logo.svg" alt="apple_logo">
                         </a>
                     </li>
-                    <li><a href="Mac.html">Mac</a></li>
-                    <li><a href="#">iPad</a></li>
-                    <li><a href="#">iPhone</a></li>
-                    <li><a href="#">Watch</a></li>
-                    <li><a href="#">Music</a></li>
-                    <li><a href="#">技术支持</a></li>
-                    <li><a href="#">
+                    <li class="gn-content-list-item"><a href="Mac.html" class="gn-content-link">Mac</a></li>
+                    <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">iPad</a></li>
+                    <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">iPhone</a></li>
+                    <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">Watch</a></li>
+                    <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">Music</a></li>
+                    <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">技术支持</a></li>
+                    <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">
                         <img src="img/header/search.svg" alt="search">
                     </a></li>
-                    <li><a href="#">
-                        <img src="img/header/shopping_bag.svg" alt="shopping_bag">
-                    </a></li>
+                    <li class="gn-content-list-item">
+                        <a href="javascript:;" class="gn-content-link" @click="showDetails()">
+                            <img src="img/header/shopping_bag.svg" alt="shopping_bag">
+                        </a>
+                        <!--<div v-show="showBag" class="angel"></div>-->
+                        <div v-show="showBag" class="angelbox">
+                            <span class="angel"></span>
+                        </div>
+                    </li>
                 </ul>
+                <aside v-show="showBag" class="bag-box">
+
+                    <div class="bag-inner">
+                        <div class="bag-details">
+                            您的购物袋是空的
+                        </div>
+                        <ul class="bag-lists">
+                            <li class="bag-lists-item"><a href="shopbag.html" class="bag-link"><span class="bag-icon"></span>购物袋</a></li>
+                            <li class="bag-lists-item"><a href="javascript:;" class="bag-link"><span class="bag-icon"></span>收藏</a></li>
+                            <li class="bag-lists-item"><a href="javascript:;" class="bag-link"><span class="bag-icon"></span>订单</a></li>
+                            <li class="bag-lists-item"><a href="javascript:;" class="bag-link"><span class="bag-icon"></span>账户</a></li>
+                            <li class="bag-lists-item"><a href="login.html" class="bag-link"><span class="bag-icon"></span>登录</a></li>
+                        </ul>
+                    </div>
+                </aside>
             </div>
         </nav>
+        <!--搜索框遮罩-->
+        <div class="ac-gn-curtain"></div>
+</header>
