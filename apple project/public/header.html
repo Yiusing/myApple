@@ -7,7 +7,7 @@
         <nav id="globalnav">
             <!--导航-->
             <div class="gn-content">
-                <ul class="gn-content-list">
+                <ul class="gn-content-list" :class="searchStyle">
                     <li class="gn-content-list-item">
                         <a href="index.html" class="gn-content-link">
                             <img src="img/header/apple_logo.svg" alt="apple_logo">
@@ -19,12 +19,12 @@
                     <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">Watch</a></li>
                     <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">Music</a></li>
                     <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">技术支持</a></li>
-                    <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link">
+                    <li class="gn-content-list-item"><a href="javascript:;" class="gn-content-link" @click="showSearchBox()">
                         <img src="img/header/search.svg" alt="search">
                     </a></li>
                     <li class="gn-content-list-item">
                         <a href="javascript:;" class="gn-content-link" @click="showDetails()">
-                            <img src="img/header/shopping_bag.svg" alt="shopping_bag">
+                            <img src="img/header/shopping_bag.svg" alt="shopping_bag" class="shoppingbag">
                         </a>
                         <!--<div v-show="showBag" class="angel"></div>-->
                         <div v-show="showBag" class="angelbox">
@@ -33,7 +33,6 @@
                     </li>
                 </ul>
                 <aside v-show="showBag" class="bag-box">
-
                     <div class="bag-inner">
                         <div class="bag-details">
                             您的购物袋是空的
@@ -46,6 +45,24 @@
                             <li class="bag-lists-item"><a href="login.html" class="bag-link"><span class="bag-icon"></span>登录</a></li>
                         </ul>
                     </div>
+                </aside>
+                <aside v-show="showSearch" class="search-box">
+                    <div class="search-inner">
+                        <div class="search-top">
+                            <a href="javascript:;" class="search-btn" :class="isDisabled"></a>
+                            <input type="text" class="search-input" placeholder="搜索 apple.com" v-model="search">
+                        </div>
+                        <div class="search-content">
+                            <h3 class="search-tips">快速链接</h3>
+                            <ul class="search-lists">
+                                <li class="search-item" v-for="elem of searchItem"><a href="javascript:;" class="search-link" v-text="elem"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="javascript:;" class="search-close" @click="hideSearch()">
+                        <span class="close-style close-left"></span>
+                        <span class="close-style close-right"></span>
+                    </a>
                 </aside>
             </div>
         </nav>

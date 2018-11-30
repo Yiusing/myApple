@@ -113,7 +113,9 @@ body{
 .gn-content-list-item{
     position:relative;
     height:44px;
+    transition: all 0.3s ease;
 }
+
 .bag-lists-item{
     border-top:1px solid #e3e3e3;
     padding:10px 0;
@@ -144,7 +146,48 @@ body{
     text-align: center;
 }
 
-/* ------  遮罩 -------*/
+/* ------  搜索框和遮罩 -------*/
+.search-box{
+    position:absolute;
+    z-index: 3;
+    width:80%;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.search-inner{
+    width:80%;
+    margin:0 auto;
+}
+.search-top{
+    height:44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: searchresult-head .4s .1s both;
+}
+.search-btn{
+    display:inline-block;
+    width:40px;
+    height:44px;
+    background:url("../img/header/search.svg") no-repeat;
+    background-position-x: 50%;
+    transition:all .2s linear;
+}
+.search-btn.disabled{
+    pointer-events: none;
+}
+.search-btn:hover{
+    opacity: .6;
+}
+.search-input{
+    background:transparent;
+    border:none;
+    outline: none;
+    color:#fff;
+    flex-grow:1;
+}
 .ac-gn-curtain{
     background: rgba(0,0,0,0.4);
     position: fixed;
@@ -156,4 +199,102 @@ body{
     height: 100%;
     z-index: 9998;
     display: none;
+}
+.search-content{
+    background:#fff;
+    padding:25px 40px;
+    text-align: left;
+    border:1px solid #e4e4e4;
+}
+.search-tips{
+    font-size:.7rem;
+    color:#888;
+    margin-bottom:10px;
+    animation: searchresult-head .4s .1s both;
+}
+.search-lists{
+    padding-left:10px;
+    font-size:1rem;
+}
+.search-item{
+    margin:0 -6% 5px;
+    padding:5px 0;
+    cursor:pointer;
+}
+.search-item:hover{
+    background:#f2f2f2;
+}
+.search-item:hover .search-link{
+    color:#0070c9;
+}
+.search-link{
+    color:#333;
+    display: inline-block;
+    animation: searchresult-show .4s both;
+}
+.search-item:first-child .search-link{
+    animation-delay: .12s;
+}
+.search-item:nth-child(2) .search-link{
+    animation-delay: .14s;
+}
+.search-item:nth-child(3) .search-link{
+    animation-delay: .16s;
+}
+.search-item:nth-child(4) .search-link{
+    animation-delay: .18s;
+}
+.search-item:last-child .search-link{
+    animation-delay: .2s;
+}
+
+.gn-content-list.scale .gn-content-list-item:not(:first-child){
+    transform:scale(0)
+}
+@keyframes searchresult-show {
+    0%{
+        transform:translateX(210px);
+        opacity: 0;
+    }
+    100%{
+        transform:translateX(45px);
+        opacity: 1;
+    }
+}
+@keyframes searchresult-head  {
+    0%{
+        transform:translateX(210px);
+        opacity: 0;
+    }
+    100%{
+        transform:translateX(0px);
+        opacity: 1;
+    }
+}
+.search-close{
+    display: inline-block;
+    position: absolute;
+    height:44px;
+    width:38px;
+    right:-8%;
+    top:0;
+    transition:all .2s linear;
+}
+.search-close:hover{
+    opacity: .6;
+}
+.close-style{
+    display: inline-block;
+    height:18px;
+    width:1px;
+    background:#fff;
+    position:absolute;
+    top:50%;
+    margin-top:-9px;
+}
+.close-left{
+    transform: rotateZ(45deg);
+}
+.close-right{
+    transform: rotateZ(-45deg);
 }
