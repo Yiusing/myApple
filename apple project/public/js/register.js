@@ -9,8 +9,9 @@ new Vue({
         spliceIndex:0,
         char:"",
         idms:{
-            pic:"img/idms/1.jpg",
-            code:"CDXV"
+            result:[],
+            idms_url:"",
+            idms_codes:""
         },
         errorStyle:{
             "error-style":true
@@ -27,6 +28,9 @@ new Vue({
         qs3:"",
         qs3Answer:"",
         idmsCode:"",
+        country:"CHN",
+        news:0,
+        itunes:0,
         checkflag:{
             firstName:false,
             lastName:false,
@@ -65,11 +69,11 @@ new Vue({
         emailError:false,
         qs1ErrorMsg:"选择一个问题。",
         qs2ErrorMsg:"选择一个问题。",
-        qs3ErrorMsg:"选择一个问题。",
+        qs3ErrorMsg:"选择一个问题。"
     },
     methods:{
         /***********  日期  ***************/
-        showTips(show){
+        showBirTips(show){
             this.isHide=show==false;
         },
         showBirthday(type,show){
@@ -270,14 +274,22 @@ new Vue({
             }
         },
         changeIdms(){
-            var n = Math.ceil(Math.random()*10)
-            this.imds.pic = `img/idms/${n}.jpg`
+            var iNow = this.idms.idms_url.slice(-5,-4);
+            var imgArr = this.idms.result.slice(0);
+            var len = this.idms.result.length;
+            //去掉重复
+            imgArr.splice(iNow-1,1);
+            var i = Math.ceil(Math.random()*(len-2));
+            this.idms.idms_url = imgArr[i].idms_url;
+            this.idms.idms_codes = imgArr[i].idms_codes;
+            console.log(this.idms)
         },
-        checkAll(){
+        register(){
+            /////  验证并且提交表单  //////
             ///// 验证姓氏和名字 /////
             var reg = /^[a-z0-9\u4e00-\u9fa5]{1,32}$/i;
             this.lnError = this.checkflag.lastName=(!reg.test(this.lastName));
-            this.fnError = this.checkflag.firstName=(!reg.test(this.lastName));
+            this.fnError = this.checkflag.firstName=(!reg.test(this.firstName));
 
             //// 验证生日日期 /////
             var reg = /^\d{4}年\d{2}月\d{2}日$/
@@ -289,13 +301,13 @@ new Vue({
 
             //验证密码
             var reg = /^.*(?=.{8,16})(?=.*\d)(?=.*[A-Z]{1,})(?=.*[a-z]{1,}).*$/;
-            this.checkflag.pwd = (!reg.test(this.password))
+            this.checkflag.pwd = (!reg.test(this.password));
             this.rPwdError = this.checkflag.rPwd = (this.rPwd!=this.password || this.rPwd=="");
 
             //// 验证验证码  /////
-            this.idmsError =  this.checkflag.idms =(this.idmsCode.toLocaleLowerCase()!=this.idms.code.toLocaleLowerCase())
+            this.idmsError =  this.checkflag.idms =(this.idmsCode.toLocaleLowerCase()!=this.idms.idms_codes.toLocaleLowerCase());
 
-            //// 验证 ////
+            //// 验证问题 ////
             if(this.qs1!=""){
                 if(this.qs1Answer==""){
                     this.qs1ErrorMsg="输入答案。"
@@ -328,6 +340,41 @@ new Vue({
             }else{
                 this.qs3Error=true;
                 this.checkflag.qs3 = true;
+            }
+            setTimeout(()=>{
+                var err = document.querySelector(".error-style");
+                if(err!==null){
+                    err.focus();
+                }
+            });
+
+            var count = 0;
+            for(var c in this.checkflag){
+                if(!this.checkflag[c]){
+                    count++;
+                }
+            }
+            ////////  全部验证成功后发送请求注册用户   //////////
+            if(count==10){
+                var userObj = {
+                    lastName:this.lastName,
+                    firstName:this.firstName,
+                    country: this.country,
+                    birthday:this.birthday,
+                    email:this.email,
+                    password:this.password,
+                    qs1:this.qs1,
+                    qs1Answer:this.qs1Answer,
+                    qs2:this.qs2,
+                    qs2Answer:this.qs2Answer,
+                    qs3:this.qs3,
+                    qs3Answer:this.qs3Answer,
+                    news:this.news?1:0,
+                    itunes:this.itunes?1:0
+                };
+                axios.post("http://localhost:8080/user/register",Qs.stringify(userObj)).then(res=>{
+                    console.log(res)
+                })
             }
         },
         showTips(){
@@ -392,8 +439,12 @@ new Vue({
         },
         password(val){
             //验证密码
+
             //判断弱和中等
             var pattern = /^.*(?=.{8,16})(?=.*\d)(?=.*[A-Z]{1,})(?=.*[a-z]{1,}).*$/;
+            if(pattern.test(val)){
+                this.checkflag.pwd=false;
+            }
             var pattern2 = /^.*(1234)+(12345)?(123456)?(654321)?(54321)?(4321)?.*$/;
             this.progress.weak=(pattern2.test(val) && pattern.test(val));
             this.progress.medium=(!pattern2.test(val) && pattern.test(val));
@@ -437,10 +488,29 @@ new Vue({
             this.progressFlag.p2=pattern.test(val);
             pattern = /^.*(?=.*\d).*$/
             this.progressFlag.p3=pattern.test(val);
+        },
+        rPwd(){
+            this.checkflag.rPwd=false;
+        },
+        qs1Answer(){
+            this.checkflag.qs1=false;
+        },
+        qs2Answer(){
+            this.checkflag.qs2=false;
+        },
+        qs3Answer(){
+            this.checkflag.qs3=false;
         }
     },
     mounted(){
-        /********  模拟发送请求取得数据 **********/
+        /*------ 想数据发送请求获得数据 ------*/
+          /*--- 验证码 ---*/
+        axios.get("http://127.0.0.1:8080/user/idms").then(res=>{
+            this.idms.result = res.data.result;
+            var i = Math.ceil(Math.random()*9)
+            this.idms.idms_url = this.idms.result[i].idms_url;
+            this.idms.idms_codes = this.idms.result[i].idms_codes;
+        })
 
     }
 })

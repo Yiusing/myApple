@@ -27,7 +27,7 @@
         <div class="row wrapper clearmg">
             <h1 class="col-md-12 wrapper-headline">创建您的 Apple ID</h1>
         </div>
-        <div class="row rgs-content clearmg" @keyup.13="checkAll()">
+        <div class="row rgs-content clearmg" @keyup.13="register()">
             <!--intr-->
             <div class="rgs-intro">
                 <p class="rgs-intro-text">只需一个 Apple ID，您即可访问 Apple 所有内容。</p>
@@ -50,7 +50,7 @@
                 <div class="flow-section-content">
                     <h3 class="section-subtitle">国家或地区</h3>
                     <div class="pos-rel">
-                        <select name="rgs-country" id="rgs-country" class="rgs-Style select-style">
+                        <select name="rgs-country" id="rgs-country" class="rgs-Style select-style" v-model="country">
                             <option value="CHN">中国(大陆)</option>
                             <option value="USA">美国</option>
                             <option value="JPN">日本</option>
@@ -67,7 +67,7 @@
                     <input type="text" placeholder="出生日期" class="rgs-Style" :class="checkflag.birthday?errorStyle:''" name="birthday" value="1yyy年mm月dd日" v-model="birthday" @click="cursorPoint()" @keydown="changeBir($event)" @mouseenter="flag && showBirthday('en',true)" @mouseleave="flag && showBirthday('en',false)" @focus="flag2 && showBirthday('fc',true)" @blur="flag2 && showBirthday('fc',false)">
                     <div class="error-msg" v-show="bthError">输入有效出生日期。</div>
                     <div class="bth-tips">
-                        <span class="tips-icon" @mouseenter="showTips(true)" @mouseleave="showTips(false)"></span>
+                        <span class="tips-icon" @mouseenter="showBirTips(true)" @mouseleave="showBirTips(false)"></span>
                         <div class="tips-content" v-show="!isHide">
                             出生日期会帮助验证您的身份或启用特定 Apple 服务。
                         </div>
@@ -211,12 +211,12 @@
             <div class="flow-section">
                 <div class="flow-section-content update">
                     <label class="update-checkbox pos-rel">
-                        <input type="checkbox" class="checkbox-style" name="news">
+                        <input type="checkbox" class="checkbox-style" name="news" v-model="news">
                         <span>公告</span>
                         <p class="checkbox-text">获取有关 Apple 产品、服务和软件的公告、推荐和更新。</p>
                     </label>
                     <label class="update-checkbox pos-rel">
-                        <input type="checkbox" class="checkbox-style" name="itunes">
+                        <input type="checkbox" class="checkbox-style" name="itunes" v-model="itunes">
                         <span>App、音乐、电影以及更多内容 </span>
                         <p class="checkbox-text">获取有关 App、音乐、电影、电视、图书、播客等的最新发布、独家内容、特别优惠和推荐。</p>
                     </label>
@@ -227,7 +227,7 @@
                 <div class="flow-section-content idms">
                     <!--idms-photos-->
                     <div class="idms-photos">
-                        <img :src="idms.pic" alt="1">
+                        <img :src="idms.idms_url" alt="1">
                     </div>
                     <!--imds-input-->
                     <div class="idms-input">
@@ -251,7 +251,7 @@
             </div>
         </div>
         <div class="row continue clearmg">
-            <button class="button" @click="checkAll()">继续</button>
+            <button class="button" @click="register()">继续</button>
         </div>
     </div>
 </div>
@@ -260,6 +260,7 @@
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/vue.js"></script>
 <script src="js/axios.min.js"></script>
+<script src="js/qs.min.js"></script>
 <script src="js/header.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/register.js"></script>

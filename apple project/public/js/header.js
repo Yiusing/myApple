@@ -17,7 +17,8 @@
                 searchStyle:{
                     scale:false
                 },
-                searchItem:[]
+                searchItem:[],
+                showMask:false
             },
             methods: {
                 showDetails() {
@@ -28,10 +29,14 @@
                         this.showSearch=true;
                     },300)
                     this.searchStyle.scale=true;
+                    this.showMask=true;
+                    document.body.style.overflowY = "hidden";
                 },
                 hideSearch(){
                     this.showSearch = false;
                     this.searchStyle.scale=false;
+                    this.showMask=false;
+                    document.body.style.overflowY = "auto";
                 }
             },
             created() {
@@ -57,6 +62,8 @@
                             if (e.target.className != "search-input"){
                                 this.showSearch = false;
                                 this.searchStyle.scale=false;
+                                this.showMask=false;
+                                document.body.style.overflowY = "auto";
                             }
                         }
                     }else{
