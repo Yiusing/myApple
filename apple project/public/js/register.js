@@ -373,7 +373,11 @@ new Vue({
                     itunes:this.itunes?1:0
                 };
                 axios.post("http://localhost:8080/user/register",Qs.stringify(userObj)).then(res=>{
-                    console.log(res)
+                   if(res.data.code==1){
+                       location.href="login.html"
+                   }else{
+                       alert(res.data.msg)
+                   }
                 })
             }
         },

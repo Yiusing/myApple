@@ -125,3 +125,50 @@ body{
     padding-left:20px;
     background:url(../img/login/phone.png) no-repeat bottom left;
 }
+
+.error-style{
+    background:#ffffc5;
+    color:red;
+}
+.error-toast{
+    position:absolute;
+    width:120px;
+    padding:10px 5px;
+    background:#ffffc5;
+    border:1px solid #ccc;
+    box-shadow: 0 1px  #a6a6a6;
+    border-radius: 5px;
+    font-size:.8rem;
+    text-align: center;
+    top: 70px;
+    left: 25%
+}
+.error-pwd{
+    top:127px;
+}
+.toast-tri-box{
+    height:13px;
+    width:100%;
+    position:absolute;
+    overflow: hidden;
+    bottom: -13px;
+
+}
+.toast-tri{
+    display: block;
+    width:20px;
+    height:20px;
+    background:#ffffc5;
+    transform: rotateZ(45deg);
+    position:absolute;
+    top: -12px;
+    left: 34%;
+    border:1px solid #ccc;
+    box-shadow: 1px 1px  #a6a6a6;
+}
+.error-msg{
+    font-size:.8rem;
+    color:#de071c;
+    margin-top: -9px;
+    margin-bottom: 9px;
+}

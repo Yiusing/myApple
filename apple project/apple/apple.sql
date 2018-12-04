@@ -8,18 +8,18 @@ USE apple;
   #创建用户表
 CREATE TABLE ap_user (
   uid INT PRIMARY KEY AUTO_INCREMENT,
-  uname VARCHAR(128),    #邮箱为账号
-  upwd VARCHAR(16),
+  uname VARCHAR(128) NOT NULL DEFAULT '',    #邮箱为账号
+  upwd VARCHAR(32)NOT NULL DEFAULT '',
   qs1 INT,      #qs1至qs3为3个密保问题
-  qs1Answer VARCHAR(120),
+  qs1Answer VARCHAR(120) NOT NULL DEFAULT '',
   qs2 INT,
-  qs2Answer VARCHAR(120),
+  qs2Answer VARCHAR(120) NOT NULL DEFAULT '',
   qs3 INT,
-  qs3Answer VARCHAR(120),
-  user_lastName VARCHAR(50),
-  user_firstName VARCHAR(50),
-  country VARCHAR(10),
-  birthday CHAR(11),
+  qs3Answer VARCHAR(120) NOT NULL DEFAULT '',
+  user_lastName VARCHAR(50) NOT NULL DEFAULT '',
+  user_firstName VARCHAR(50) NOT NULL DEFAULT '',
+  country VARCHAR(10) NOT NULL DEFAULT '',
+  birthday CHAR(11) NOT NULL DEFAULT '',
   isGetNews INT,    # 0不获取公告    1 获取
   isGetItunes INT  # 0不获取iTunes  1 获取
 );
@@ -31,7 +31,7 @@ CREATE TABLE ap_idms (
   idms_codes CHAR(4)
 );
 
-INSERT INTO `ap_user`(`uid`, `uname`, `upwd`, `qs1`,`qs1Answer`, `qs2`,`qs2Answer`,`qs3`,`qs3Answer`,`user_lastName`,`user_firstName`,`country`,`birthday`,`isGetNews`,`isGetItunes`) VALUES (null,"1234@163.com",123456,100,"abc",101,"abc",102,"abc","李","荣浩","CHN","1995年11月11日",0,0);
+INSERT INTO `ap_user`(`uid`, `uname`, `upwd`, `qs1`,`qs1Answer`, `qs2`,`qs2Answer`,`qs3`,`qs3Answer`,`user_lastName`,`user_firstName`,`country`,`birthday`,`isGetNews`,`isGetItunes`) VALUES (null,"1234@163.com",md5('123456'),100,"abc",101,"abc",102,"abc","李","荣浩","CHN","1995年11月11日",0,0);
 
 INSERT INTO `ap_idms`(`iid`,`idms_url`,`idms_codes`) VALUES (null,"http://localhost:8080/img/idms/1.jpg","CDXV");
 INSERT INTO `ap_idms`(`iid`,`idms_url`,`idms_codes`) VALUES (null,"http://localhost:8080/img/idms/2.jpg","1179");

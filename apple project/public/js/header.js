@@ -18,7 +18,9 @@
                     scale:false
                 },
                 searchItem:[],
-                showMask:false
+                showMask:false,
+                user_name:"",
+                isLogin:false
             },
             methods: {
                 showDetails() {
@@ -37,17 +39,33 @@
                     this.searchStyle.scale=false;
                     this.showMask=false;
                     document.body.style.overflowY = "auto";
+                },
+                checkLogin(){
+                    axios("http://localhost:8080/user/isLogin").then(res=>{
+                        if(res.data.code==1){
+                            this.isLogin = true;
+                        }else{
+                            this.isLogin = false;
+                        }
+                    })
+                },
+                signout(){
+                    axios("http://localhost:8080/user/signout").then(res=>{
+                        console.log(res)
+                        location.reload()
+                    })
                 }
             },
             created() {
-                this.searchItem=["查找零售店","配件","iPod","AirPods","佳节好礼"]
-
+                this.searchItem=["查找零售店","配件","iPod","AirPods","佳节好礼"];
+                //判断是否登录
+                this.checkLogin();
             },
             watch: {
                 showBag(val) {
                     if(val==true){
                         document.body.onclick=(e)=>{
-                            if (e.target.className != "shoppingbag"){
+                            if (e.target.className != "bag-details" && e.target.className !="bag-link"){
                                 this.showBag = false
                             }
                         }

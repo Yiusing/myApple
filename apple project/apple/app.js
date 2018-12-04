@@ -19,11 +19,14 @@ app.use(cors({
     Origin:["http://127.0.0.1:5500","http://localhost:5500"],
     //允许session
     credentials:true
-}))
+}));
 app.use(session({
     secret:"128位随机字符",
     resave:false,
-    saveUninitialized:true
+    saveUninitialized:true,
+    cookie:{
+        maxAge:1000*60*60*24
+    }
 }))
 
 ///////托管静态资源  ///////

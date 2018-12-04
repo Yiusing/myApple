@@ -42,7 +42,8 @@
                             <li class="bag-lists-item"><a href="javascript:;" class="bag-link"><span class="bag-icon"></span>收藏</a></li>
                             <li class="bag-lists-item"><a href="javascript:;" class="bag-link"><span class="bag-icon"></span>订单</a></li>
                             <li class="bag-lists-item"><a href="javascript:;" class="bag-link"><span class="bag-icon"></span>账户</a></li>
-                            <li class="bag-lists-item"><a href="login.html" class="bag-link"><span class="bag-icon"></span>登录</a></li>
+                            <li class="bag-lists-item" v-if="!isLogin"><a href="login.html" class="bag-link"><span class="bag-icon"></span>登录</a></li>
+                            <li class="bag-lists-item" v-else><a href="javascript:;" class="bag-link" @click="signout()"><span class="bag-icon" ></span>注销 {{user_name}}</a></li>
                         </ul>
                     </div>
                 </aside>

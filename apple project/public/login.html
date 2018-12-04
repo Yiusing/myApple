@@ -19,13 +19,26 @@
                 <p class="account-secure">安全</p>
             </div>
             <div class="account-content row thr clearmg">
-                <div class="col-md-5 offset-md-1 clearpx">
+                <div class="col-md-5 offset-md-1 clearpx" @keyup.13="login()">
                     <h2 class="login-title">登陆 Apple Store</h2>
-                    <input type="text" placeholder="Apple ID*" class="login">
-                    <input type="text" placeholder="密码*" class="login-pwd">
+                    <input type="text" placeholder="Apple ID*" class="login" :class="errorStyle.uname" v-model="uname" @focus="errorFlag && errorToast('uname')" @blur="errorFlag && hideErrorToast('uname')">
+                    <div class="error-toast" v-show="unameEmpty">
+                        Apple ID 未填写。
+                        <div class="toast-tri-box">
+                            <span class="toast-tri"></span>
+                        </div>
+                    </div>
+                    <input type="password" placeholder="密码*" class="login-pwd" v-model="upwd"  :class="errorStyle.upwd" @focus="errorFlag && errorToast('upwd')" @blur="errorFlag && hideErrorToast('upwd')">
+                    <div class="error-toast error-pwd" v-show="pwdEmpty">
+                        密码未填写。
+                        <div class="toast-tri-box">
+                            <span class="toast-tri"></span>
+                        </div>
+                    </div>
+                    <p class="error-msg" v-show="showErrorMsg">用户名或密码错误</p>
                     <div class="login-links">
                         <a href="javascript:;" class="login-link">忘了自己的 Apple ID 或密码？</a>
-                        <a href="javascript:;" class="button">登录</a>
+                        <a href="javascript:;" class="button" @click="login()">登录</a>
                     </div>
                 </div>
                 <div class="account-server col-md-6">
@@ -55,7 +68,10 @@
 <footer id="footer"></footer>
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/qs.min.js"></script>
 <script src="js/header.js"></script>
 <script src="js/footer.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>

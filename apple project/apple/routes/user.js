@@ -87,7 +87,7 @@ router.post("/register",(req,res)=>{
         return;
     }
 
-    var sql = "INSERT INTO `ap_user`(`uid`, `uname`, `upwd`, `qs1`, `qs1Answer`, `qs2`, `qs2Answer`, `qs3`, `qs3Answer`, `user_lastName`, `user_firstName`, `country`, `birthday`, `isGetNews`, `isGetItunes`) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    var sql = "INSERT INTO `ap_user`(`uid`, `uname`, `upwd`, `qs1`, `qs1Answer`, `qs2`, `qs2Answer`, `qs3`, `qs3Answer`, `user_lastName`, `user_firstName`, `country`, `birthday`, `isGetNews`, `isGetItunes`) VALUES (NULL,?,md5(?),?,?,?,?,?,?,?,?,?,?,?,?)";
     pool.query(sql,[uname,upwd,qs1,qs1Answer,qs2,qs2Answer,qs3,qs3Answer,user_lastName,user_firstName,country,birthday,isGetNews,isGetItunes],(err,result)=>{
         if(err)throw err;
         if(result.affectedRows>0){
@@ -100,11 +100,46 @@ router.post("/register",(req,res)=>{
 
 })
 
+/* -----  用户登录  ------*/
+router.post("/login",(req,res)=>{
+    var uname = req.body.uname,
+        upwd = req.body.upwd;
+    if(uname==""){
+        res.send({code:0,msg:"用户名为空"});
+        return;
+    }
+    if(upwd==""){
+        res.send({code:0,msg:"用户名为空"});
+        return;
+    }
+    var sql = "SELECT uid,uname,user_firstName,user_lastName FROM ap_user WHERE uname = ? AND upwd = md5(?)";
+    pool.query(sql,[uname,upwd],(err,result)=>{
+        if(err)throw err;
+        if(result.length>0){
+            //保存登录状态到session
+            req.session.uid = result[0].uid;
+            var user_name = result[0].user_lastName+" "+result[0].user_firstName
+            res.send({code:1,msg:"登录成功",user_name})
+        }else{
+            res.send({code:0,msg:"用户名或密码错误"})
+        }
+    })
+})
 
+/* -----  用户是否已经登录  ------*/
+router.get("/isLogin",(req,res)=>{
+    if(req.session.uid===undefined){
+        res.send({code:0,msg:"用户未登录"})
+    }else{
+        res.send({code:1,msg:"用户已登录"})
+    }
+});
 
-
-
-
+/* -----  用户注销  ------*/
+router.get("/signout",(req,res)=>{
+    req.session.uid=undefined;
+    res.send({code:1,msg:"注销成功"})
+});
 
 module.exports = router;
 
