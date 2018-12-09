@@ -169,3 +169,14 @@ ul{
 .paddlenav-arrow.disabled{
     display: none;
 }
+
+@media screen and (max-width:767px){
+    html{
+        font-size:12px;
+    }
+}
+@media screen and (max-width:1068px) and (min-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+}

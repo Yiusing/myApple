@@ -4,10 +4,45 @@
             <div class="adv-wrapper-text">&lt;广告&gt;</div>
         </div>
         <!--导航栏-->
-        <nav id="globalnav">
+        <nav id="globalnav" class="globalnav" :style="searchStyle['menu-close']?isDark:''">
             <!--导航-->
-            <div class="gn-content">
-                <ul class="gn-content-list" :class="searchStyle">
+            <div class="gn-content" :class="searchStyle">
+                <ul class="ac-gn-header">
+                    <li class="header-item header-menu" @click="showMenu()">
+                        <span class="menu-box" :class="searchStyle">
+                            <span class="menu-icon menu-top"></span>
+                        </span>
+                        <span class="menu-box" :class="searchStyle">
+                            <span class="menu-icon menu-bottom"></span>
+                        </span>
+                    </li>
+                    <li class="header-item">
+                        <a href="index.html" class="header-link">
+                            <span class="header-icon header-apple"></span>
+                        </a>
+                    </li>
+                    <li class="header-item">
+                        <a href="javascript:;" class="header-link" @click="showDetails()">
+                            <span class="header-icon header-bag"></span>
+                        </a>
+                        <div v-show="showBag" class="angelbox">
+                            <span class="angel"></span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="ac-gn-search-placeholder-container">
+                    <div class="pos-rel">
+                    <div class="ac-gn-search-box">
+                        <a href="javascript:;" class="search-btn" ></a>
+                        <input type="text" class="search-input" placeholder="搜索 apple.com" v-model="search" @click="clickShowSearchBox">
+                    </div>
+                    <div class="search-box-cancel">
+                        <a href="javascript:;" class="search-box-cancel-link" @click="clickHideSearchBox()">取消</a>
+                    </div>
+
+                    </div>
+                </div>
+                <ul class="gn-content-list">
                     <li class="gn-content-list-item">
                         <a href="index.html" class="gn-content-link">
                             <img src="img/header/apple_logo.svg" alt="apple_logo">

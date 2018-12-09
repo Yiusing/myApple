@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/login2.css">
     <link rel="stylesheet" href="css/base.css">
@@ -12,13 +13,15 @@
 <header id="header"></header>
 <div id="app">
     <nav class="nav">
-        <div class="nav-title">Apple ID</div>
-        <div class="navs">
-            <ul class="nav-list">
-                <li class="list-item active"><a href="javascript:;" aria-disabled="false" class="list-link">登录</a></li>
-                <li class="list-item"><a href="register.html" aria-disabled="true" class="list-link">创建您的 Apple ID</a></li>
-                <li class="list-item"><a href="javascript:;" aria-disabled="false" class="list-link">常见问题解答</a></li>
-            </ul>
+        <div class="nav-box">
+            <div class="nav-title">Apple ID</div>
+            <div class="navs">
+                <ul class="nav-list">
+                    <li class="list-item active"><a href="javascript:;" aria-disabled="false" class="list-link">登录</a></li>
+                    <li class="list-item"><a href="register.html" aria-disabled="true" class="list-link">创建您的 Apple ID</a></li>
+                    <li class="list-item"><a href="javascript:;" aria-disabled="false" class="list-link">常见问题解答</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     <!--main content-->
@@ -67,22 +70,6 @@
                         </div>
                     </div>
                 </div>
-                <!--<script src="js/jquery-3.3.1.js"></script>
-                <script>
-                  $(".ac-pw-inputs").on("focus","INPUT",function(){
-                      var $inputs = $(this);
-                      if($inputs.is("[name=account]")){
-                          $inputs.parent().css("borderColor","#0070c9")
-                      }else if($inputs.is("[name=pwd]")){
-                          $inputs.parent().css("borderColor","#0070c9")
-                      }
-                      $(this).parent().siblings(".line").css("backgroundColor","#0070c9");
-                  })
-                  .on("blur","INPUT",function(){
-                      var $inputs = $(this);
-                      $inputs.parent().css("borderColor","transparent").siblings(".line").css("backgroundColor","#d6d6d6");
-                  })
-                </script>-->
                 <div class="remeber">
                     <label class="remeber-check">
                         <input type="checkbox" name="remeber" class="checkbox-style">
@@ -98,7 +85,7 @@
             <h1 class="serve-title">您的帐户适用于 Apple 的所有服务</h1>
             <div class="serve-subtitle">
                 使用一个 Apple ID 和密码即可访问所有 Apple 服务。
-                <a href="javascript:;">了解有关 Apple ID 的更多信息 &gt;</a>
+                <a href="javascript:;" class="server-link">了解有关 Apple ID 的更多信息 &gt;</a>
             </div>
             <div class="serve-img"></div>
             <a href="javascript:;">创建您的 Apple ID &gt;</a>

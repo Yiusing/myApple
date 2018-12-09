@@ -7,12 +7,8 @@ body{
     opacity: .9;
     background:#fff;
     position:absolute !important;
-    display:flex;
-    justify-content: space-between;
-    padding:15px 150px;
     z-index:2;
     top:88px;
-    white-space: nowrap;
 }
 
 .nav-list{
@@ -36,10 +32,6 @@ body{
     pointer-events: none;
 }
 
-/** main **/
-.main{
-    white-space: nowrap;
-}
 /******** wrapper *********/
 .wrapper{
     padding-top:190px;
@@ -56,7 +48,7 @@ body{
 .wrapper-headline{
     margin-top:10px;
     margin-bottom:13px;
-    font-size:1.3rem;
+    font-size:2rem;
     font-weight:400;
     text-align: center;
     color:#fff;
@@ -161,7 +153,10 @@ body{
 }
 .remeber{
     color:#fff;
-    margin-top:20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 225px;
 }
 .remeber-check{
     cursor:pointer;
@@ -189,7 +184,10 @@ body{
     box-shadow:0 0 0 3px rgba(131,192,253,.5);
 }
 .forget{
-    margin-top:160px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 35px;
 }
 .forget-link{
     color:#fff;
@@ -201,7 +199,7 @@ body{
 /********** serve ***********/
 .serve{
     width:80%;
-    margin:70px auto 150px;
+    margin:70px auto 90px;
     text-align: center;
 }
 .serve-title{
@@ -210,19 +208,20 @@ body{
     font-weight:600;
 }
 .serve-subtitle{
-    width:50%;
+    width:100%;
     margin:10px auto;
-    padding:5px 75px;
-    white-space: normal;
-    min-width:400px;
+    max-width: 400px;
+}
+.server-link{
+    display: block;
 }
 .serve-img{
-    min-width:400px;
-    width:60%;
-    height:68px;
     background:url(../img/login2/app_icons@2x.png) no-repeat;
-    background-size:100%;
-    margin:30px auto;
+    background-size: cover;
+    background-position: 50%;
+    width: 656px;
+    height: 68px;
+    margin: 35px auto;
 }
 
 /******  loading  ********/
@@ -317,4 +316,52 @@ body{
 @keyframes load{
     0%{opacity: 0;}
     100%{opacity: 1;}
+}
+.nav-box{
+    margin:18px auto;
+    width:80%;
+    display:flex;
+    justify-content: space-between;
+}
+@media screen and (max-width:767px){
+    .nav-title{
+        display: none;
+    }
+    .navs{
+        flex:1;
+    }
+    .nav-list>.list-item{
+        margin-left:0;
+    }
+    .wrapper{
+        background-image: url("../img/login2/apple_id_mobile.jpg");
+        height: 500px;
+        padding-top: 160px;
+    }
+    .wrapper-content{
+        min-width: auto;
+        max-width: 328px;
+        width: 100%;
+    }
+    .remeber{
+        margin-top:48px;
+    }
+    .forget{
+        margin-top: 50px;
+    }
+    .remeber{
+        bottom:87px;
+    }
+    .serve-img{
+        background: url("../img/login2/icons_mobile@2x.png") no-repeat;
+        background-size: cover;
+        background-position: 50%;
+        width: 290px;
+        height: 137px;
+        margin: 25px auto;
+        min-width: auto;
+    }
+    .forget-link{
+        font-size:1.2rem;
+    }
 }

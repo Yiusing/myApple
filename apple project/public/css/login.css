@@ -2,7 +2,7 @@ body{
     background:#f1f1f1 !important;
 }
 .main{
-    width:980px;
+    width:80%;
     margin-left:auto;
     margin-right:auto;
     margin-top:50px;
@@ -171,4 +171,50 @@ body{
     color:#de071c;
     margin-top: -9px;
     margin-bottom: 9px;
+}
+@media screen and (max-width:767px){
+    .main{
+        width:100%;
+        margin-top:25px;
+    }
+    .account-content>div:first-child{
+        padding:23px 0;
+    }
+    .account-content>.account-server{
+        margin-top:30px;
+        border-top:1px solid #d0d0d0;
+        padding:30px 0 0 0 !important;
+        background-image: none;
+    }
+    .box-style{
+        box-shadow: none;
+    }
+    .account-navigation{
+        background:#fff;
+        flex-direction: column;
+    }
+    .login,.login-pwd{
+        width:100%;
+    }
+    .login-links{
+        width:100%;
+    }
+    .button{
+        width: 30%;
+        text-align: center;
+        padding: 10px 15px;
+        border: .1rem solid #158cfb;
+        background: #158cfb;
+    }
+    .button:hover{
+        background:#158cfb;
+        border: .1rem solid #158cfb;
+        color:#fff;
+        text-decoration: none;
+    }
+    .account-btn{
+        background: #fff;
+        padding: 10px 25px;
+        width: 50%;
+    }
 }

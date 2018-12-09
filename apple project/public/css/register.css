@@ -7,14 +7,15 @@ body{
     opacity: .9;
     background:#fff;
     position:absolute !important;
-    display:flex;
-    justify-content: space-between;
-    padding:15px 150px;
     z-index:2;
     top:88px;
-    white-space: nowrap;
 }
-
+.nav-box{
+    margin:18px auto;
+    width:80%;
+    display:flex;
+    justify-content: space-between;
+}
 .nav-list{
     display:flex;
     justify-content: space-around;
@@ -36,10 +37,7 @@ body{
     pointer-events: none;
 }
 
-/** main **/
-.main{
-    white-space: nowrap;
-}
+
 /******** wrapper *********/
 .wrapper{
     padding-top:135px;
@@ -118,6 +116,7 @@ body{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    background: transparent;
 }
 .select-icon{
     width:20px;
@@ -377,4 +376,44 @@ body{
 
 .lastName-box{
     margin-right:15px;
+}
+@media screen and (max-width:767px){
+    .nav-title{
+        display: none;
+    }
+    .navs{
+        flex:1;
+    }
+    .nav-list>.list-item{
+        margin-left:0;
+    }
+    .wrapper{
+        padding-top: 95px;
+        padding-bottom: 35px;
+    }
+    .flow-section-content{
+        min-width:auto;
+        flex-direction: column;
+        width:100%;
+        padding:0;
+    }
+    .lastName-box{
+        margin-bottom:10px;
+        margin-right:0;
+    }
+    .select-icon{
+        right: 9px;
+        top: 15px;
+    }
+    .bth-tips{
+        right: 10px;
+        top: 7px;
+    }
+    .idms-photos{
+        text-align: center;
+        margin-bottom:15px;
+    }
+    .idms-links-list{
+        justify-content: center;
+    }
 }

@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/login.css">
     <title>login</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
                 <p class="account-secure">安全</p>
             </div>
             <div class="account-content row thr clearmg">
-                <div class="col-md-5 offset-md-1 clearpx" @keyup.13="login()">
+                <div class="col-sm-12 col-md-5 offset-md-1 clearpx" @keyup.13="login()">
                     <h2 class="login-title">登陆 Apple Store</h2>
                     <input type="text" placeholder="Apple ID*" class="login" :class="errorStyle.uname" v-model="uname" @focus="errorFlag && errorToast('uname')" @blur="errorFlag && hideErrorToast('uname')">
                     <div class="error-toast" v-show="unameEmpty">
@@ -41,7 +42,7 @@
                         <a href="javascript:;" class="button" @click="login()">登录</a>
                     </div>
                 </div>
-                <div class="account-server col-md-6">
+                <div class="account-server col-sm-12  col-md-6">
                     <p class="server-title">你可以使用自己的 Apple ID 来享用其他 Apple 服务，例如</p>
                     <ul class="server-list">
                         <li>App Store</li>

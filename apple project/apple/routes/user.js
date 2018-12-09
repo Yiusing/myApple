@@ -112,14 +112,13 @@ router.post("/login",(req,res)=>{
         res.send({code:0,msg:"用户名为空"});
         return;
     }
-    var sql = "SELECT uid,uname,user_firstName,user_lastName FROM ap_user WHERE uname = ? AND upwd = md5(?)";
+    var sql = "SELECT uid FROM ap_user WHERE uname = ? AND upwd = md5(?)";
     pool.query(sql,[uname,upwd],(err,result)=>{
         if(err)throw err;
         if(result.length>0){
             //保存登录状态到session
             req.session.uid = result[0].uid;
-            var user_name = result[0].user_lastName+" "+result[0].user_firstName
-            res.send({code:1,msg:"登录成功",user_name})
+            res.send({code:1,msg:"登录成功"})
         }else{
             res.send({code:0,msg:"用户名或密码错误"})
         }
@@ -131,7 +130,13 @@ router.get("/isLogin",(req,res)=>{
     if(req.session.uid===undefined){
         res.send({code:0,msg:"用户未登录"})
     }else{
-        res.send({code:1,msg:"用户已登录"})
+        var uid = req.session.uid;
+        var sql = "SELECT user_firstName,user_lastName FROM ap_user WHERE uid = ?";
+        pool.query(sql,[uid],(err,result)=>{
+            if(err)throw err;
+            var user_name = result[0].user_lastName+" "+result[0].user_firstName
+            res.send({code:1,msg:"用户已登录",user_name})
+        })
     }
 });
 

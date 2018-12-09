@@ -1,4 +1,11 @@
-
+/* 设置头部为固定 */
+#header{
+    position:fixed !important;
+    width:100%;
+}
+.main{
+    padding-top:88px;
+}
 /*设置全局样式*/
 .iphone-xs{
     padding-top:88px;
@@ -6,7 +13,7 @@
 
 .cta-link a{
     margin-right:20px;
-    font-size:19px;
+    font-size:1.2rem;
 }
 
 .homepage-section{
@@ -32,7 +39,7 @@
 }
 .unit-content>.subhead{
     margin-top:6px;
-    font-size:23px;
+    font-size:1.5rem;
     font-weight:400;
 }
 
@@ -49,16 +56,15 @@
     top:0;
 }
 .unit-image-inphonexs{
-    background-image: url(../img/index/hero-iphone-xs_large.jpg);
-
+    background-image: url("../img/index/hero-iphone-xs_large.jpg");
 }
 
 .unit-image-inphonexr{
-    background-image: url(../img/index/iphone_xr_large.jpg);
+    background-image: url("../img/index/iphone_xr_large.jpg");
 }
 .unit-image-applewatch{
-    background-image:url(../img/index/apple_watch_series_4_large.jpg);
-    background-position-x: 67%;
+    background-image:url("../img/index/apple_watch_series_4_large.jpg");
+    background-position-x: 678px;
 }
 
 
@@ -79,38 +85,28 @@
     font-weight:400;
 }
 .promo .headline{
-    font-size:40px;
+    font-size:2.5rem;
     font-weight:600;
 }
 
-.unit-image-applemusic{
-    background-image: url(../img/index/apple_music_large.jpg);
+.unit-image-iPad-pro{
+    background-image: url("../img/index/ipad_pro__large.jpg");
 }
 
-.apple-music a,.apple-music .subhead{
-    color:#fff;
-}
-.apple-music-icon{
-    position: absolute;
-    z-index: 10;
-    bottom:40px;
-    left:50%;
-    margin-left:-18.5px;
-}
 .unit-image-applegiveback{
-    background-image: url(../img/index/give_back_large.jpg);
+    background-image: url("../img/index/give_back_large.jpg");
 }
-.unit-image-apple-macbookpro{
-    background-image: url(../img/index/macbook_pro_performance_large.jpg);
+.unit-image-apple-macbook-air{
+    background-image: url("../img/index/macbook_air_large.jpg");
 }
-.unit-image-apple-ipad{
-    background-image: url(../img/index/ipad_large.jpg);
+.unit-image-apple-mac-mini{
+    background-image: url("../img/index/mac_mini_large.jpg");
 }
-.unit-image-apple-airpods{
-    background-image: url(../img/index/airpods_large.jpg);
+.unit-image-apple-gifts{
+    background-image: url("../img/index/share_your_gifts_large.jpg");
 }
 .unit-image-apple-ios12{
-    background-image: url(../img/index/ios_large.jpg);
+    background-image: url("../img/index/ios_large.jpg");
 }
 
 /*一整行都是链接*/
@@ -124,12 +120,15 @@
 }
 
 /*每列的Content设置*/
+.apple-watch{
+    background:#fafafa;
+}
 .apple-watch>.unit-content{
-    width:25%;
+    width:300px;
     margin:200px;
 }
 .apple-giveback>.unit-content{
-    width:50%;
+    width:290px;
     margin-left:auto;
     margin-right:auto;
 }
@@ -137,9 +136,142 @@
 .homepage-section:nth-child(2) .unit-image-wrapper{
     background-color:rgb(250,250,250);
 }
-.apple-macbookpro{
-    background-color:transparent;
+
+.iphone-xs .unit-content{
+    margin-top:20px;
 }
-.apple-macbookpro .unit-image-wrapper{
-    background-color:#131218 !important;
+.title-image{
+    display: inline-block;
+    width:220px;
+    height:35px;
+    background-repeat: no-repeat;
+}
+.iphone-xs .title-image{
+    background-image: url("../img/index/iphone_xs_logo_hero_large.png");
+}
+.iphone-xr .title-image{
+    background-image: url("../img/index/iphone_xr_logo_hero_large.png");
+}
+/*------ 手机端 ------*/
+@media screen and (max-width:767px ) {
+    .show-menu.gn-content {
+        position: relative !important;
+        height: calc(100vh - 44px) !important;
+    }
+    .unit-image-inphonexs{
+        background-image:url("../img/index/iphone_xs_small.jpg")
+    }
+    .unit-image-inphonexr{
+        background-image:url("../img/index/iphone_xr_small.jpg")
+    }
+    .unit-image-applewatch{
+        background-image: url("../img/index/all_new_medium.jpg");
+        background-position-x: center;
+        background-position-y: 223px;
+    }
+    .unit-image-iPad-pro{
+        background-image: url("../img/index/ipad_pro__small.jpg");
+    }
+    .unit-image-applegiveback{
+        background-image: url("../img/index/give_back_small.jpg");
+    }
+    .unit-image-apple-macbook-air{
+        background-image: url("../img/index/macbook_air_small.jpg");
+    }
+    .unit-image-apple-mac-mini{
+        background-image: url("../img/index/mac_mini_small.jpg");
+    }
+    .unit-image-apple-gifts{
+        background-image: url("../img/index/share_your_gifts_small.jpg");
+    }
+    .apple-watch>.unit-content{
+        margin-left: auto;
+        margin-right: auto;
+        width:100%;
+        margin-top:40px;
+    }
+    .apple-watch{
+        background:#fafafa;
+    }
+    .iphone-xs{
+        height:490px;
+        padding-top:50px;
+    }
+    .title-image{
+        width:155px;
+        height:25px;
+    }
+    .iphone-xs .title-image{
+        background-image: url("../img/index/iphone_xs_logo_hero_small.png");
+    }
+    .iphone-xr .title-image{
+        background-image: url("../img/index/iphone_xs_logo_hero_small.png");
+    }
+    .promo{
+        width:100%;
+        height:500px;
+    }
+    .unit-image-wrapper{
+        height:500px;
+    }
+    .hero{
+        height:500px;
+        padding:0;
+    }
+}
+
+/*------ 平板端 ------*/
+@media screen and (max-width:1068px) and (min-width: 768px){
+    .unit-image-inphonexs{
+        background-image:url("../img/index/iphone_xs_medium.jpg")
+    }
+    .unit-image-inphonexr{
+        background-image:url("../img/index/iphone_xr_medium.jpg")
+    }
+    .unit-image-apple-macbook-air{
+        background-image: url("../img/index/macbook_air_medium.jpg");
+    }
+    .unit-image-applewatch{
+        background-position-x: 520px;
+    }
+    .apple-watch>.unit-content {
+        width: 270px;
+        margin: 189px;
+    }
+    .unit-image-iPad-pro{
+        background-image: url("../img/index/ipad_pro__medium.jpg");
+    }
+    .unit-image-applegiveback{
+        background-image: url("../img/index/give_back_medium.jpg");
+    }
+    .unit-image-apple-mac-mini{
+        background-image: url("../img/index/mac_mini_medium.jpg");
+    }
+    .unit-image-apple-ios12{
+        background-image: url("../img/index/ios_m.jpg");
+        background-position-x: -328px;
+    }
+    .unit-image-apple-gifts{
+        background-image: url("../img/index/share_your_gifts_medium.jpg");
+    }
+    .iphone-xs{
+        height:490px;
+        padding-top:50px;
+    }
+    .title-image{
+        width:184px;
+    }
+    .iphone-xs .title-image {
+        background-image: url("../img/index/iphone_xs_logo_hero_medium.png");
+    }
+    .iphone-xr .title-image{
+        background-image: url("../img/index/iphone_xs_logo_hero_medium.png");
+    }
+    .homepage-section:nth-child(2) .unit-image-wrapper{
+        height: 502px;
+    }
+    .promo{
+        height:502px;
+    }
+
 }
