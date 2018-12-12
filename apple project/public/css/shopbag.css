@@ -26,7 +26,7 @@ body{
     padding:1.5rem;
 }
 .bag-banner-title{
-    font-size:14px;
+    font-size:0.9rem;
     line-height: 24px;
     margin-left:10px;
 }
@@ -37,7 +37,7 @@ body{
     margin-bottom:10px;
 }
 .box-title{
-    font-size:24px;
+    font-size:1.5rem;
     font-weight:400;
 }
 
@@ -68,7 +68,7 @@ body{
     color:#0070c9;
 }
 .cart-actions-right .button{
-    font-size:13px;
+    font-size:1rem;
     padding:10px 30px;
 }
 
@@ -199,7 +199,7 @@ body{
 }
 .gift-txt-box{
     margin-left:32px;
-    width:550px;
+    width:84%;
 }
 .gift-textarea{
     margin-top:15px;
@@ -253,7 +253,7 @@ body{
     text-align: right;
 }
 .total-value{
-    font-size:18px;
+    font-size:1.3rem;
 }
 .cart{
     margin-bottom:10px;
@@ -291,7 +291,7 @@ body{
     display:inline-block;
     color:#0085cf;
     font-size:13px;
-    padding:10px 30px;
+    padding:10px 25px;
     background:linear-gradient(#fff,#ebebeb);
     border:1px solid #b5b5b5;
     box-shadow:inset 0 0.1rem 0 rgba(255,255,255,.2);
@@ -315,7 +315,7 @@ body{
     line-height: 25px;
     padding-top:12px;
     margin-bottom:6px;
-    font-size:16px;
+    font-size:1rem;
     font-weight:400;
 }
 .faq-details{
@@ -325,9 +325,251 @@ body{
     font-weight:400;
     color:#666;
 }
-
+.products-price{
+    display: none;
+}
+.show-products-details{
+    display: none;
+}
 /*------ 手机端 ------*/
-@media screen and (max-width:767px ) {}
+@media screen and (max-width:767px ) {
+    .main{
+        margin-top:0;
+        width:100%;
+        padding-bottom: 20px;
+    }
+    .box-style{
+        box-shadow: none;
+    }
+    .row{
+        margin-left:0 !important;
+        margin-right:0 !important;
+    }
+    .bag-banner{
+        border-bottom: 1px solid #d5d5d5;
+    }
+    .bag-banner>.box{
+        margin-bottom: 0;
+    }
+    .products-img-box{
+        position:absolute;
+        width: auto;
+        padding:0 !important;
+        left:0;
+    }
+    .products-content{
+        padding-left:105px;
+        padding-right:0;
+    }
+    .products-title{
+        padding-right:58px;
+    }
+    .products-title .price-quantity>.item{
+        display: none;
+    }
+    .products-price{
+        margin-top:10px;
+        display: block;
+    }
+    .shipping-product-admin.thr{
+        border:none;
+    }
+    .shipping-product-admin{
+        padding-top:0;
+    }
+    .product-number{
+        display: none;
+    }
+    .cart-products{
+        padding:0 !important;
+    }
+    .product-admin{
+        display: none;
+    }
+    .product-details-group{
+        border-top:1px solid #d5d5d5;
+        border-bottom:1px solid #d5d5d5;
+        overflow: hidden;
+        transition: height .4s linear;
+        height:47px;
+    }
+    .show-products-details{
+        display: block;
+        color:#158cfb;
+        position:relative;
+    }
+    .show-link{
+        padding-top: 15px;
+        padding-bottom: 16px;
+        font-size:1rem;
+        color:#158cfb;
+    }
+    .show-products-details:after{
+        display: inline-block;
+        content: "";
+        background-image: url("../img/icon/sprites.svg");
+        background-repeat: no-repeat;
+        background-size: auto 10.0rem;
+        background-position: -32.6rem -3.5rem;
+        height: 1rem;
+        width: 1.5rem;
+        position: absolute;
+        right: 0;
+        top: 15px;
+        transition:all .2s ease;
+    }
+    .show-products-details>a:hover{
+        text-decoration: none;
+    }
+    .product-details{
+        display: flex;
+        flex-direction: column;
+    }
+    .gs{
+        width:100%;
+    }
+    .gs:last-child{
+        margin-top:15px;
+        padding-top:15px;
+        padding-bottom:15px;
+        border-top:1px solid #d5d5d5;
+        margin-left:0;
+    }
+    .gs-list{
+        margin-left:16px;
+    }
+    .gs-list>.item:not(:first-child){
+        margin-top:0;
+    }
+    .product-details-group.details-show>.show-products-details:after{
+        transform:rotate(180deg);
+    }
+    .cart-products{
+        margin-bottom:0;
+    }
+    .product-gift-details{
+        padding-left:0;
+        margin-top:15px;
+    }
+    .gift-txt-box{
+        margin-left:30px;
+    }
+    .pgd-list-radio{
+        height: 1.7rem;
+        width: 1.7rem;
+        margin-right:0;
+    }
+    .phone-products-c-p{
+        padding-top: 10px;
+        border-top: 1px solid #d5d5d5;
+    }
+    .phone-products-c-p .price-quantity{
+        float:none;
+    }
+    .phone-products-c-p .price-quantity .quantity{
+        padding:0;
+    }
+    .phone-products-c-p .price-quantity .item+.item{
+        line-height: 32px;
+    }
+    .phone-products-c-p .price-quantity .quantity>input{
+        width: 60px;
+        height: 32px;
+        text-align: right;
+        padding-right:10px;
+    }
+    .cart-products .row{
+        margin-bottom: 15px;
+    }
+    .cart-actions{
+        background:#f2f2f2;
+    }
+    .cart-actions-group{
+        flex-direction: column-reverse;
+    }
+    .cart-actions-right .button{
+        width:100%;
+        background:#158cfb;
+        border-color:transparent;
+        padding:13px 0;
+    }
+    .cart-actions-left{
+        margin-top:10px;
+    }
+    .cart-actions-left-inner{
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    .cart-actions-left-inner>li{
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+    .cart-actions-left-inner .pipe{
+        border-left:none;
+        border-top:1px solid #d5d5d5;
+        padding-left:0;
+        margin-left:0;
+    }
+    .cart-rec-inner{
+        padding-left:0 !important;
+        padding-right:0 !important;
+    }
+    .cart-rec-inner-box{
+        flex-direction: column;
+    }
+    .cart-button{
+        background:#fff;
+        border-color:#e6e6e6;
+    }
+    .cart-rec-details{
+        display: flex;
+        flex-direction: column;
+    }
+    .cart-rec-title{
+        flex: 1;
+    }
+    .questions-section{
+        display: flex;
+        flex-direction: column;
+        padding-bottom:0;
+    }
+    .questions-section:last-child{
+        border-top:none;
+    }
+    .faq-list{
+        width:100%;
+        padding:0;
+        border-bottom:1px solid #d5d5d5;
+        overflow: hidden;
+        transition:all .4s linear;
+        height:49px;
+    }
+    .faq-title{
+        position:relative;
+        color:#158cfb;
+    }
+    .faq-title:after{
+        display: inline-block;
+        content: "";
+        background-image: url(../img/icon/sprites.svg);
+        background-repeat: no-repeat;
+        background-size: auto 10.0rem;
+        background-position: -32.6rem -3.5rem;
+        height: 1rem;
+        width: 1.5rem;
+        position: absolute;
+        right: 0;
+        top: 17px;
+        transition:all .2s ease;
+    }
+    .details-show .faq-title:after{
+        transform:rotate(180deg);
+    }
+    .faq-details{
+        padding-bottom: 5px;
+    }
+}
 
 /*------ 平板端 ------*/
 @media screen and (max-width:1068px) and (min-width: 768px){

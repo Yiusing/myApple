@@ -3,19 +3,23 @@
 }
 .localnav{
     flex-wrap: nowrap;
-    width:980px;
+    width:73%;
     margin:0 auto !important;
     padding:7px 0 10px;
+    display: flex;
+    justify-content: space-between;
 }
 .localnav-title{
-    font-size:24px;
+    font-size:1.4rem;
     font-weight:500;
     margin-top:3px;
     margin-bottom:13px;
     color:#111;
 }
 .localnav-content{
-    line-height:36px ;
+    line-height:36px;
+    width: 16%;
+    min-width: 160px;
 }
 .localnav-header a{
     text-decoration: none;
@@ -30,7 +34,7 @@
     margin:0;
 }
 .localnav-link{
-    font-size:12px;
+    font-size:0.7rem;
     font-weight:400;
     color:#333;
 }
@@ -45,12 +49,14 @@
 .as-configuration{
     margin-top:70px;
     width:100%;
+    margin-left:0 !important;
+    margin-right:0 !important;
 }
 .as-configuration-header{
     padding-right:45px;
 }
 .as-configuration-maintitle{
-    font-size:32px;
+    font-size:2.1rem;
     font-weight:600;
     min-width:480px;
 }
@@ -58,23 +64,23 @@
     margin-top:12px;
 }
 .as-productsummary-addon{
-    font-size:14px;
+    font-size:.8rem;
     font-weight:400;
     margin-bottom: 11px;
-    white-space: nowrap;
+
 }
 .as-title-count{
-    font-size:17px;
+    font-size:1rem;
     font-weight:600;
 }
 .as-configuration-learnmorelink{
-    font-size:14px;
+    font-size:.8rem;
     font-weight:400;
     color:#0070c9;
 }
 .as-optionselector{
     margin-top:10px;
-    font-size:17px;
+    font-size:1rem;
     font-weight:600;
     position:relative;
 }
@@ -116,7 +122,7 @@
     border-color: #7b7b7b;
 }
 .form-dropdown{
-    font-size:17px;
+    font-size:1rem;
     font-weight:400;
     display: block;
     height:3.3em;
@@ -134,7 +140,7 @@
     position:absolute;
     top:4px;
     left:15px;
-    font-size:12px;
+    font-size:0.7rem;
     font-weight:400;
     color:#666;
     pointer-events: none;
@@ -152,7 +158,7 @@
     margin-top:40px;
 }
 .as-configuration-title{
-    font-size:24px;
+    font-size:1.4rem;
     font-weight:600;
 }
 .form-selector-twocolumns{
@@ -189,7 +195,7 @@
 }
 .as-imagelist-title{
     text-align: center;
-    font-size:40px;
+    font-size:2.35rem;
     font-weight:600;
 }
 .as-imagelist{
@@ -198,9 +204,10 @@
     margin-top:50px;
     margin-left:auto;
     margin-right:auto;
+    justify-content: center;
 }
 .as-imagelist-label{
-    font-size:14px;
+    font-size:.8rem;
     font-weight:400;
     margin-top:20px;
     padding:0 50px;
@@ -212,7 +219,7 @@
 .as-configuration-img{
     position:absolute;
     text-align: center;
-    left:10%;
+    left:8%;
 }
 .as-configuration-img.fixed{
     position:fixed;
@@ -227,34 +234,48 @@
 }
 .as-configurations-viewgallery{
     text-align: center;
-    font-size: 14px;
+    font-size: .8rem;
     font-weight:400;
-    margin-top:20px;
 }
 
 .as-actiontray{
-    min-height:130px;
+    min-height:115px;
     position: fixed;
     bottom:0;
     border-top:1px solid #d6d6d6;
-    font-size:12px;
+    font-size:.7rem;
     font-weight:400;
     background:#f8f8f8;
     z-index: 999;
     width:100%;
-    white-space: nowrap;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
 }
 .as-actiontray .row{
     flex-wrap: nowrap;
 }
 .as-actiontray-icon{
     display:inline-block;
-    width:25px;
-    height:23px;
+    width:20px;
+    height:22px;
+    background-repeat: no-repeat;
+    background-size:100%;
+    vertical-align: middle;
+}
+.loan-icon{
+    background-image:url("../img/icon/finance-ribbon-2014_GEO_CN.png");
+    margin-right:10px;
+}
+.chat-icon{
+    background-image:url("../img/icon/chat.png");
+}
+.box-icon{
+    background-image: url("../img/icon/box.png");
 }
 .as-actiontray-chatonline{
     text-align: left;
-    margin-left:5px;
+    margin-left:10px;
 }
 .toggletray{
     display: flex;
@@ -269,14 +290,13 @@
     text-align: right;
 }
 .price{
-    font-size:32px;
+    font-size:1.88rem;
     font-weight:600;
     margin:0;
 }
 .as-purchaseoptionscontainer{
     display: flex;
     margin-top:20px;
-    padding-left:40px !important;
 }
 .add-to-cart{
     margin-left:20px;
@@ -299,9 +319,9 @@
 }
 .ase-gallery-scroll{
     height:100%;
-    white-space: nowrap;
     transform:translateX(0);
     transition:all .4s linear;
+    white-space: nowrap;
 }
 .ase-gallery-item{
     display:inline-block;
@@ -390,4 +410,253 @@
 }
 #footer{
     padding-bottom:130px;
+}
+
+/*------ 平板端 ------*/
+@media screen and (max-width:1068px) and (min-width: 768px){
+    .hero-img{
+        width: 300px;
+    }
+    .as-configuration-maintitle{
+        min-width: 350px;
+    }
+    .as-imagelist-hero >img{
+        height:315px;
+    }
+    .as-imagelist-label{
+        padding:0;
+    }
+    .as-configuration-main{
+        padding:0;
+    }
+}
+.as-configuration-phone-img{
+    display: none;
+}
+.toggletray.loan{
+    display: none;
+}
+.as-actiontray-details{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+}
+.toggletray.hide-btn{
+    display: none;
+}
+.show-menu-link{
+    display: none;
+}
+/*------ 手机端 ------*/
+@media screen and (max-width: 767px){
+    .localnav{
+        flex-direction: column;
+    }
+    .as-configuration-img{
+        display:none;
+    }
+    .as-configuration-main{
+        width:100%;
+        max-width: none;
+        margin-left:0;
+        flex:none;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+    .as-configuration-phone-img{
+        display: block;
+        text-align: center;
+        margin:40px 0;
+    }
+    .hero-img{
+        width:224px;
+    }
+    .as-configuration-header{
+        padding-right:0;
+    }
+    .as-configuration-maintitle{
+        min-width: auto;
+        width:90%;
+    }
+    .as-configurations-viewgallery{
+        margin-top:15px;
+    }
+    .as-productsummary{
+        margin-bottom:20px;
+    }
+    .as-configuration-categoryhardware{
+        padding-top:10px;
+    }
+    .as-optionselector{
+        font-size:1.3rem
+    }
+    .as-optionselector-option-content-title{
+        min-width: 160px;
+    }
+    .form-icon{
+        width: 12px;
+        top: 19px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+    .as-title-count{
+        font-size:1.3rem;
+    }
+    .as-imagelist{
+        display: none;
+    }
+    .mint-swipe{
+        height: 480px;
+        width: 90%;
+        margin: 30px auto 0;
+    }
+    .mint-swipe img{
+        height:392px;
+    }
+    .mint-swipe-indicator.is-active{
+        background:#000;
+        opacity: .5;
+    }
+    .mint-swipe-indicator{
+        margin: 0 7px;
+    }
+    .as-imagelist-hero{
+        text-align: center;
+    }
+    .as-imagelist-label{
+        text-align: center;
+    }
+    .localnav-links{
+        flex-direction: column;
+    }
+    .localnav-content{
+        width: 82%;
+        margin: 12px auto;
+    }
+    .localnav-links li~li{
+        border-top:1px solid #eaeaea;
+    }
+    .localnav-wrapper{
+        position: absolute;
+        top: 88px;
+        width: 100%;
+        overflow: hidden;
+        height: 40px;
+        z-index: 2;
+        background: #fff;
+        transition: height .4s ease;
+    }
+
+    .localnav{
+        width:90%;
+        padding-top:4px;
+    }
+    .localnav-header>div{
+        display: flex;
+        justify-content: space-between;
+    }
+    .localnav-menu-icon:after{
+        display: inline-block;
+        content: "";
+        width: 22px;
+        height: 20px;
+        background:url("../img/icon/sprites.svg");
+        background-repeat: no-repeat;
+        background-size: auto 10.0rem;
+        background-position: -32.6rem -0.0rem;
+        transition:transform .2s ease;
+        position:absolute;
+        left:50%;
+        top:50%;
+        margin-left:-11px;
+        margin-top:-5px;
+        transform-origin:center top;
+    }
+    .menu-show .localnav-menu-icon:after{
+        transform:rotateX(180deg);
+    }
+    .localnav-menu-icon{
+        width:20%;
+        position:relative;
+    }
+    .as-actiontray{
+        display: block;
+        top:0;
+        bottom:unset;
+        min-height: auto;
+        padding:20px;
+        border-bottom:1px solid #d6d6d6;
+        overflow: hidden;
+        height:90px;
+        transition:height .4s ease;
+    }
+
+    .toggletray.loan{
+        display: block;
+    }
+    .as-actiontray-details{
+        flex-direction: column;
+        width:100%;
+    }
+    .as-purchaseoptionscontainer{
+        margin-top:0;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #d6d6d6;
+        padding-bottom: 20px;
+    }
+    .financing{
+        display: none;
+    }
+    .priceFinance{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .toggletray{
+        justify-content:flex-start;
+    }
+    .toggletray.hide-btn{
+        display: block;
+    }
+    .toggletray.hide-btn:after{
+        display: inline-block;
+        content: "";
+        width: 20px;
+        height: 17px;
+        background-image: url(../img/icon/sprites.svg);
+        background-repeat: no-repeat;
+        background-size: auto 8rem;
+        background-position: -259px -65px;
+        vertical-align: bottom;
+        position: absolute;
+        left: 69px;
+    }
+    .show-menu-link{
+        display: block;
+        width:100%;
+        text-align: left;
+        margin-top:5px;
+        position: relative;
+        color:#0070c9;
+    }
+    .show-menu-link:after{
+        display: inline-block;
+        content: "";
+        width:20px;
+        height:17px;
+        background-image:url("../img/icon/sprites.svg");
+        background-repeat: no-repeat;
+        background-size: auto 8rem;
+        background-position: -313px -65px;
+        vertical-align: bottom;
+        position:absolute;
+        left:50px;
+    }
+    .as-actiontray.shop-menu-show .show-menu-link{
+        display: none;
+    }
+    .as-actiontray.shop-menu-show .price{
+        transform: translateY(15px);
+    }
 }

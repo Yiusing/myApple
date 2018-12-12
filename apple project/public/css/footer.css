@@ -89,6 +89,7 @@
         top:5px;
         right:0;
         z-index: 1;
+        transition:all .2s linear;
     }
     .ft-head{
         padding: 7px 0;
@@ -102,6 +103,9 @@
     }
     #footer>div.ft-content>nav>div>.ft-directory-column-section.more{
         height:285px;
+    }
+    .more:after,.shop:after,.edu:after,.bus:after,.ac:after,.val:after,.ab:after{
+        transform:rotateZ(45deg);
     }
     #footer>div.ft-content>nav>div>.ft-directory-column-section.shop{
         height:339px;

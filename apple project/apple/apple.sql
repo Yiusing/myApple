@@ -27,9 +27,21 @@ CREATE TABLE ap_user (
   #创建验证码表
 CREATE TABLE ap_idms (
   iid INT PRIMARY KEY AUTO_INCREMENT,
-  idms_url VARCHAR(128),
-  idms_codes CHAR(4)
+  idms_url VARCHAR(128) NOT NULL DEFAULT '',
+  idms_codes CHAR(4) NOT NULL DEFAULT ''
 );
+
+  #创建购物车表
+CREATE TABLE ap_cart(
+  cid INT PRIMARY KEY AUTO_INCREMENT,
+  uid INT,
+  pid INT,
+  count INT,
+  giftPack INT  #1有包装可选 0没有包装可选
+)
+
+INSERT INTO `ap_cart`(`cid`, `uid`, `pid`, `count`, `giftPack`) VALUES (NULL,1,1,10,1);
+INSERT INTO `ap_cart`(`cid`, `uid`, `pid`, `count`, `giftPack`) VALUES (NULL,1,2,5,0);
 
 INSERT INTO `ap_user`(`uid`, `uname`, `upwd`, `qs1`,`qs1Answer`, `qs2`,`qs2Answer`,`qs3`,`qs3Answer`,`user_lastName`,`user_firstName`,`country`,`birthday`,`isGetNews`,`isGetItunes`) VALUES (null,"1234@163.com",md5('123456'),100,"abc",101,"abc",102,"abc","李","荣浩","CHN","1995年11月11日",0,0);
 

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="css/shopbag.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shopbag.css">
     <title>shopbag</title>
 </head>
 <body>
@@ -44,7 +44,7 @@
                             </a>
                         </div>
                         <!--详情-->
-                        <div class="col-md-9">
+                        <div class="col-md-9 products-content">
                             <div class="products-title">
                                 <a href="javascript:;" class="products-title-link">
                                     13 英寸 MacBook Pro - 深空灰色
@@ -63,6 +63,9 @@
                                     </li>
                                 </ul>
                             </div>
+                            <div class="products-price">
+                                RMB 9,499
+                            </div>
                             <div class="shipping-product-admin thr">
                                 <span class="availShip">发货： 1-3 个工作日</span>
                                 <a href="javascript:;" class="product-admin">删除</a>
@@ -70,29 +73,35 @@
                                     <span>编号: Z0UH</span>
                                 </div>
                             </div>
-                            <div class="product-details-group clear">
-                                <!--硬件-->
-                                <div class="gs">
-                                    <span class="fwb">硬件</span>
-                                    <ul class="gs-list">
-                                        <li class="item">2.5GHz 双核第七代 Intel Core i7 处理器，Turbo Boost 最高可达 4.0GHz</li>
-                                        <li class="item">Intel Iris Plus Graphics 640 图形处理器</li>
-                                        <li class="item">8GB 2133MHz LPDDR3 内存</li>
-                                        <li class="item">128GB 固态硬盘</li>
-                                        <li class="item">两个雷雳 3 端口</li>
-                                        <li class="item">背光键盘 - 中文 - 拼音</li>
-                                        <li class="item">配件套件</li>
-                                        <li class="item">Force Touch 触控板</li>
-                                    </ul>
+                            <div class="product-details-group clear" :class="{'details-show':i==productsIndex}" :style="productsIndex==i?detailsHeight:''">
+                                <div class="show-products-details" @click="showDetails($event,i)">
+                                    <h3 href="javascript:;" v-if="!i==productsIndex" class="show-link">显示礼品选项</h3>
+                                    <h3 href="javascript:;" v-else class="show-link">隐藏礼品选项</h3>
                                 </div>
-                                <!--软件-->
-                                <div class="gs">
-                                    <span>软件</span>
-                                    <ul class="gs-list">
-                                        <li class="item">macOS</li>
-                                        <li class="item">照片、iMovie、GarageBand</li>
-                                        <li class="item">Pages、Numbers、Keynote</li>
-                                    </ul>
+                                <div class="product-details">
+                                    <!--硬件-->
+                                    <div class="gs">
+                                        <span class="fwb">硬件</span>
+                                        <ul class="gs-list">
+                                            <li class="item">2.5GHz 双核第七代 Intel Core i7 处理器，Turbo Boost 最高可达 4.0GHz</li>
+                                            <li class="item">Intel Iris Plus Graphics 640 图形处理器</li>
+                                            <li class="item">8GB 2133MHz LPDDR3 内存</li>
+                                            <li class="item">128GB 固态硬盘</li>
+                                            <li class="item">两个雷雳 3 端口</li>
+                                            <li class="item">背光键盘 - 中文 - 拼音</li>
+                                            <li class="item">配件套件</li>
+                                            <li class="item">Force Touch 触控板</li>
+                                        </ul>
+                                    </div>
+                                    <!--软件-->
+                                    <div class="gs">
+                                        <span>软件</span>
+                                        <ul class="gs-list">
+                                            <li class="item">macOS</li>
+                                            <li class="item">照片、iMovie、GarageBand</li>
+                                            <li class="item">Pages、Numbers、Keynote</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                             <div class="product-gift">
@@ -131,7 +140,16 @@
                                     </ul>
                                 </div>
                             </div>
-
+                            <div class="phone-products-c-p">
+                                <ul class="price-quantity">
+                                    <li class="item quantity">
+                                        <input type="text" value="1" v-model="count">
+                                    </li>
+                                    <li class="item">
+                                        <span class="quantity-price">RMB {{total|addCommas}} </span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -145,7 +163,7 @@
                             </a>
                         </div>
                         <!--详情-->
-                        <div class="col-md-9">
+                        <div class="col-md-9 products-content">
                             <div class="products-title">
                                 <a href="javascript:;" class="products-title-link">
                                     13 英寸 MacBook Pro - 深空灰色
@@ -246,7 +264,7 @@
                             </a>
                         </div>
                         <!--详情-->
-                        <div class="col-md-9">
+                        <div class="col-md-9 products-content">
                             <div class="products-title">
                                 <a href="javascript:;" class="products-title-link">
                                     iPhone XS 64GB 银色
@@ -350,7 +368,7 @@
             <!--内容-->
             <div class="col-md-12 cart-rec-inner thr">
                 <div class="row">
-                    <div class="col-md-6 cart-rec-inner-box clearpx">
+                    <div class="col-6 cart-rec-inner-box clearpx">
                         <!--图片-->
                         <div>
                             <a href="javascript:;">
@@ -366,7 +384,7 @@
                             <a href="javascript:;" class="cart-button">添加到购物袋</a>
                         </div>
                     </div>
-                    <div class="col-md-6 cart-rec-inner-box clearpx">
+                    <div class="col-6 cart-rec-inner-box clearpx">
                         <!--图片-->
                         <div>
                             <a href="javascript:;">
@@ -384,7 +402,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 cart-rec-inner-box clearpx">
+                    <div class="col-6 cart-rec-inner-box clearpx">
                         <!--图片-->
                         <div>
                             <a href="javascript:;">
@@ -401,7 +419,7 @@
                             <a href="javascript:;" class="cart-button">添加到购物袋</a>
                         </div>
                     </div>
-                    <div class="col-md-6 cart-rec-inner-box clearpx">
+                    <div class="col-6 cart-rec-inner-box clearpx">
                         <!--图片-->
                         <div>
                             <a href="javascript:;">
@@ -431,8 +449,10 @@
             </div>
             <!--内容-->
             <div class="col-md-12 thr questions-section clearpx">
-                <div class="faq-list">
-                    <h3 class="faq-title">我何时能收到订购的商品？</h3>
+                <div class="faq-list" :class="{'details-show':qsIndex==1}" :style="qsIndex==1?qsHeight:''">
+                    <div>
+                        <h3 class="faq-title" @click="showQsDetials($event,1)">我何时能收到订购的商品？</h3>
+                    </div>
                     <p class="faq-details">
                         送达日期是将您的产品送达您的收货地址的预计日期。这考虑到了仓库处理时间（即“发货”时间）和承运商的送达时间。
                         <br>
@@ -440,8 +460,10 @@
                         我们会在结帐流程中提供有关发货选项和送达日期的更多信息。了解有关<a href="javascripg:;">发货与交货</a>的更多信息。
                     </p>
                 </div>
-                <div class="faq-list">
-                    <h3 class="faq-title">我可以使用哪些付款方式？</h3>
+                <div class="faq-list" :class="{'details-show':qsIndex==2}" :style="qsIndex==2?qsHeight:''">
+                    <div>
+                        <h3 class="faq-title" @click="showQsDetials($event,2)">我可以使用哪些付款方式？</h3>
+                    </div>
                     <p class="faq-details">
                         所有运送选项均有多种付款方式供您选择，包括信用卡和借记卡。
                         <br>
@@ -452,16 +474,20 @@
                         了解有关<a href="javascripg:;">付款</a>方式的更多信息。
                     </p>
                 </div>
-                <div class="faq-list">
-                    <h3 class="faq-title">Apple 的退货和退款政策是如何规定的？</h3>
+                <div class="faq-list" :class="{'details-show':qsIndex==3}" :style="qsIndex==3?qsHeight:''">
+                    <div >
+                        <h3 class="faq-title" @click="showQsDetials($event,3)">Apple 的退货和退款政策是如何规定的？</h3>
+                    </div>
                     <p class="faq-details">
                         如果您对所购产品不满意，可以按照相关规定办理退货。了解有关<a href="javascripg:;">退货和退款</a>的更多信息。
                     </p>
                 </div>
             </div>
             <div class="col-md-12 thr questions-section clearpx">
-                <div class="faq-list">
-                    <h3 class="faq-title">Apple 是否提供教育折扣？</h3>
+                <div class="faq-list" :class="{'details-show':qsIndex==4}" :style="qsIndex==4?qsHeight:''">
+                    <div>
+                        <h3 class="faq-title" @click="showQsDetials($event,4)">Apple 是否提供教育折扣？</h3>
+                    </div>
                     <p class="faq-details">
                         Apple 面向学生、教师以及学校的行政人员和职工提供特价优惠。如果您认为自己符合条件，请前往下订单并了解教育优惠方面的更多信息。<a href="javascripg:;"> Apple Store 教育商店</a>
                     </p>

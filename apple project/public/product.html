@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/mint-ui/style.css">
     <link rel="stylesheet" href="css/product.css">
     <title>Products</title>
 </head>
@@ -11,12 +13,15 @@
 <!--Top-->
 <header id="header"></header>
 <div id="app">
-    <div class="localnav-wrapper">
-        <div class="localnav row">
-            <div class="col-lg-3 localnav-header">
-                <a href="#" class="localnav-title">MacBook Pro</a>
+    <div class="localnav-wrapper" :style="menuHeight">
+        <div class="localnav row" :class="{'menu-show':menuIndex==1}">
+            <div class="localnav-header">
+                <div>
+                    <a href="#" class="localnav-title">MacBook Pro</a>
+                    <div class="localnav-menu-icon" @click="showMenu($event)"></div>
+                </div>
             </div>
-            <div class="col-lg-2 offset-lg-7 localnav-content">
+            <div class="localnav-content">
                 <ul class="localnav-links">
                     <li><a href="#" class="localnav-link">概览</a></li>
                     <li><a href="#" class="localnav-link">macOS</a></li>
@@ -40,6 +45,12 @@
             <div class="offset-6 col-5 as-configuration-main">
                 <div class="as-configuration-header">
                     <h1 class="as-configuration-maintitle">定制你的 13 英寸 MacBook Pro - 深空灰色</h1>
+                </div>
+                <div   class="as-configuration-phone-img"  @click="removeFade()">
+                    <img src="img/products/macbookpro/mbp13-space-select-201807_GEO_CN.jpg" width="904" height="840" class="hero-img">
+                    <div class="as-configurations-viewgallery">
+                        <a href="javascript:;">查看图库</a>
+                    </div>
                 </div>
                 <div class="as-productsummary">
                     <ul class="as-productsummary-addons">
@@ -265,7 +276,7 @@
         <!--包装内容-->
         <div class="as-imagelist-container row">
             <h2 class="as-imagelist-title col-12">包装内容</h2>
-            <ul class="as-imagelist col-lg-9">
+            <ul class="as-imagelist">
                 <li class="as-imagelist-item">
                     <div class="as-imagelist-content">
                         <div class="as-imagelist-hero">
@@ -291,20 +302,56 @@
                     </div>
                 </li>
             </ul>
+            <mt-swipe :auto="0" :show-indicator="true">
+                <mt-swipe-item>
+                    <div class="as-imagelist-hero">
+                        <img src="img/products/macbookpro/mbp13-witb-gray-201610_FMT_WHH.jpg" alt="image.alt.mbp13-witb-gray-201610">
+                    </div>
+                    <h3 class="as-imagelist-label">13 英寸 MacBook Pro</h3>
+                </mt-swipe-item>
+                <mt-swipe-item>
+                    <div class="as-imagelist-hero">
+                        <img src="img/products/macbookpro/mbp-witb-cable-201610.jpg" alt="image.alt.mbp13-witb-gray-201610">
+                    </div>
+                    <h3 class="as-imagelist-label">USB-C 充电线(2 米)</h3>
+                </mt-swipe-item>
+                <mt-swipe-item>
+                    <div class="as-imagelist-hero">
+                        <img src="img/products/macbookpro/mbp-13-witb-adapter-201808_GEO_CN_FMT_WHH.jpg" alt="image.alt.mbp13-witb-gray-201610">
+                    </div>
+                    <h3 class="as-imagelist-label">61W USB-C 电源适配器</h3>
+                </mt-swipe-item>
+            </mt-swipe>
         </div>
         <!--底部固定栏-->
-        <div id="actiontray" class="as-actiontray">
-            <div class="row">
-                <div class="col-lg-3 offset-lg-1 toggletray">
-                    <span class="as-actiontray-icon">图标</span>
+        <div id="actiontray" class="as-actiontray" :style="shopHeight" :class="{'shop-menu-show':shopIndex==1}">
+            <div class="as-purchaseoptionscontainer">
+                <div class="priceFinance">
+                    <h2 class="price">RMB 12,459</h2>
+                    <a href="#" class="financing">更有分期付款选择。</a>
+                    <div class="show-menu-link" @click="showMore($event)">
+                        显示选项
+                    </div>
+                </div>
+                <div class="add-to-cart">
+                    <button type="submit" class="button" name="add-to-cart">添加到购物袋</button>
+                </div>
+            </div>
+            <div class="as-actiontray-details">
+                <div class="toggletray loan">
+                    <span class="as-actiontray-icon loan-icon"></span>
+                    <a href="javascript:;">12个月免息分期，每月仅约 RMB 850</a>
+                </div>
+                <div class="toggletray">
+                    <span class="as-actiontray-icon chat-icon"></span>
                     <ul class="as-actiontray-chatonline">
                         <li>获得购买帮助:</li>
                         <li><a href="#">开始交流</a></li>
                         <li>致电 400-666-8800</li>
                     </ul>
                 </div>
-                <div class="col-lg-3 toggletray">
-                    <span class="as-actiontray-icon">图标</span>
+                <div class="toggletray">
+                    <span class="as-actiontray-icon box-icon"></span>
                     <ul class="as-actiontray-chatonline">
                         <li>发货:</li>
                         <li class="as-purchaseinfo-dudeinfo-deliverymsg">1-3 个工作日</li>
@@ -312,14 +359,8 @@
                         <li><a href="#">查看送货日期</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-5 as-purchaseoptionscontainer">
-                    <div class="priceFinance">
-                        <h2 class="price">RMB 12,459</h2>
-                        <a href="#" class="financing">更有分期付款选择。</a>
-                    </div>
-                    <div class="add-to-cart">
-                        <button type="submit" class="button" name="add-to-cart">添加到购物袋</button>
-                    </div>
+                <div class="toggletray hide-btn">
+                    <a href="javascript:;" @click="hideShopMenu()">隐藏选项</a>
                 </div>
             </div>
         </div>
@@ -348,6 +389,7 @@
 <script src="js/vue.js"></script>
 <script src="js/axios.min.js"></script>
 <script src="js/qs.min.js"></script>
+<script src="js/mint-ui/index.js"></script>
 <script src="js/header.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/product.js"></script>

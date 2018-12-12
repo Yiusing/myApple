@@ -21,7 +21,15 @@ new Vue({
         carouselX:{
             transform:"translateX(0px)"
         },
-        res:{}
+        res:{},
+        menuIndex:"",
+        menuHeight:{
+            height:""
+        },
+        shopIndex:"",
+        shopHeight:{
+            height:"90px"
+        }
     },
     methods:{
         removeFade(){
@@ -45,6 +53,28 @@ new Vue({
                 this.style.tx=-i*100;
                 this.carouselX.transform=`translateX(${this.style.tx}%)`
             }
+        },
+        showMenu(e){
+            this.accor(e,1,'menuIndex','menuHeight',40);
+        },
+        showMore(e){
+            this.accor(e,1,'shopIndex','shopHeight',90)
+        },
+        hideShopMenu(){
+            this.shopHeight.height="90px";
+            setTimeout(()=>{this.shopIndex=""},400)
+        },
+        //手风琴效果
+        accor(e,i,index,classN,baseHeight){
+            var p = e.target.parentNode.parentNode.parentNode;
+            var height = window.getComputedStyle(e.target.parentNode.parentNode.nextElementSibling).height;
+            if(this[index]!=i){
+                this[index]=i;
+                this[classN].height=parseInt(height)+baseHeight+40+"px";
+            }else{
+                this[index]="";
+                this[classN].height= baseHeight+"px";
+            }
         }
     },
     mounted(){
@@ -53,10 +83,23 @@ new Vue({
             proPic:[1,2,3,4]
         }
         this.res = res;
-        //////  吸顶效果  /////
+
         window.onscroll=()=>{
             var top = document.documentElement.scrollTop;
-
+            if(top>100){
+                this.shopHeight={
+                    height:"90px",
+                    "border-bottom": "1px solid #d6d6d6",
+                    padding:"20px"
+                }
+            }else{
+                this.shopHeight={
+                    height:"0",
+                    border:"none",
+                    padding:"0"
+                }
+            }
+            //////  吸顶效果  /////
             if(top>212&&top<1571){
                 this.isFixed.fixed=true;
             }else{
