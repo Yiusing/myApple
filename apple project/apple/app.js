@@ -4,7 +4,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const session = require("express-session")
 /////  引入路由器  /////
-const user = require("./routes/user")
+const user = require("./routes/user");
+const product = require("./routes/product")
 ////// 创建服务器 /////
 var app = express();
 app.listen(8080,()=>{
@@ -34,3 +35,4 @@ app.use(express.static("../public"))
 
 ////挂载路由
 app.use("/user",user)
+app.use("/product",product)
