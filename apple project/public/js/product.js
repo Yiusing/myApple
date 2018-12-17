@@ -52,9 +52,12 @@ new Vue({
         harddrivePrice:[],
         softPrice:[],
         val:{
-            cpu:0,
-            hd:0,
-            sf:0
+            cpu:1,
+            memory:1,
+            harddrive:1,
+            lang:"CH",
+            soft:[[1,0],[2,0]],
+            count:1
         },
         totalPrice:0
     },
@@ -128,6 +131,20 @@ new Vue({
         },
         showSoftPrice(i,j){
             this.calcPrice(j,this.softPrice[i])
+        },
+        addCart(){
+            this.val.pid=1;
+            this.val.totalPrice=this.totalPrice;
+            axios.get("http://localhost:8080/product/shoppingCart",{
+                params:this.val
+            }).then(res=>{
+                alert(res.data.msg);
+                if(res.data.code==0){
+                    location.href = "login.html"
+                }else{
+                    location.href="shopbag.html"
+                }
+            })
         }
     },
     mounted(){
@@ -139,7 +156,6 @@ new Vue({
             }
         }).then(res=>{
             this.res  = res.data.data;
-            console.log(this.res)
             this.cpuPrice = this.res.cpu;
             this.memoryPrice = this.res.memory;
             this.harddrivePrice = this.res.harddrive;

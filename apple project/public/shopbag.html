@@ -26,7 +26,7 @@
             </div>
         </div>
         <!--cart-->
-        <div class="cart box-style row">
+        <div class="cart box-style row" v-if="hasLogin">
             <div class="box col-md-12">
                 <!--标题-->
                 <div class="col-md-12 clearpx">
@@ -35,36 +35,36 @@
                     </div>
                 </div>
                 <!--购物袋商品-->
-                <div class="col-md-12 thr cart-products">
+                <div class="col-md-12 thr cart-products" v-for="(elem,index) of res">
                     <div class="row">
                         <!--商品图片-->
                         <div class="col-md-3 products-img-box">
                             <a href="javascript:;" class="products-img-link">
-                                <img src="img/shopbag/MBP13GNT-201807.jpg">
+                                <img :src="elem.sm_pic">
                             </a>
                         </div>
                         <!--详情-->
                         <div class="col-md-9 products-content">
                             <div class="products-title">
-                                <a href="javascript:;" class="products-title-link">
-                                    13 英寸 MacBook Pro - 深空灰色
+                                <a href="javascript:;" class="products-title-link" v-text="elem.pdu_title">
+
                                 </a>
                                 <ul class="price-quantity">
                                     <li class="item">
-                                        <span>RMB {{res.price|addCommas}}</span>
+                                        <span>RMB {{elem.totalPrice|addCommas}}</span>
                                     </li>
                                     <li class="item quantity">
-                                        <button class="button" @click="changeCount(-1)">-</button>
-                                        <input type="text" value="1" v-model="count">
-                                        <button class="button" @click="changeCount(+1)">+</button>
+                                        <button class="button" @click="changeCount(-1,index)">-</button>
+                                        <input type="text" v-model="elem.count">
+                                        <button class="button" @click="changeCount(+1,index)">+</button>
                                     </li>
                                     <li class="item">
-                                        <span class="quantity-price">RMB {{total|addCommas}} </span>
+                                        <span class="quantity-price">RMB {{elem.count*elem.totalPrice|addCommas}} </span>
                                     </li>
                                 </ul>
                             </div>
                             <div class="products-price">
-                                RMB 9,499
+                                RMB {{elem.totalPrice|addCommas}}
                             </div>
                             <div class="shipping-product-admin thr">
                                 <span class="availShip">发货： 1-3 个工作日</span>
@@ -73,22 +73,22 @@
                                     <span>编号: Z0UH</span>
                                 </div>
                             </div>
-                            <div class="product-details-group clear" :class="{'details-show':i==productsIndex}" :style="productsIndex==i?detailsHeight:''">
-                                <div class="show-products-details" @click="showDetails($event,i)">
-                                    <h3 href="javascript:;" v-if="!i==productsIndex" class="show-link">显示礼品选项</h3>
-                                    <h3 href="javascript:;" v-else class="show-link">隐藏礼品选项</h3>
+                            <div class="product-details-group clear" :class="{'details-show':productsIndex===index}" :style="productsIndex===index?detailsHeight:''">
+                                <div class="show-products-details" @click="showDetails($event,index)">
+                                    <h3 href="javascript:;" v-if="productsIndex!==index" class="show-link">显示商品详情</h3>
+                                    <h3 href="javascript:;" v-else class="show-link">隐藏商品详情</h3>
                                 </div>
                                 <div class="product-details">
                                     <!--硬件-->
                                     <div class="gs">
                                         <span class="fwb">硬件</span>
                                         <ul class="gs-list">
-                                            <li class="item">2.5GHz 双核第七代 Intel Core i7 处理器，Turbo Boost 最高可达 4.0GHz</li>
+                                            <li class="item" v-text="elem.cpu_title"></li>
                                             <li class="item">Intel Iris Plus Graphics 640 图形处理器</li>
-                                            <li class="item">8GB 2133MHz LPDDR3 内存</li>
-                                            <li class="item">128GB 固态硬盘</li>
+                                            <li class="item" v-text="elem.mo_title"></li>
+                                            <li class="item" v-text="elem.hd_title"></li>
                                             <li class="item">两个雷雳 3 端口</li>
-                                            <li class="item">背光键盘 - 中文 - 拼音</li>
+                                            <li class="item" v-text="elem.lang_title"></li>
                                             <li class="item">配件套件</li>
                                             <li class="item">Force Touch 触控板</li>
                                         </ul>
@@ -106,32 +106,32 @@
                             </div>
                             <div class="product-gift">
                                 <div class="product-gift-btn">
-                                    <div class="product-gift-link" v-show="!giftShow">礼品选项</div>
-                                    <a href="javascript:;" class="product-gift-link" @click="showMore()" v-show="giftShow">{{giftOpt}}</a>
+                                    <div class="product-gift-link" v-show="giftShow[index]">礼品选项</div>
+                                    <a href="javascript:;" class="product-gift-link" @click="showMore(index)" v-show="!giftShow[index]">{{giftIndex===index?giftOpt:(parseInt(totalheight.height[index].height)===0?'显示礼品选项':'隐藏礼品选项')}}</a>
                                 </div>
-                                <div class="product-gift-details accordion accordion-hide" :style="totalheight">
+                                <div class="product-gift-details accordion accordion-hide" :style="totalheight.height[index]">
                                     <ul class="pgd-list-group">
                                         <li class="item">
-                                            <input type="radio" class="pgd-list-radio" name="gift" v-model="giftPack" value="0">
+                                            <input type="radio" class="pgd-list-radio"  v-model="giftPack[index]" value="0" @click="changeIndex(index)">
                                             <div class="gift-txt-box">
                                                 <span>在送货清单上添加礼品赠言 - 免费</span>
-                                                <div :style="giftPack==0?height:0" class="gift-textarea accordion">
+                                                <div :style="giftPack[index]==0?height.height[index]:0" class="gift-textarea accordion">
                                                     <textarea name="gift-text" cols="30" rows="10" placeholder="添加免费礼物留言"></textarea>
                                                     <ul>
-                                                        <li><a href="javascript:;" @click="showMore(true)">取消</a></li>
+                                                        <li><a href="javascript:;" @click="showMore(index)">取消</a></li>
                                                         <li class="pipe"><a href="javascript:;">确认添加留言</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="item">
-                                            <input type="radio" class="pgd-list-radio" name="gift" v-model="giftPack" value="1">
+                                        <li class="item" v-show="elem.giftPack==1" >
+                                            <input type="radio" class="pgd-list-radio" v-model="giftPack[index]" value="1" @click="changeIndex(index)">
                                             <div class="gift-txt-box">
                                                 <span class="info">白色礼品包装及贺卡 - RMB 39</span>
-                                                <div class="accordion gift-textarea" :style="giftPack==1?height:0">
+                                                <div class="accordion gift-textarea" :style="giftPack[index]==1?height.height[index]:0">
                                                     <textarea name="gift-text" cols="30" rows="10" placeholder="在贺卡上添加文字(可选)"></textarea>
                                                     <ul>
-                                                        <li><a href="javascript:;" @click="showMore()">取消</a></li>
+                                                        <li><a href="javascript:;" @click="showMore(index)">取消</a></li>
                                                         <li class="pipe"><a href="javascript:;">添加礼品包装</a></li>
                                                     </ul>
                                                 </div>
@@ -140,6 +140,7 @@
                                     </ul>
                                 </div>
                             </div>
+
                             <div class="phone-products-c-p">
                                 <ul class="price-quantity">
                                     <li class="item quantity">
@@ -154,169 +155,6 @@
                     </div>
 
                 </div>
-                <div class="col-md-12 thr cart-products">
-                    <div class="row">
-                        <!--商品图片-->
-                        <div class="col-md-3 products-img-box">
-                            <a href="javascript:;" class="products-img-link">
-                                <img src="img/shopbag/MBP13GNT-201807.jpg">
-                            </a>
-                        </div>
-                        <!--详情-->
-                        <div class="col-md-9 products-content">
-                            <div class="products-title">
-                                <a href="javascript:;" class="products-title-link">
-                                    13 英寸 MacBook Pro - 深空灰色
-                                </a>
-                                <ul class="price-quantity">
-                                    <li class="item">
-                                        <span>RMB 20,069</span>
-                                    </li>
-                                    <li class="item quantity">
-                                        <button class="button">-</button>
-                                        <input type="text" value="1">
-                                        <button class="button">+</button>
-                                    </li>
-                                    <li class="item">
-                                        <span class="quantity-price">RMB 20,069</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shipping-product-admin thr">
-                                <span class="availShip">发货： 1-3 个工作日</span>
-                                <a href="javascript:;" class="product-admin">删除</a>
-                                <div class="product-number">
-                                    <span>编号: Z0UH</span>
-                                </div>
-                            </div>
-                            <div class="product-details-group clear">
-                                <!--硬件-->
-                                <div class="gs">
-                                    <span class="fwb">硬件</span>
-                                    <ul class="gs-list">
-                                        <li class="item">2.5GHz 双核第七代 Intel Core i7 处理器，Turbo Boost 最高可达 4.0GHz</li>
-                                        <li class="item">Intel Iris Plus Graphics 640 图形处理器</li>
-                                        <li class="item">16GB 2133MHz LPDDR3 内存</li>
-                                        <li class="item">1TB 固态硬盘</li>
-                                        <li class="item">两个雷雳 3 端口</li>
-                                        <li class="item">背光键盘 - 中文 - 拼音</li>
-                                        <li class="item">配件套件</li>
-                                        <li class="item">Force Touch 触控板</li>
-                                        <li class="item">Force Touch 触控板</li>
-                                    </ul>
-                                </div>
-                                <!--软件-->
-                                <div class="gs">
-                                    <span>软件</span>
-                                    <ul class="gs-list">
-                                        <li class="item">macOS</li>
-                                        <li class="item">照片、iMovie、GarageBand</li>
-                                        <li class="item">Pages、Numbers、Keynote</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-gift">
-                                <div class="product-gift-btn">
-                                    <a href="javascript:;" class="product-gift-link">显示礼品选项</a>
-                                </div>
-                                <div class="product-gift-details accordion accordion-hide" data-show-height="computed">
-                                    <ul class="pgd-list-group">
-                                        <li class="item">
-                                            <input type="radio" class="pgd-list-radio" name="gift">
-                                            <div class="gift-txt-box">
-                                                <span>在送货清单上添加礼品赠言 - 免费</span>
-                                                <div class="gift-textarea accordion" data-show-height="computed">
-                                                    <textarea name="gift-text" cols="30" rows="10" placeholder="添加免费礼物留言"></textarea>
-                                                    <ul>
-                                                        <li><a href="javascript:;">取消</a></li>
-                                                        <li class="pipe"><a href="javascript:;">确认添加留言</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="item">
-                                            <input type="radio" class="pgd-list-radio" name="gift">
-                                            <div class="gift-txt-box">
-                                                <span class="info">白色礼品包装及贺卡 - RMB 39</span>
-                                                <div class="accordion gift-textarea"  data-show-height="computed">
-                                                    <textarea name="gift-text" cols="30" rows="10" placeholder="在贺卡上添加文字(可选)"></textarea>
-                                                    <ul>
-                                                        <li><a href="javascript:;">取消</a></li>
-                                                        <li class="pipe"><a href="javascript:;">添加礼品包装</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-12 thr cart-products">
-                    <div class="row">
-                        <!--商品图片-->
-                        <div class="col-md-3 products-img-box">
-                            <a href="javascript:;" class="products-img-link">
-                                <img src="img/shopbag/iphone-xs-silver-select-2018.jpg">
-                            </a>
-                        </div>
-                        <!--详情-->
-                        <div class="col-md-9 products-content">
-                            <div class="products-title">
-                                <a href="javascript:;" class="products-title-link">
-                                    iPhone XS 64GB 银色
-                                </a>
-                                <ul class="price-quantity">
-                                    <li class="item">
-                                        <span>RMB 8,699</span>
-                                    </li>
-                                    <li class="item quantity">
-                                        <button class="button">-</button>
-                                        <input type="text" value="1">
-                                        <button class="button">+</button>
-                                    </li>
-                                    <li class="item">
-                                        <span class="quantity-price">RMB 8,699</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shipping-product-admin thr">
-                                <span class="availShip">送达日期: 有现货</span>
-                                <a href="javascript:;" class="product-admin">删除</a>
-                                <div class="product-number">
-                                    <span>编号: MT9Q2CH/A</span>
-                                </div>
-                            </div>
-                            <div class="product-gift">
-                                <div class="product-gift-btn">
-                                    <a href="javascript:;" class="product-gift-link">显示礼品选项</a>
-                                </div>
-                                <div class="product-gift-details accordion accordion-hide" data-show-height="computed">
-                                    <ul class="pgd-list-group">
-                                        <li class="item">
-                                            <div class="gift-txt-box">
-                                                <span>在送货清单上添加礼品赠言 - 免费</span>
-                                                <div class="gift-textarea accordion" data-show-height="computed">
-                                                    <textarea name="gift-text" cols="30" rows="10" placeholder="添加免费礼物留言"></textarea>
-                                                    <ul>
-                                                        <li><a href="javascript:;">取消</a></li>
-                                                        <li class="pipe"><a href="javascript:;">确认添加留言</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
                 <!--总计-->
                 <div class="col-md-12 thr">
                     <div class="offer-summary">
@@ -327,7 +165,7 @@
                             </tr>
                             <tr class="offer-total">
                                 <td>总计</td>
-                                <td class="total-value">RMB 49,926</td>
+                                <td class="total-value">RMB {{totalPrice|addCommas}}</td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -356,6 +194,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!--notLogin-->
+        <div class="login-tips box-style" v-else>
+            <h1 class="tips-title">你的购物袋中没有商品。</h1>
+            <p class="tips-content">登录查看你是否已保存任何商品。或者继续购物。</p>
+            <a href="login.html" class="button">登录</a>
         </div>
         <!--cart-recommendations-->
         <div class="cart-recommendations row box box-style">
@@ -449,7 +293,7 @@
             </div>
             <!--内容-->
             <div class="col-md-12 thr questions-section clearpx">
-                <div class="faq-list" :class="{'details-show':qsIndex==1}" :style="qsIndex==1?qsHeight:''">
+                <div class="faq-list" :class="{'details-show':qsIndex===1}" :style="qsIndex===1?qsHeight:''">
                     <div>
                         <h3 class="faq-title" @click="showQsDetials($event,1)">我何时能收到订购的商品？</h3>
                     </div>
@@ -460,7 +304,7 @@
                         我们会在结帐流程中提供有关发货选项和送达日期的更多信息。了解有关<a href="javascripg:;">发货与交货</a>的更多信息。
                     </p>
                 </div>
-                <div class="faq-list" :class="{'details-show':qsIndex==2}" :style="qsIndex==2?qsHeight:''">
+                <div class="faq-list" :class="{'details-show':qsIndex===2}" :style="qsIndex===2?qsHeight:''">
                     <div>
                         <h3 class="faq-title" @click="showQsDetials($event,2)">我可以使用哪些付款方式？</h3>
                     </div>
@@ -474,7 +318,7 @@
                         了解有关<a href="javascripg:;">付款</a>方式的更多信息。
                     </p>
                 </div>
-                <div class="faq-list" :class="{'details-show':qsIndex==3}" :style="qsIndex==3?qsHeight:''">
+                <div class="faq-list" :class="{'details-show':qsIndex===3}" :style="qsIndex===3?qsHeight:''">
                     <div >
                         <h3 class="faq-title" @click="showQsDetials($event,3)">Apple 的退货和退款政策是如何规定的？</h3>
                     </div>
@@ -484,7 +328,7 @@
                 </div>
             </div>
             <div class="col-md-12 thr questions-section clearpx">
-                <div class="faq-list" :class="{'details-show':qsIndex==4}" :style="qsIndex==4?qsHeight:''">
+                <div class="faq-list" :class="{'details-show':qsIndex===4}" :style="qsIndex===4?qsHeight:''">
                     <div>
                         <h3 class="faq-title" @click="showQsDetials($event,4)">Apple 是否提供教育折扣？</h3>
                     </div>

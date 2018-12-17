@@ -1,0 +1,377 @@
+.typography-overview-intro {
+    line-height: 1.125;
+}
+.section-wireless {
+    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#111));
+    background: -webkit-linear-gradient(#000, #111);
+    background: linear-gradient(#000, #111);
+    z-index: 1;
+}
+.section-wireless .manifesto-wrapper {
+    padding-bottom: 132px;
+}
+.section-wireless .faceid-sticky-container .chip-transition-prep {
+    z-index: 1;
+}
+.section-wireless .faceid-sticky-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    pointer-events: none
+}
+
+html.faceid-enhanced .section-wireless .faceid-sticky-container {
+    min-height: 630px;
+    height: 630px;
+}
+
+@media only screen and (max-width: 1068px) {
+    html.faceid-enhanced .section-wireless .faceid-sticky-container {
+        min-height:437px;
+        height: 273px;
+    }
+    .section-wireless .manifesto-wrapper {
+        padding-bottom: 110px;
+    }
+    .section-only-iphone .manifesto-wrapper {
+        padding-top: 110px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    html.faceid-enhanced .section-wireless .faceid-sticky-container {
+        min-height: 273px;
+        height: 273px;
+    }
+    .section-wireless .manifesto-wrapper {
+        padding-bottom: 75px;
+    }
+}
+
+.section-wireless .faceid-sticky-container .will-change {
+    will-change: transform
+}
+
+html.faceid-enhanced .section-wireless .faceid-sticky-container .sticky-aligner {
+    /*position: -webkit-sticky;*/
+    /*position: sticky;*/
+    position: relative;
+    top: 0;
+    height: 630px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+@media only screen and (max-width: 1068px) {
+    html.faceid-enhanced .section-wireless .faceid-sticky-container .sticky-aligner {
+        height: 437px;
+    }
+}
+@media only screen and (max-width: 735px) {
+    html.faceid-enhanced .section-wireless .faceid-sticky-container .sticky-aligner {
+        height: 273px;
+    }
+}
+
+.section-wireless .faceid-sticky-container .faceid-device-zoom {
+    position: relative;
+    width: 668px;
+    height: 630px;
+    transform-origin: bottom center;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-wireless .faceid-sticky-container .faceid-device-zoom {
+        width: 464px;
+        height: 437px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-wireless .faceid-sticky-container .faceid-device-zoom {
+        width: 290px;
+        height: 273px;
+    }
+}
+
+.section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device {
+    position: relative
+}
+
+html.faceid-enhanced .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device {
+    opacity: 0.999;
+    -webkit-transition: opacity 200ms ease-in-out;
+    transition: opacity 200ms ease-in-out
+}
+
+.section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-screen {
+    z-index: 1;
+    position: absolute;
+    top: 33px;
+    left: 36px;
+    opacity: 0;
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out
+}
+
+html.no-js .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-screen {
+    opacity: 0.999
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-screen {
+        top:23px;
+        left: 26px
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-screen {
+        top:14px;
+        left: 16px
+    }
+}
+
+.section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-screen.active {
+    opacity: 0.999
+}
+
+html.reduced-motion .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-screen .inline-video-frame-start.frame-active {
+    opacity: 0;
+    visibility: hidden
+}
+
+html.reduced-motion .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-screen .inline-video-frame-static {
+    opacity: 1;
+    visibility: visible
+}
+
+.section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-hardware {
+    z-index: 2;
+    position: relative;
+    width: 668px;
+    height: 630px;
+    background-size: 668px 630px;
+    background-repeat: no-repeat;
+    background-image: url("/cn/iphone-xs/images/overview/dualsim_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-hardware {
+        background-image:url("/cn/iphone-xs/images/overview/dualsim_large_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-hardware {
+        width: 464px;
+        height: 437px;
+        background-size: 464px 437px;
+        background-repeat: no-repeat;
+        background-image: url("/cn/iphone-xs/images/overview/dualsim_medium.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-hardware {
+        background-image:url("/cn/iphone-xs/images/overview/dualsim_medium_2x.png")
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-hardware {
+        width: 290px;
+        height: 273px;
+        background-size: 290px 273px;
+        background-repeat: no-repeat;
+        background-image: url("/cn/iphone-xs/images/overview/dualsim_small.png")
+    }
+}
+
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+    .section-wireless .faceid-sticky-container .faceid-device-zoom .faceid-device .device-hardware {
+        background-image:url("/cn/iphone-xs/images/overview/dualsim_small_2x.png")
+    }
+}
+
+/*.section-compare .image-compare {
+    background-image: url("/cn/iphone-xs/images/overview/compare_large.jpg")}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .section-compare .image-compare {
+        background-image:url("/cn/iphone-xs/images/overview/compare_large_2x.jpg")}}
+@media only screen and (max-width: 1068px) {
+    .section-compare .image-compare {
+        background-image: url("/cn/iphone-xs/images/overview/compare_medium.jpg")}}
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .section-compare .image-compare {
+        background-image:url("/cn/iphone-xs/images/overview/compare_medium_2x.jpg")}}
+@media only screen and (max-width: 735px) {
+    .section-compare .image-compare {
+        background-image: url("/cn/iphone-xs/images/overview/compare_small.jpg")}}
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+    .section-compare .image-compare {
+        background-image:url("/cn/iphone-xs/images/overview/compare_small_2x.jpg")}}*/
+
+.section-a12-bionic .chip-grid-asset-container .screen-image-1 {
+    background-image: url("/cn/iphone-xs/images/overview/a12_screen_image_1_large.png")}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .section-a12-bionic .chip-grid-asset-container .screen-image-1 {
+        background-image:url("/cn/iphone-xs/images/overview/a12_screen_image_1_large_2x.png")}}
+@media only screen and (max-width: 1068px) {
+    .section-a12-bionic .chip-grid-asset-container .screen-image-1 {
+        background-image: url("/cn/iphone-xs/images/overview/a12_screen_image_1_medium.png")}}
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .section-a12-bionic .chip-grid-asset-container .screen-image-1 {
+        background-image:url("/cn/iphone-xs/images/overview/a12_screen_image_1_medium_2x.png")}}
+@media only screen and (max-width: 735px) {
+    .section-a12-bionic .chip-grid-asset-container .screen-image-1 {
+        background-image: url("/cn/iphone-xs/images/overview/a12_screen_image_1_small.png")}}
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+    .section-a12-bionic .chip-grid-asset-container .screen-image-1 {
+        background-image:url("/cn/iphone-xs/images/overview/a12_screen_image_1_small_2x.png")}}
+.section-wireless .image-wireless {
+    background-image: url("/cn/iphone-xs/images/overview/gigabit_lte_large.jpg")}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .section-wireless .image-wireless {
+        background-image:url("/cn/iphone-xs/images/overview/gigabit_lte_large_2x.jpg")}}
+@media only screen and (max-width: 1068px) {
+    .section-wireless .image-wireless {
+        background-image: url("/cn/iphone-xs/images/overview/gigabit_lte_medium.jpg")}}
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .section-wireless .image-wireless {
+        background-image:url("/cn/iphone-xs/images/overview/gigabit_lte_medium_2x.jpg")}}
+@media only screen and (max-width: 735px) {
+    .section-wireless .image-wireless {
+        background-image: url("/cn/iphone-xs/images/overview/gigabit_lte_small.jpg")}}
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+    .section-wireless .image-wireless {
+        background-image:url("/cn/iphone-xs/images/overview/gigabit_lte_small_2x.jpg")}}
+.section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-start {
+    background-image: url("/cn/iphone-xs/images/overview/screen_faceid_startframe_large.jpg")}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-start {
+        background-image:url("/cn/iphone-xs/images/overview/screen_faceid_startframe_large_2x.jpg")}}
+@media only screen and (max-width: 1068px) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-start {
+        background-image: url("/cn/iphone-xs/images/overview/screen_faceid_startframe_medium.jpg")}}
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-start {
+        background-image:url("/cn/iphone-xs/images/overview/screen_faceid_startframe_medium_2x.jpg")}}
+@media only screen and (max-width: 735px) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-start {
+        background-image: url("/cn/iphone-xs/images/overview/screen_faceid_startframe_small.jpg")}}
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-start {
+        background-image:url("/cn/iphone-xs/images/overview/screen_faceid_startframe_small_2x.jpg")}}
+.section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-static {
+    background-image: url("/cn/iphone-xs/images/overview/screen_faceid_static_large.jpg")}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-static {
+        background-image:url("/cn/iphone-xs/images/overview/screen_faceid_static_large_2x.jpg")}}
+@media only screen and (max-width: 1068px) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-static {
+        background-image: url("/cn/iphone-xs/images/overview/screen_faceid_static_medium.jpg")}}
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-static {
+        background-image:url("/cn/iphone-xs/images/overview/screen_faceid_static_medium_2x.jpg")}}
+@media only screen and (max-width: 735px) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-static {
+        background-image: url("/cn/iphone-xs/images/overview/screen_faceid_static_small.jpg")}}
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+    .section-face-id .faceid-sticky-container .faceid-device-zoom .inline-video-frame-static {
+        background-image:url("/cn/iphone-xs/images/overview/screen_faceid_static_small_2x.jpg")}}
+
+
+.section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-static {
+ background-image:url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_large.jpg")
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+ .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-static {
+  background-image:url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_large_2x.jpg")
+ }
+}
+@media only screen and (max-width: 1068px) {
+ .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-static {
+  background-image:url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_medium.jpg")
+ }
+}
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+ .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-static {
+  background-image:url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_medium_2x.jpg")
+ }
+}
+@media only screen and (max-width: 735px) {
+ .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-static {
+  background-image:url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_small.jpg")
+ }
+}
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+ .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-static {
+  background-image:url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_small_2x.jpg")
+ }
+}
+
+.section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-start {
+    background-image: url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-start {
+        background-image: url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-start {
+        background-image: url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-start {
+        background-image: url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-start {
+        background-image: url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+    .section-cameras .features-content .hardware-wrapper .hardware-screen .inline-video-frame-start {
+        background-image: url("/cn/iphone-xs/images/overview/screen_depthcontrol_static_small_2x.jpg")
+    }
+}
+
+
+.page-specs .section-system-requirements .linkbreak{
+    display: none;
+}
+@media only screen and (max-width: 320px) {
+  .page-specs .section-system-requirements .linkbreak{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-hero .copy .preorder .typography-overview-cta.cta1{
+	white-space: normal;
+	}
+}
+
+.typography-overview-cta .nowrap{
+	margin:0 !important;
+}

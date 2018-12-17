@@ -28,7 +28,9 @@
                 },
                 isDark:{
                     background:"#000"
-                }
+                },
+                res:{},
+                productsDetails:[]
             },
             methods: {
                 showDetails() {
@@ -75,9 +77,12 @@
                 },
                 clickHideSearchBox(){
                     this.searchStyle["show-search"]=false;
+                },
+                toProducts(i){
+                    location.href="product.html"
                 }
-
             },
+
             created() {
                 this.searchItem=["查找零售店","配件","iPod","AirPods","佳节好礼"];
                 //判断是否登录
@@ -99,6 +104,18 @@
                 }else{
                     this.showSearch = true;
                 }
+
+                //购物车信息
+                axios.get("http://localhost:8080/product/userCart").then(res=>{
+                    console.log(res.data.data);
+                    this.res = res.data.data;
+                    if(res.data.code===1){
+                        var data = res.data.data;
+                        for(var i=0;i<2;i++){
+                            this.productsDetails[i]=[data[i].cpu_title.trim(),data[i].hd_title,data[i].mo_title];
+                        }
+                    }
+                })
             },
             watch: {
                 showBag(val) {

@@ -32,13 +32,18 @@ CREATE TABLE ap_idms (
 );
 
   #创建购物车表
-CREATE TABLE ap_cart(
+CREATE TABLE ap_shoppingcart(
   cid INT PRIMARY KEY AUTO_INCREMENT,
   uid INT,
   pid INT,
-  count INT,
-  giftPack INT  #1有包装可选 0没有包装可选
-)
+  count INT COMMENT '商品数量',
+  cpu INT COMMENT '对应商品CPU_id',
+  memory INT COMMENT '对应商品内存_id',
+  harddrive INT COMMENT '对应商品硬盘_id',
+  soft VARCHAR(10) NOT NULL DEFAULT '' COMMENT '对应商品软件_id',
+  lang VARCHAR(5) NOT NULL DEFAULT '' COMMENT '键盘语言',
+  totalPrice DECIMAL COMMENT '对应商品总价格'
+);
 
  #创建商品详情表
 CREATE TABLE ap_products(
@@ -46,7 +51,9 @@ CREATE TABLE ap_products(
   price DECIMAL COMMENT '商品价格',
   title VARCHAR(50) NOT NULL DEFAULT '' COMMENT '详情页标题',
   pic VARCHAR(128) NOT NULL DEFAULT '' COMMENT '商品图片',
-  details VARCHAR(255) NOT NULL DEFAULT '' COMMENT '商品详情'
+  sm_pic VARCHAR(128) NOT NULL DEFAULT '' COMMENT '商品小图片',
+  details VARCHAR(255) NOT NULL DEFAULT '' COMMENT '商品详情',
+  giftPack INT  #1有包装可选 0没有包装可选
   );
 #创建cpu表
 CREATE TABLE ap_product_cpu(
@@ -94,7 +101,7 @@ CREATE TABLE ap_product_lang(
 );
 
 #商品详情数据
-INSERT INTO `ap_products`(`pid`, `price`, `title`,`pic`, `details`) VALUES (NULL,10200,'定制你的 13 英寸 MacBook Pro - 深空灰色','img/products/macbookpro/mbp13-space-select-201807_GEO_CN.jpg','2.3GHz 双核第七代 Intel Core i5 处理器，Turbo Boost 最高可达 3.6GHz/Intel Iris Plus Graphics 640 图形处理器/8GB 2133MHz LPDDR3 内存/128GB 固态硬盘/两个雷雳 3 端口')
+INSERT INTO `ap_products`(`pid`, `price`, `title`,`pic`,`sm_pic`, `details`,`giftPack`) VALUES (NULL,10200,'定制你的 13 英寸 MacBook Pro - 深空灰色','img/products/macbookpro/mbp13-space-select-201807_GEO_CN.jpg','img/shopbag/MBP13GNT-201807.jpg','2.3GHz 双核第七代 Intel Core i5 处理器，Turbo Boost 最高可达 3.6GHz/Intel Iris Plus Graphics 640 图形处理器/8GB 2133MHz LPDDR3 内存/128GB 固态硬盘/两个雷雳 3 端口',1);
 
 #CPU数据
 INSERT INTO `ap_product_cpu`(`cpu_id`, `pid`, `add_price`, `title`) VALUES (NULL,1,0,'2.3GHz 双核第七代 Intel Core i5 处理器，Turbo Boost 最高可达 3.6GHz');
@@ -132,8 +139,8 @@ INSERT INTO `ap_product_lang`(`lang_id`, `pid`, `title`, `val`) VALUES (NULL,1,'
 
 
 #购物车数据
-INSERT INTO `ap_cart`(`cid`, `uid`, `pid`, `count`, `giftPack`) VALUES (NULL,1,1,10,1);
-INSERT INTO `ap_cart`(`cid`, `uid`, `pid`, `count`, `giftPack`) VALUES (NULL,1,2,5,0);
+INSERT INTO `ap_shoppingcart`(`cid`, `uid`, `pid`, `count`, `cpu`, `memory`, `harddrive`, `soft`, `lang`,`totalPrice`) VALUES (NULL,1,1,1,1,1,1,'1,2','CH',12000);
+INSERT INTO `ap_shoppingcart`(`cid`, `uid`, `pid`, `count`, `cpu`, `memory`, `harddrive`, `soft`, `lang`,`totalPrice`) VALUES (NULL,1,1,3,2,2,3,'1,2','CH',14000);
 
 #用户数据
 INSERT INTO `ap_user`(`uid`, `uname`, `upwd`, `qs1`,`qs1Answer`, `qs2`,`qs2Answer`,`qs3`,`qs3Answer`,`user_lastName`,`user_firstName`,`country`,`birthday`,`isGetNews`,`isGetItunes`) VALUES (null,"1234@163.com",md5('123456'),100,"abc",101,"abc",102,"abc","李","荣浩","CHN","1995年11月11日",0,0);

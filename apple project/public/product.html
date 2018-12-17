@@ -84,7 +84,7 @@
                         <a href="#" class="as-configuration-learnmorelink">哪一款处理器适合你?</a>
                         <div class="as-optionselector" v-for="(elem,i) of res.cpu">
                             <div class="as-optionselector-option">
-                                <input type="radio" class="form-choice" name="option-processor"  @focus="showCpuPrice(i)" v-model="val.cpu" :value="i">
+                                <input type="radio" class="form-choice" name="option-processor"  @focus="showCpuPrice(i)" v-model="val.cpu" :value="i+1">
                                 <div class="as-optionselector-option-content">
                                     <div class="as-optionselector-option-content-title" v-text="elem.title">
 
@@ -114,7 +114,7 @@
                         <a href="#" class="as-configuration-learnmorelink">多大的内存适合你?</a>
                         <div class="as-optionselector" v-for="(elem,i) of res.memory">
                             <div class="as-optionselector-option selected">
-                                <input type="radio" class="form-choice" name="option-memory" @focus="showMemoryPrice(i)" v-model="val.hd" :value="i">
+                                <input type="radio" class="form-choice" name="option-memory" @focus="showMemoryPrice(i)" v-model="val.memory" :value="i+1">
                                 <div class="as-optionselector-option-content">
                                     <div class="as-optionselector-option-content-title" v-text="elem.title"></div>
                                     <div class="as-optionselector-option-content-price">
@@ -140,7 +140,7 @@
                         <a href="#" class="as-configuration-learnmorelink">多大的存储容量适合你?</a>
                         <div class="as-optionselector">
                             <div class="as-optionselector-option" v-for="(elem,i) of res.harddrive">
-                                <input type="radio" class="form-choice" name="option-hard-drivesolid"  @focus="showHarddrivePrice(i)" v-model="val.sf" :value="i">
+                                <input type="radio" class="form-choice" name="option-hard-drivesolid"  @focus="showHarddrivePrice(i)" v-model="val.harddrive" :value="i+1">
                                 <div class="as-optionselector-option-content">
                                     <div class="as-optionselector-option-content-title" v-text="elem.title"></div>
                                     <div class="as-optionselector-option-content-price">
@@ -185,8 +185,8 @@
                         <h3 class="as-title-count">键盘语言</h3>
                         <a href="#" class="as-configuration-learnmorelink">进一步了解</a>
                         <div class="as-optionselector">
-                            <select name="option-keyboard-and-documentation" id="option-keyboard-and-documentation" class="form-dropdown">
-                                <option v-for="(elem,i) of res.lang" :value="elem.val"  :selected="i==0" v-text="elem.title">
+                            <select name="option-keyboard-and-documentation" id="option-keyboard-and-documentation" class="form-dropdown" v-model="val.lang">
+                                <option v-for="(elem,i) of res.lang" :value="elem.val"  v-text="elem.title" >
 
                                 </option>
                                 <!--<option value="CE">-->
@@ -226,7 +226,7 @@
                         <a href="#" class="as-configuration-learnmorelink">进一步了解</a>
                         <div class="as-optionselector clear">
                             <div class="as-optionselector-option form-selector-twocolumns">
-                                <input type="radio" class="form-choice" :name="elem.title.slice(0,5)" checked @focus="showSoftPrice(i,0)">
+                                <input type="radio" class="form-choice" :name="elem.title.slice(0,5)" checked @focus="showSoftPrice(i,0)" v-model="val.soft[i]" :value="[i+1,0]">
                                 <div class="as-optionselector-option-content">
                                     <div class="as-optionselector-option-content-title">
                                         无
@@ -237,7 +237,7 @@
                                 </div>
                             </div>
                             <div class="as-optionselector-option form-selector-twocolumns">
-                                <input type="radio" class="form-choice" :name="elem.title.slice(0,5)" @focus="showSoftPrice(i,1)">
+                                <input type="radio" class="form-choice" :name="elem.title.slice(0,5)" @focus="showSoftPrice(i,1)" v-model="val.soft[i]" :value="[i+1,1]">
                                 <div class="as-optionselector-option-content">
                                     <div class="as-optionselector-option-content-title" v-text="elem.title">
 
@@ -339,7 +339,7 @@
                     </div>
                 </div>
                 <div class="add-to-cart">
-                    <button type="submit" class="button" name="add-to-cart">添加到购物袋</button>
+                    <button type="submit" class="button" name="add-to-cart" @click="addCart()">添加到购物袋</button>
                 </div>
             </div>
             <div class="as-actiontray-details">

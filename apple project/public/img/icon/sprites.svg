@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="328" viewBox="0 0 800 164" enable-background="new 0 0 800 164" xml:space="preserve">
+
+    <!-- path definitions -->
+
+    <defs>
+        <path id="x" d="M13.704 11.555l-4.598-4.563 4.563-4.598-2.114-2.097-4.563 4.598-4.599-4.563-2.097 2.114 4.598 4.563-4.563 4.598 2.114 2.097 4.563-4.598 4.598 4.563 2.097-2.114zM13.704 11.555z" />
+        <path id="twitter" d="M10.692 0.253c-1.53 0.551-2.497 1.97-2.386 3.524l0.037 0.6-0.612-0.073c-2.227-0.281-4.173-1.236-5.825-2.839l-0.808-0.795-0.208 0.587c-0.441 1.309-0.159 2.692 0.759 3.622 0.49 0.514 0.379 0.587-0.465 0.281-0.294-0.098-0.551-0.171-0.575-0.135-0.086 0.086 0.208 1.199 0.441 1.64 0.318 0.612 0.967 1.212 1.677 1.566l0.6 0.281-0.71 0.012c-0.685 0-0.71 0.012-0.636 0.269 0.245 0.795 1.212 1.64 2.288 2.007l0.759 0.257-0.661 0.392c-0.979 0.563-2.129 0.881-3.28 0.906-0.551 0.012-1.003 0.061-1.003 0.098 0 0.122 1.493 0.808 2.362 1.077 2.607 0.795 5.703 0.453 8.028-0.906 1.652-0.967 3.304-2.888 4.075-4.748 0.416-0.991 0.832-2.802 0.832-3.671 0-0.563 0.037-0.636 0.722-1.309 0.404-0.392 0.783-0.82 0.857-0.942 0.122-0.233 0.11-0.233-0.514-0.024-1.040 0.367-1.187 0.318-0.673-0.233 0.379-0.392 0.832-1.101 0.832-1.309 0-0.037-0.184 0.024-0.392 0.135-0.22 0.122-0.71 0.306-1.077 0.416l-0.661 0.208-0.6-0.404c-0.33-0.22-0.795-0.465-1.040-0.538-0.624-0.171-1.579-0.147-2.142 0.049v0zM10.692 0.253z" />
+        <path id="truck" d="M10.482 10.35c-0.063-0.126-0.253-0.158-0.442-0.316 0.062-1.296-0.285-5.051-0.569-5.652-0.171-0.361-0.601-1.113-1.201-1.113h-6.038c-0.601 0-1.030 0.752-1.201 1.113-0.285 0.601-0.631 4.356-0.569 5.652-0.19 0.158-0.379 0.19-0.443 0.316-0.063 0.127 0.221 1.676 0.348 1.929 0.127 0.253 0.19 0.316 0.348 0.316 0.031 0.411 0 0.977 0.253 1.072 0.253 0.095 1.020 0.095 1.21 0 0.19-0.095 0.158-0.724 0.221-1.008h5.64c0.064 0.284 0.031 0.914 0.221 1.008 0.19 0.095 1.022 0.095 1.275 0 0.252-0.095 0.221-0.661 0.252-1.072 0.158 0 0.221-0.063 0.347-0.316 0.127-0.253 0.412-1.802 0.349-1.929v0zM1.859 4.727h6.782v3.259h-6.782v-3.259zM2.705 11.296h-2.055v-0.726h2.055v0.726zM2.835 9.463h-1.581v-0.442h1.581v0.442zM7.447 11.645h-4.394v-1.075h4.394v1.075zM7.633 9.020h1.58v0.442h-1.58v-0.442zM9.85 11.296h-2.054v-0.726h2.054v0.726zM9.971 6.244c-0.078-0.96-0.338-1.844-0.619-2.309-0.376-0.622-0.979-1.143-0.979-1.143h-6.45c0 0-0.569 0.675-0.852 1.168-0.295 0.513-0.509 1.553-0.569 2.311l0.317-4.835c0-0.857 0.462-1.32 1.319-1.32h6.285c0.857 0 1.32 0.462 1.32 1.32l0.229 4.808zM9.971 6.244z" />
+        <path id="star" d="M7.414 0l1.69 5.251h5.724l-4.264 3.461 1.687 5.307-4.837-3.377-4.317 3.377 1.331-5.307-4.428-3.461h5.845l1.569-5.251zM7.414 0z" />
+        <path id="phone" d="M1.71 0.392c0 0-1.639 1.067-1.639 3.163 0 2.096 2.553 5.539 4.23 7.19 1.677 1.651 4.61 3.135 7.012 3.138 2.439 0.003 3.735-1.372 3.544-3.29l-3.239-1.741h-0.572l-1.715 1.893c0 0-3.506-1.131-5.526-4.942l1.258-1.639 0.076-0.343-1.372-3.43h-0.419c0 0-0.648-0.228-1.639 0v0zM1.71 0.392z" />
+        <path id="magnifying-glass" d="M9.575 7.147l-1.65 1.651 4.667 4.667 1.65-1.651-4.667-4.667zM5.737 2.333c1.876 0 3.403 1.526 3.403 3.403s-1.527 3.402-3.403 3.402c-1.876 0-3.403-1.526-3.403-3.402 0-1.876 1.526-3.403 3.403-3.403v0zM5.737 0c-3.169 0-5.737 2.568-5.737 5.737 0 3.169 2.568 5.737 5.737 5.737 3.169 0 5.737-2.568 5.737-5.737-0.001-3.169-2.569-5.737-5.737-5.737v0 0 0 0zM5.737 0z" />
+        <path id="hamburger" d="M1.399 0c-0.773 0-1.399 0.628-1.399 1.4v0c0 0.773 0.631 1.4 1.399 1.4h14.936c0.773 0 1.399-0.628 1.399-1.4v0c0-0.773-0.631-1.4-1.399-1.4h-14.936zM1.399 5.6c-0.773 0-1.399 0.628-1.399 1.4v0c0 0.773 0.631 1.4 1.399 1.4h14.936c0.773 0 1.399-0.628 1.399-1.4v0c0-0.773-0.631-1.4-1.399-1.4h-14.936zM1.399 11.2c-0.773 0-1.399 0.628-1.399 1.4v0c0 0.773 0.631 1.4 1.399 1.4h14.936c0.773 0 1.399-0.628 1.399-1.4v0c0-0.773-0.631-1.4-1.399-1.4h-14.936zM1.399 11.2z" />
+        <path id="grid" d="M0 0v4.118h4.118v-4.118h-4.118zM4.941 0v4.118h4.118v-4.118h-4.118zM9.882 0v4.118h4.118v-4.118h-4.118zM9.882 4.941v4.118h4.118v-4.118h-4.118zM4.941 4.941v4.118h4.118v-4.118h-4.118zM0 4.941v4.118h4.118v-4.118h-4.118zM0 9.882v4.118h4.118v-4.118h-4.118zM4.941 9.882v4.118h4.118v-4.118h-4.118zM9.882 9.882v4.118h4.118v-4.118h-4.118zM9.882 9.882z" />
+        <path id="gift" d="M1.34 14h4.068v-4.89h-4.968v3.987c0 0.503 0.403 0.903 0.9 0.903zM10.787 14h-4.068v-4.89h4.968v3.987c0 0.503-0.403 0.903-0.9 0.903zM10.787 4.057h-4.068v3.169c0 0 0 0 0 0v0.903h4.968v-3.169c0-0.499-0.403-0.904-0.9-0.904zM1.34 4.057h4.068v3.169c0 0 0 0 0 0.001v0.903h-4.968v-3.169c0-0.498 0.403-0.904 0.9-0.904zM6.722 3.161c0 0-0.074-1.268 0.306-1.778 0 0 0.378-0.663 0.971-0.932 1.882-0.903 3.012 1.035 1.882 2.258-0.452 0.452-1.35 0.452-1.35 0.452h-1.81zM5.359 3.161c0 0 0.074-1.268-0.306-1.778 0 0-0.378-0.662-0.971-0.932-1.882-0.903-3.012 1.035-1.882 2.258 0.452 0.452 1.35 0.452 1.35 0.452h1.809zM5.359 3.161z" />
+        <path id="gear" d="M13.939 5.432l-0.054-1.223-0.835-0.894-2.535 0.347 0.319-2.708-0.908-0.819-1.225-0.030-1.538 2.064-1.701-2.169-1.221 0.060-0.889 0.841 0.364 2.548-2.733-0.338-0.824 0.904-0.037 1.225 2.055 1.55-2.177 1.689 0.052 1.221 0.837 0.894 2.676-0.369-0.333 2.807 0.91 0.817 1.225 0.031 1.553-2.084 1.67 2.128 1.222-0.060 0.888-0.84-0.369-2.574 2.688 0.334 0.822-0.905 0.037-1.221-2.075-1.567 2.135-1.657zM6.97 9.137c-1.202 0-2.177-0.974-2.177-2.175 0-1.203 0.976-2.177 2.177-2.177 1.202 0 2.178 0.974 2.178 2.177-0 1.202-0.975 2.175-2.178 2.175v0 0 0zM6.97 9.137z" />
+        <path id="facebook" d="M4.702 13.954v-6.351h2.132l0.319-2.475h-2.451v-1.58c0-0.717 0.199-1.205 1.227-1.205l1.311-0.001v-2.214c-0.227-0.030-1.005-0.098-1.91-0.098-1.89 0-3.183 1.153-3.183 3.272v1.825h-2.137v2.475h2.137v6.351h2.556zM4.702 13.954z" />
+        <path id="dollar" d="M2.825 13.918v-1.63c-1.058-0.034-2.117-0.336-2.722-0.739l0.454-1.579c0.655 0.386 1.596 0.739 2.621 0.739 1.058 0 1.781-0.521 1.781-1.327 0-0.756-0.588-1.243-1.831-1.697-1.764-0.638-2.906-1.445-2.906-3.007 0-1.445 1.008-2.554 2.705-2.856v-1.646h1.378v1.562c1.058 0.034 1.781 0.286 2.318 0.554l-0.454 1.546c-0.403-0.185-1.142-0.571-2.285-0.571-1.176 0-1.596 0.605-1.596 1.176 0 0.689 0.605 1.075 2.033 1.646 1.882 0.706 2.722 1.613 2.722 3.108 0 1.428-0.991 2.688-2.839 2.99v1.73h-1.377zM2.825 13.918z" />
+        <path id="chat-bubble" d="M2.925 11.417c0 0 0.279 0.688 0.028 1.119-0.144 0.244-0.543 0.827-1.309 1.256 0 0-0.104 0.105 0.054 0.161 0.155 0.051 1.119-0.031 1.812-0.215 0.688-0.182 1.58-0.59 2.27-1.354 0 0 0.848 0.091 1.303 0.091 0.457 0 2.28-0.030 4.051-0.861 0 0 1.368-0.445 3.022-2.189 0 0 1.473-1.602 1.46-3.661 0 0 0.141-2.213-1.693-3.792 0 0-1.668-1.809-5.33-1.914 0 0-2.776-0.068-5.238 1.512 0 0-1.563 0.833-2.581 2.645 0 0-0.585 0.835-0.715 2.565 0 0-0.025 1.031 0.444 2.1 0-0 0.534 1.473 2.421 2.539v0zM2.925 11.417z" />
+        <path id="cart" d="M5.028 2.719l-0.73-2.693v-0.002h-4.27v1.308h3.313l0.522 1.705 1.916 6.747h11.511l1.57-7.065h-13.832zM7.61 10.307c-1.012 0-1.832 0.82-1.832 1.832s0.82 1.832 1.832 1.832c1.011 0 1.832-0.82 1.832-1.832 0-1.012-0.821-1.832-1.832-1.832v0zM14.757 10.307c-1.012 0-1.832 0.82-1.832 1.832s0.82 1.832 1.832 1.832c1.011 0 1.832-0.82 1.832-1.832-0-1.012-0.821-1.832-1.832-1.832v0zM14.757 10.307z" />
+        <path id="house" d="M16.304 8.137l-8.138-8.137-8.138 8.137h2.352v5.863h3.436v-5.863h4.698v5.863h3.438v-5.863h2.351zM16.304 8.137z" />
+        <path id="chevron-up" d="M10.497 1.898l1.569-1.567 11.756 11.764-1.569 1.567-11.756-11.764zM0.255 12.091l11.761-11.757 1.568 1.568-11.761 11.757-1.568-1.568z" />
+        <path id="chevron-right" d="M6.865 7.657l0.9-0.9-6.752-6.748-0.9 0.9 6.752 6.748zM1.014 13.536l6.749-6.751-0.9-0.9-6.749 6.751 0.9 0.9z" />
+        <path id="chevron-left" d="M1.408 7.657l-0.9-0.9 6.752-6.748 0.9 0.9-6.752 6.748zM7.258 13.536l-6.749-6.751 0.9-0.9 6.749 6.751-0.9 0.9z" />
+        <path id="chevron-down" d="M10.197 12.156l1.524 1.523 11.419-11.427-1.524-1.523-11.419 11.427zM0.247 2.255l11.424 11.421 1.523-1.523-11.424-11.421-1.523 1.523z" />
+        <path id="email" d="M0 0v14h19.091v-14h-19.091zM2.528 12.743h-1.254v-1.256h1.254v1.256zM2.528 2.533h-1.254v-1.256h1.254v1.256zM3.802 11.467h-1.254v-1.256h1.254v1.256zM3.802 3.809h-1.254v-1.257h1.254v1.257zM5.076 10.191h-1.254v-1.257h1.254v1.257zM5.076 5.085h-1.254v-1.256h1.254v1.256zM6.35 8.915h-1.254v-1.257h1.254v1.257zM6.35 6.362h-1.254v-1.256h1.254v1.256zM7.624 7.638h-1.254v-1.257h1.254v1.257zM8.898 8.915h-1.254v-1.257h1.254v1.257zM10.172 10.191h-1.254v-1.257h1.254v1.257zM11.446 8.915h-1.254v-1.257h1.254v1.257zM12.72 7.638h-1.254v-1.257h1.254v1.257zM13.994 8.915h-1.254v-1.257h1.254v1.257zM13.994 6.362h-1.254v-1.256h1.254v1.256zM15.269 10.191h-1.255v-1.257h1.255v1.257zM15.269 5.085h-1.255v-1.256h1.255v1.256zM16.543 11.467h-1.254v-1.256h1.254v1.256zM16.543 3.809h-1.254v-1.257h1.254v1.257zM17.817 12.743h-1.254v-1.256h1.254v1.256zM17.817 2.533h-1.254v-1.256h1.254v1.256z"/>
+        <path id="info" d="M11,0C4.9,0,0,4.9,0,11s4.9,11,11,11s11-4.9,11-11S17.1,0,11,0z M11,21.4C5.2,21.4,0.6,16.7,0.6,11
+                    S5.3,0.6,11,0.6S21.4,5.3,21.4,11S16.8,21.4,11,21.4z M11.9,9.6V9.1H9v0.5h0.9v7.2H9v0.5h3.8v-0.5h-0.9L11.9,9.6L11.9,9.6z
+                     M12.4,6.1c0,0.8-0.6,1.4-1.4,1.4S9.6,6.9,9.6,6.1s0.6-1.4,1.4-1.4S12.4,5.3,12.4,6.1z"/>
+        <circle id="x-enclosed-bg" fill="#ffffff" cx="12" cy="12" r="12"/>
+        <path id="x-enclosed" d="M12,0c6.6,0,12,5.4,12,12c0,6.6-5.4,12-12,12S0,18.6,0,12C0,5.4,5.4,0,12,0z M19,6.7L17.2,5L12,10.2
+                    L6.8,5L5,6.7l5.2,5.2L5,17.2L6.8,19l5.2-5.2l5.2,5.2l1.8-1.8l-5.3-5.3L19,6.7z"/>
+        <path id="asterisk" d="M5.2,5.7c0-0.7-0.2-1.4-0.4-2.1c-0.3-1-0.5-1.6-0.5-2c0-0.5,0.1-0.9,0.4-1.2C4.9,0.1,5.2,0,5.5,0
+                c0.3,0,0.6,0.1,0.8,0.4c0.3,0.3,0.4,0.7,0.4,1.1c0,0.4-0.1,1.1-0.4,1.9C6.1,4.2,5.9,4.9,5.8,5.6c0.5-0.4,1-0.8,1.5-1.3
+                C8,3.5,8.5,3,8.8,2.9c0.3-0.2,0.7-0.3,1-0.3c0.3,0,0.6,0.1,0.8,0.4C10.9,3.2,11,3.4,11,3.8c0,0.4-0.2,0.7-0.5,1
+                C10.2,5,9.4,5.3,8,5.6C7.2,5.8,6.6,6,6.1,6.2C6.6,6.4,7.2,6.7,8,6.8c1.2,0.2,2,0.5,2.3,0.8c0.4,0.3,0.6,0.7,0.6,1.1
+                c0,0.3-0.1,0.6-0.4,0.8c-0.2,0.2-0.5,0.3-0.8,0.3c-0.3,0-0.6-0.1-1-0.3S8,8.8,7.3,8.1c-0.4-0.5-0.9-1-1.5-1.4
+                c0,0.6,0.1,1.2,0.4,1.9c0.4,1.2,0.5,2,0.5,2.4c0,0.4-0.1,0.8-0.4,1c-0.2,0.3-0.5,0.4-0.8,0.4c-0.4,0-0.7-0.1-1-0.4
+                c-0.2-0.2-0.3-0.5-0.3-1s0.1-1.1,0.4-1.7C4.9,8.5,5,8,5.1,7.8c0-0.3,0.1-0.6,0.2-1.1C4.7,7.1,4.2,7.6,3.7,8C3,8.8,2.4,9.3,2.1,9.5
+                C1.8,9.7,1.5,9.8,1.3,9.8c-0.4,0-0.6-0.1-0.9-0.4C0.2,9.2,0,8.9,0,8.7c0-0.3,0.1-0.5,0.3-0.8c0.2-0.3,0.5-0.5,0.9-0.7
+                c0.3-0.1,0.9-0.3,1.8-0.5c0.6-0.1,1.2-0.3,1.8-0.6c-0.6-0.2-1.2-0.4-2-0.6C1.7,5.3,1,5.1,0.7,4.9C0.2,4.6,0,4.2,0,3.7
+                c0-0.3,0.1-0.5,0.4-0.8c0.2-0.2,0.5-0.3,0.8-0.3c0.3,0,0.7,0.1,1.1,0.3C2.5,3.1,3,3.5,3.5,4.2C4.1,4.8,4.6,5.3,5.2,5.7z"/>
+        <path id="buy-flow-number-circle" d="M11,2c4.963,0,9,4.037,9,9s-4.037,9-9,9s-9-4.037-9-9S6.037,2,11,2 M11,1C5.477,1,1,5.477,1,11c0,5.523,4.477,10,10,10c5.523,0,10-4.477,10-10C21,5.477,16.523,1,11,1L11,1z" />
+        <path id="buy-flow-number-1" d="M11.543,15.471h-1.036V7.393V7.392L8.926,8.247L8.715,7.421l1.904-1.051h0.924V15.471z" />
+        <path id="buy-flow-number-2" d="M13.807,15.471H8.193l0.035-0.623l0.905-0.943c1.272-1.291,2.113-2.216,2.522-2.778
+                c0.565-0.768,0.85-1.487,0.85-2.161c0-1.235-0.606-1.853-1.82-1.853c-0.644,0-1.273,0.252-1.89,0.756L8.445,7.127
+                c0.7-0.606,1.521-0.91,2.465-0.91c0.876,0,1.558,0.281,2.044,0.843c0.41,0.469,0.615,1.058,0.615,1.77
+                c0,0.787-0.284,1.602-0.854,2.444c-0.43,0.618-1.204,1.489-2.324,2.613l-0.7,0.688h4.116V15.471z" />
+        <path id="buy-flow-number-3" d="M13.98,12.909c0,0.757-0.271,1.386-0.812,1.89c-0.588,0.551-1.386,0.826-2.394,0.826
+                c-0.924,0-1.676-0.205-2.254-0.615l0.308-0.812c0.579,0.363,1.232,0.547,1.96,0.547c0.729,0,1.279-0.211,1.651-0.629
+                c0.299-0.334,0.443-0.744,0.435-1.227c-0.009-0.623-0.257-1.102-0.741-1.437c-0.439-0.307-0.99-0.461-1.652-0.461H9.85v-0.826h0.63
+                c0.522,0,0.979-0.13,1.372-0.392c0.466-0.308,0.7-0.719,0.7-1.232c0-0.419-0.127-0.755-0.379-1.008
+                c-0.289-0.289-0.704-0.434-1.245-0.434c-0.626,0-1.209,0.196-1.75,0.588L8.87,6.917c0.606-0.467,1.358-0.7,2.254-0.7
+                c0.821,0,1.46,0.224,1.918,0.672c0.401,0.392,0.603,0.887,0.603,1.485c0,1.017-0.556,1.73-1.666,2.142v0.028
+                c0.578,0.121,1.05,0.383,1.414,0.783C13.784,11.756,13.98,12.284,13.98,12.909z" />
+    </defs>
+
+    <!-- row 1: cdg -->
+
+    <g transform="translate(0 0)">
+        <use xlink:href="#x" fill="#000000" />
+    </g>
+    <g transform="translate(30 0)">
+        <use xlink:href="#twitter" fill="#000000" />
+    </g>
+    <g transform="translate(63 0)">
+        <use xlink:href="#truck" fill="#000000" />
+    </g>
+    <g transform="translate(90 0)">
+        <use xlink:href="#star" fill="#000000" />
+    </g>
+    <g transform="translate(121 0)">
+        <use xlink:href="#phone" fill="#000000" />
+    </g>
+    <g transform="translate(152 0)">
+        <use xlink:href="#magnifying-glass" fill="#000000" />
+    </g>
+    <g transform="translate(183 0)">
+        <use xlink:href="#hamburger" fill="#000000" />
+    </g>
+    <g transform="translate(217 0)">
+        <use xlink:href="#grid" fill="#000000" />
+    </g>
+    <g transform="translate(247 0)">
+        <use xlink:href="#gift" fill="#000000" />
+    </g>
+    <g transform="translate(275 0)">
+        <use xlink:href="#gear" fill="#000000" />
+    </g>
+    <g transform="translate(305 0)">
+        <use xlink:href="#facebook" fill="#000000" />
+    </g>
+    <g transform="translate(328 0)">
+        <use xlink:href="#dollar" fill="#000000" />
+    </g>
+    <g transform="translate(351 0)">
+        <use xlink:href="#chat-bubble" fill="#000000" />
+    </g>
+    <g transform="translate(383 0)">
+        <use xlink:href="#cart" fill="#000000" />
+    </g>
+    <g transform="translate(418 0)">
+        <use xlink:href="#house" fill="#000000" />
+    </g>
+    <g transform="translate(450 0)">
+        <use xlink:href="#chevron-up" fill="#000000" />
+    </g>
+    <g transform="translate(490 0)">
+        <use xlink:href="#chevron-right" fill="#000000" />
+    </g>
+    <g transform="translate(514 0)">
+        <use xlink:href="#chevron-left" fill="#000000" />
+    </g>
+    <g transform="translate(538 0)">
+        <use xlink:href="#chevron-down" fill="#000000" />
+    </g>
+    <g transform="translate(578 0)">
+        <use xlink:href="#email" fill="#000000" />
+    </g>
+    <g transform="translate(613 0)">
+        <use xlink:href="#info" fill="#000000" />
+    </g>
+    <g transform="translate(646 0)">
+        <use xlink:href="#x-enclosed-bg" />
+        <use xlink:href="#x-enclosed" fill="#000000" />
+    </g>
+    <g transform="translate(700 0)">
+        <use xlink:href="#buy-flow-number-1" fill="#333333" />
+        <use xlink:href="#buy-flow-number-circle" fill="#333333" />
+    </g>
+    <g transform="translate(730 0)">
+        <use xlink:href="#buy-flow-number-2" fill="#333333" />
+        <use xlink:href="#buy-flow-number-circle" fill="#333333" />
+    </g>
+    <g transform="translate(760 0)">
+        <use xlink:href="#buy-flow-number-3" fill="#333333" />
+        <use xlink:href="#buy-flow-number-circle" fill="#333333" />
+    </g>
+
+    <!-- row 2: cmg -->
+
+    <g transform="translate(0 30)">
+        <use xlink:href="#x" fill="#666666" />
+    </g>
+    <g transform="translate(30 30)">
+        <use xlink:href="#twitter" fill="#666666" />
+    </g>
+    <g transform="translate(63 30)">
+        <use xlink:href="#truck" fill="#666666" />
+    </g>
+    <g transform="translate(90 30)">
+        <use xlink:href="#star" fill="#666666" />
+    </g>
+    <g transform="translate(121 30)">
+        <use xlink:href="#phone" fill="#666666" />
+    </g>
+    <g transform="translate(152 30)">
+        <use xlink:href="#magnifying-glass" fill="#666666" />
+    </g>
+    <g transform="translate(183 30)">
+        <use xlink:href="#hamburger" fill="#666666" />
+    </g>
+    <g transform="translate(217 30)">
+        <use xlink:href="#grid" fill="#666666" />
+    </g>
+    <g transform="translate(247 30)">
+        <use xlink:href="#gift" fill="#666666" />
+    </g>
+    <g transform="translate(275 30)">
+        <use xlink:href="#gear" fill="#666666" />
+    </g>
+    <g transform="translate(305 30)">
+        <use xlink:href="#facebook" fill="#666666" />
+    </g>
+    <g transform="translate(328 30)">
+        <use xlink:href="#dollar" fill="#666666" />
+    </g>
+    <g transform="translate(351 30)">
+        <use xlink:href="#chat-bubble" fill="#666666" />
+    </g>
+    <g transform="translate(383 30)">
+        <use xlink:href="#cart" fill="#666666" />
+    </g>
+    <g transform="translate(418 30)">
+        <use xlink:href="#house" fill="#666666" />
+    </g>
+    <g transform="translate(450 30)">
+        <use xlink:href="#chevron-up" fill="#666666" />
+    </g>
+    <g transform="translate(490 30)">
+        <use xlink:href="#chevron-right" fill="#666666" />
+    </g>
+    <g transform="translate(514 30)">
+        <use xlink:href="#chevron-left" fill="#666666" />
+    </g>
+    <g transform="translate(538 30)">
+        <use xlink:href="#chevron-down" fill="#666666" />
+    </g>
+    <g transform="translate(578 30)">
+        <use xlink:href="#email" fill="#666666" />
+    </g>
+    <g transform="translate(613 28)">
+        <use xlink:href="#info" fill="#666666" />
+    </g>
+    <g transform="translate(646 27)">
+        <use xlink:href="#x-enclosed-bg" />
+        <use xlink:href="#x-enclosed" fill="#c4c4c4" />
+    </g>
+
+    <!-- row 3: clg -->
+
+    <g transform="translate(0 60)">
+        <use xlink:href="#x" fill="#999999" />
+    </g>
+    <g transform="translate(30 60)">
+        <use xlink:href="#twitter" fill="#999999" />
+    </g>
+    <g transform="translate(63 60)">
+        <use xlink:href="#truck" fill="#999999" />
+    </g>
+    <g transform="translate(90 60)">
+        <use xlink:href="#star" fill="#999999" />
+    </g>
+    <g transform="translate(121 60)">
+        <use xlink:href="#phone" fill="#999999" />
+    </g>
+    <g transform="translate(152 60)">
+        <use xlink:href="#magnifying-glass" fill="#999999" />
+    </g>
+    <g transform="translate(183 60)">
+        <use xlink:href="#hamburger" fill="#999999" />
+    </g>
+    <g transform="translate(217 60)">
+        <use xlink:href="#grid" fill="#999999" />
+    </g>
+    <g transform="translate(247 60)">
+        <use xlink:href="#gift" fill="#999999" />
+    </g>
+    <g transform="translate(275 60)">
+        <use xlink:href="#gear" fill="#999999" />
+    </g>
+    <g transform="translate(305 60)">
+        <use xlink:href="#facebook" fill="#999999" />
+    </g>
+    <g transform="translate(328 60)">
+        <use xlink:href="#dollar" fill="#999999" />
+    </g>
+    <g transform="translate(351 60)">
+        <use xlink:href="#chat-bubble" fill="#999999" />
+    </g>
+    <g transform="translate(383 60)">
+        <use xlink:href="#cart" fill="#999999" />
+    </g>
+    <g transform="translate(418 60)">
+        <use xlink:href="#house" fill="#999999" />
+    </g>
+    <g transform="translate(450 60)">
+        <use xlink:href="#chevron-up" fill="#cacaca" />
+    </g>
+    <g transform="translate(490 60)">
+        <use xlink:href="#chevron-right" fill="#cacaca" />
+    </g>
+    <g transform="translate(514 60)">
+        <use xlink:href="#chevron-left" fill="#cacaca" />
+    </g>
+    <g transform="translate(538 60)">
+        <use xlink:href="#chevron-down" fill="#cacaca" />
+    </g>
+    <g transform="translate(578 60)">
+        <use xlink:href="#email" fill="#999999" />
+    </g>
+    <g transform="translate(613 56)">
+        <use xlink:href="#info" fill="#999999" />
+    </g>
+    <g transform="translate(646 55)">
+        <use xlink:href="#x-enclosed-bg" />
+        <use xlink:href="#x-enclosed" fill="#e4e4e4" />
+    </g>
+    <g transform="translate(680 60)">
+        <use xlink:href="#asterisk" fill="#999999" />
+    </g>
+
+    <!-- row 4: white -->
+
+    <g transform="translate(0 90)">
+        <use xlink:href="#x" fill="#ffffff" />
+    </g>
+    <g transform="translate(30 90)">
+        <use xlink:href="#twitter" fill="#ffffff" />
+    </g>
+    <g transform="translate(63 90)">
+        <use xlink:href="#truck" fill="#ffffff" />
+    </g>
+    <g transform="translate(90 90)">
+        <use xlink:href="#star" fill="#ffffff" />
+    </g>
+    <g transform="translate(121 90)">
+        <use xlink:href="#phone" fill="#ffffff" />
+    </g>
+    <g transform="translate(152 90)">
+        <use xlink:href="#magnifying-glass" fill="#ffffff" />
+    </g>
+    <g transform="translate(183 90)">
+        <use xlink:href="#hamburger" fill="#ffffff" />
+    </g>
+    <g transform="translate(217 90)">
+        <use xlink:href="#grid" fill="#ffffff" />
+    </g>
+    <g transform="translate(247 90)">
+        <use xlink:href="#gift" fill="#ffffff" />
+    </g>
+    <g transform="translate(275 90)">
+        <use xlink:href="#gear" fill="#ffffff" />
+    </g>
+    <g transform="translate(305 90)">
+        <use xlink:href="#facebook" fill="#ffffff" />
+    </g>
+    <g transform="translate(328 90)">
+        <use xlink:href="#dollar" fill="#ffffff" />
+    </g>
+    <g transform="translate(351 90)">
+        <use xlink:href="#chat-bubble" fill="#ffffff" />
+    </g>
+    <g transform="translate(383 90)">
+        <use xlink:href="#cart" fill="#ffffff" />
+    </g>
+    <g transform="translate(418 90)">
+        <use xlink:href="#house" fill="#ffffff" />
+    </g>
+    <g transform="translate(450 90)">
+        <use xlink:href="#chevron-up" fill="#ffffff" />
+    </g>
+    <g transform="translate(490 90)">
+        <use xlink:href="#chevron-right" fill="#ffffff" />
+    </g>
+    <g transform="translate(514 90)">
+        <use xlink:href="#chevron-left" fill="#ffffff" />
+    </g>
+    <g transform="translate(538 90)">
+        <use xlink:href="#chevron-down" fill="#ffffff" />
+    </g>
+    <g transform="translate(578 90)">
+        <use xlink:href="#email" fill="#ffffff" />
+    </g>
+    <g transform="translate(613 84)">
+        <use xlink:href="#info" fill="#ffffff" />
+    </g>
+    <g transform="translate(646 82)">
+        <use xlink:href="#x-enclosed" fill="#ffffff" />
+    </g>
+
+    <!-- row 5: cui -->
+
+    <g transform="translate(0 120)">
+        <use xlink:href="#x" fill="#158cfb" />
+    </g>
+    <g transform="translate(30 120)">
+        <use xlink:href="#twitter" fill="#158cfb" />
+    </g>
+    <g transform="translate(63 120)">
+        <use xlink:href="#truck" fill="#158cfb" />
+    </g>
+    <g transform="translate(90 120)">
+        <use xlink:href="#star" fill="#158cfb" />
+    </g>
+    <g transform="translate(121 120)">
+        <use xlink:href="#phone" fill="#158cfb" />
+    </g>
+    <g transform="translate(152 120)">
+        <use xlink:href="#magnifying-glass" fill="#158cfb" />
+    </g>
+    <g transform="translate(183 120)">
+        <use xlink:href="#hamburger" fill="#158cfb" />
+    </g>
+    <g transform="translate(217 120)">
+        <use xlink:href="#grid" fill="#158cfb" />
+    </g>
+    <g transform="translate(247 120)">
+        <use xlink:href="#gift" fill="#158cfb" />
+    </g>
+    <g transform="translate(275 120)">
+        <use xlink:href="#gear" fill="#158cfb" />
+    </g>
+    <g transform="translate(305 120)">
+        <use xlink:href="#facebook" fill="#158cfb" />
+    </g>
+    <g transform="translate(328 120)">
+        <use xlink:href="#dollar" fill="#158cfb" />
+    </g>
+    <g transform="translate(351 120)">
+        <use xlink:href="#chat-bubble" fill="#158cfb" />
+    </g>
+    <g transform="translate(383 120)">
+        <use xlink:href="#cart" fill="#158cfb" />
+    </g>
+    <g transform="translate(418 120)">
+        <use xlink:href="#house" fill="#158cfb" />
+    </g>
+    <g transform="translate(450 120)">
+        <use xlink:href="#chevron-up" fill="#158cfb" />
+    </g>
+    <g transform="translate(490 120)">
+        <use xlink:href="#chevron-right" fill="#158cfb" />
+    </g>
+    <g transform="translate(514 120)">
+        <use xlink:href="#chevron-left" fill="#158cfb" />
+    </g>
+    <g transform="translate(538 120)">
+        <use xlink:href="#chevron-down" fill="#158cfb" />
+    </g>
+    <g transform="translate(578 120)">
+        <use xlink:href="#email" fill="#158cfb" />
+    </g>
+    <g transform="translate(613 112)">
+        <use xlink:href="#info" fill="#158cfb" />
+    </g>
+    <g transform="translate(646 110)">
+        <use xlink:href="#x-enclosed-bg" />
+        <use xlink:href="#x-enclosed" fill="#158cfb" />
+    </g>
+
+    <!-- row 6: cui -->
+
+    <g transform="translate(490 150)">
+        <use xlink:href="#chevron-right" fill="#0088CC" />
+    </g>
+
+</svg>

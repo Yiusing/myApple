@@ -210,4 +210,72 @@ $(function(){
             .nextAll()[i]).removeClass("fade")
             .siblings(":gt(0):not(.fade)").addClass("fade");
     })
+
+
+})
+new Vue({
+    el:"#app",
+    data:{
+        left:{
+            transform:"translateX(0)"
+        },
+        canMove:false,
+        posS:"",
+        rate:1,
+        current:0,
+        now:0
+    },
+    methods:{
+        getPos(e){
+            this.canMove=true;
+            this.posS= e.touches[0].clientX;
+        },
+        scrollTab(e){
+            this.current=e.touches[0].clientX;
+
+            //     //右边尽头
+            //     if(this.current<-window.innerWidth){
+            //         //left*=this.rate;
+            //
+            //     }
+            this.now = parseFloat(this.left.transform.slice(11));
+            //左边尽头
+            if(this.now>0){
+                this.rate=0.1;
+            }else if(this.now<-window.innerWidth-30){
+                this.rate=0.1;
+            }else{
+                this.rate=1;
+            }
+            this.now +=this.rate*(this.current-this.posS);
+            this.left.transform = `translateX(${this.now}px)`
+            this.left.transition="none";
+            this.posS = this.current;
+        },
+        release(e){
+            this.canMove=false;
+           if(this.now>0){
+               this.left={
+                   "transform":"translateX(0)",
+                   "transition":"transform .4s linear"
+               };
+           }
+           if(this.now<-window.innerWidth){
+               this.left={
+                   "transform":`translateX(-${window.innerWidth-30}px)`,
+                   "transition":"transform .4s linear"
+               };
+           }
+        }
+
+    },
+    watch:{
+        // left(){
+        //     var l = this.posL*=this.rate;
+        //     this.left.transform = `translateX(${this.posL}px)`
+        // }
+        current(val){
+
+        }
+    }
 })

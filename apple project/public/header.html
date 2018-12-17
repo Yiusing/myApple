@@ -69,8 +69,24 @@
                 </ul>
                 <aside v-show="showBag" class="bag-box">
                     <div class="bag-inner">
-                        <div class="bag-details">
+                        <div class="bag-details" v-if="!isLogin">
                             您的购物袋是空的
+                        </div>
+                        <div class="shopbag-detials" v-else>
+                            <ul class="shopbag-lists">
+                                <li class="shopbag-list-item" v-for="(elem,i) of res">
+                                    <img :src="elem.sm_pic" class="product-img">
+                                    <div class="shopbag-content">
+                                        <span class="products-title" v-text="elem.pdu_title" @click="toProducts(i)"></span>
+                                        <ul>
+                                            <li v-for="title of productsDetails[i]"  class="products-details">
+                                                <p v-text="title"></p>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         <ul class="bag-lists">
                             <li class="bag-lists-item"><a href="shopbag.html" class="bag-link"><span class="bag-icon"></span>购物袋</a></li>

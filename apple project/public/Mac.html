@@ -2,72 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Mac.css">
+    <link rel="stylesheet" href="css/mint-ui/style.css">
     <title>Mac</title>
 </head>
 <body>
 <!--Top-->
 <header id="header"></header>
 <div id="app">
-    <nav id="chapternav" class="theme-dark chapternav">
-        <ul class="chapternav-items">
+    <nav id="chapternav" class="chapternav"  @touchmove.stop="scrollTab($event)" @touchstart.stop="getPos($event)" @touchend="release($event)">
+        <ul class="chapternav-items" :style="left">
             <li class="chapternav-item">
                 <a href="#" class="chapternav-link">
-                    <img src="img/Mac/macbook_dark_large.svg">
+                    <img src="img/Mac/macbook__fjd32xo0xwmm_large (1).svg">
                     <p class="chapternav-label">MacBook</p>
                 </a>
             </li>
             <li class="chapternav-item">
-                <a href="#" class="chapternav-link"><img src="img/Mac/macbookair_dark_large.svg">
+                <a href="#" class="chapternav-link"><img src="img/Mac/macbookair__by1vem70tkc2_large (1).svg">
                     <p class="chapternav-label">MacBook Air</p>
                 </a>
             </li>
             <li class="chapternav-item">
-                <a href="#" class="chapternav-link"><img src="img/Mac/macbookpro_dark_large.svg">
+                <a href="#" class="chapternav-link"><img src="img/Mac/macbookpro__e0wcugzmt26a_large (1).svg">
                     <p class="chapternav-label">MacBook Pro</p>
                     <p  class="chapternav-new">新款</p>
                 </a>
             </li>
             <li class="chapternav-item">
                 <a href="#" class="chapternav-link">
-                    <img src="img/Mac/imac_dark_large.svg">
+                    <img src="img/Mac/imac__dlz2ciyr6hm6_large.svg">
                     <p class="chapternav-label">iMac</p>
                 </a>
             </li>
             <li class="chapternav-item">
                 <a href="#" class="chapternav-link">
-                    <img src="img/Mac/imac_pro_dark_large.svg">
+                    <img src="img/Mac/imac__dlz2ciyr6hm6_large.svg">
                     <p class="chapternav-label">iMac Pro</p>
                 </a>
             </li>
             <li class="chapternav-item">
                 <a href="#" class="chapternav-link">
-                    <img src="img/Mac/macpro_dark_large.svg">
+                    <img src="img/Mac/macpro__dt69qr0ywncm_large.svg">
                     <p class="chapternav-label">Mac Pro</p>
                 </a>
             </li>
             <li class="chapternav-item">
-                <a href="#" class="chapternav-link">
-                    <img src="img/Mac/macmini_dark_large.svg">
+                <a href="#" class="chapternav-link mac-mini">
+                    <img src="img/Mac/macmini__rzlk7b0xsmqq_large.svg">
                     <p class="chapternav-label">Mac mini</p>
                 </a>
             </li>
             <li class="chapternav-item">
                 <a href="#" class="chapternav-link">
-                    <img src="img/Mac/mac_acc_dark_large.svg">
+                    <img src="img/Mac/mac_acc__fia3ihqup4ae_large.svg">
                     <p class="chapternav-label">配件</p>
                 </a>
             </li>
             <li class="chapternav-item">
                 <a href="#" class="chapternav-link">
-                    <img src="img/Mac/mac_osx_dark_large.svg">
+                    <img src="img/Mac/mac_osx__dq0x03ehapyu_large.svg">
                     <p class="chapternav-label">Mojave</p>
                 </a>
             </li>
             <li class="chapternav-item">
                 <a href="#" class="chapternav-link">
-                    <img src="img/Mac/mac_comp_dark_large.svg">
+                    <img src="img/Mac/mac_comp__by57zw2zt32a_large.svg">
                     <p class="chapternav-label">机型比较</p>
                 </a>
             </li>
@@ -138,13 +140,13 @@
             </div>
         </section>
         <!--MacBook Pro-->
-        <section class="section-setting theme-dark">
+        <section class="section-setting theme-dark macbook-pro">
             <!--Content-->
-            <div class="product-content section-content">
+            <div class="product-content">
                 <h2 class="product-headline">MacBook Pro</h2>
                 <h3 class="product-subheadline">更强劲，更专业的强劲。</h3>
                 <a href="#" class="link-mg">进一步了解&gt;</a>
-                <a href="#" class="link-mg">购买&gt;</a>
+                <a href="product.html" class="link-mg">购买&gt;</a>
             </div>
             <!--background-->
             <div class="product-background-box">
@@ -154,7 +156,7 @@
         <!--iMac Pro-->
         <section class="section-setting theme-dark imacpro">
             <!--Content-->
-            <div class="product-content section-content">
+            <div class="product-content ">
                 <h2 class="product-headline">iMac Pro</h2>
                 <h3 class="product-subheadline">强大，大有专业风范。</h3>
                 <a href="#" class="link-mg">进一步了解&gt;</a>
@@ -169,7 +171,7 @@
         <!--iMac-->
         <section class="section-setting imac">
             <!--Content-->
-            <div class="section-content">
+            <div class="">
                 <h2 class="product-headline">iMac</h2>
                 <h3 class="product-subheadline">目光所及，更显锋芒。</h3>
                 <a href="#" class="link-mg">进一步了解&gt;</a>
@@ -183,7 +185,7 @@
         <!--MacBook-->
         <section class="section-setting macbook">
             <!--Content-->
-            <div class="section-content">
+            <div class="">
                 <h2 class="product-headline">MacBook</h2>
                 <h3 class="product-subheadline">轻于时代，先于时代。</h3>
                 <a href="#" class="link-mg">进一步了解&gt;</a>
@@ -197,7 +199,7 @@
         <!--Compare-->
         <section class="section-setting compare">
             <!--Content-->
-            <div class="section-content">
+            <div class="">
                 <h2 class="typography-headline">Mac 机型比较。</h2>
                 <a href="#">找到适合你的 Mac&gt;</a>
             </div>
@@ -209,7 +211,7 @@
         <!--Trade-->
         <section class="section-setting trade">
             <!--Content-->
-            <div class="section-content">
+            <div class="">
                 <h2 class="typography-headline">
                     把你手里现有的电脑，
                     <br>
@@ -240,9 +242,9 @@
             </div>
         </section>
         <!--accessories-->
-        <section class="section-setting compare">
+        <section class="section-setting accessories">
             <!--Content-->
-            <div class="row section-content">
+            <div class="row">
                 <h3 class="typography-headline">Mac 配件</h3>
                 <a href="#">立即选购&gt;</a>
             </div>
@@ -253,30 +255,33 @@
         </section>
         <!--macos-and-icloud-->
         <section class="section-setting macos-and-icloud">
-            <!--background-->
-            <div class="product-background-box">
-                <div class="product-img product-img-macos-and-icloud"></div>
-            </div>
-            <!--Content-->
-            <div class="section-content">
-                <!--left-->
-                <div class="macos-and-icloud-content">
-                    <h3 class="typography-headline">macOS</h3>
-                    <p>Mac如此强大好用，macOS 这一操作系统功不可没。它为 Mac 特别打造，采用了软硬件协同设计，能帮助你得心应手地处理各种事情。</p>
-                    <a href="#">进一步了解 &gt;</a>
-                </div>
-                <!--right-->
-                <div class="macos-and-icloud-content">
-                    <h3 class="typography-headline">iCloud</h3>
-                    <p>iCloud可以安全存储你的照片、视频、文稿、信息、音乐、app等内容，并能在你的各种设备上同步保持更新*。因此，你可以更自由、更方便地访问你想要的内容。</p>
-                    <a href="#">进一步了解 &gt;</a>
+            <!--left-->
+            <div class="macos-and-icloud-inner">
+                <div class="macos-and-icloud-box macOs-image">
+                    <div class="macos-and-icloud-content">
+                        <h3 class="typography-headline">macOS</h3>
+                        <p>Mac如此强大好用，macOS 这一操作系统功不可没。它为 Mac 特别打造，采用了软硬件协同设计，能帮助你得心应手地处理各种事情。</p>
+                        <a href="#">进一步了解 &gt;</a>
+                    </div>
                 </div>
             </div>
+            <!--right-->
+            <div class="macos-and-icloud-inner">
+                <div class="macos-and-icloud-box icloud-image">
+
+                    <div class="macos-and-icloud-content">
+                        <h3 class="typography-headline">iCloud</h3>
+                        <p>iCloud可以安全存储你的照片、视频、文稿、信息、音乐、app等内容，并能在你的各种设备上同步保持更新*。因此，你可以更自由、更方便地访问你想要的内容。</p>
+                        <a href="#">进一步了解 &gt;</a>
+                    </div>
+                </div>
+            </div>
+
         </section>
         <!--app-->
         <section class="app section-setting">
             <!--内置APP-->
-            <div class="section-setting">
+            <div class="section-setting in-app">
                 <!--介绍-->
                 <div class="section-content">
                     <h3 class="typography-headline">内置 APP</h3>
@@ -416,9 +421,96 @@
                         </div>
                     </div>
                 </div>
+                <!--移动端内容-->
+                <mt-swipe :auto="0" :show-indicator="true">
+                    <mt-swipe-item class="photo">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-hardware phone-screen">
+                                <div class="phone-image-photo phone-app-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">照片</h3>
+                                <p class="phone-app-text">能让你日益庞大的照片图库变得井井有条，并易于查看。还能帮助你美化图像，创作精彩照片。更有 iCloud 照片，让你可以将值得长久珍藏的照片和视频保存在云端**。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解照片 &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="iMovie">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-hardware phone-screen">
+                                <div class="phone-image-iMovie phone-app-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">iMovie 剪辑</h3>
+                                <p class="phone-app-text">以前所未有的方式讲述精彩故事。精简的设计与直观的剪辑功能，让你轻松制作精美的 4K 影片和颇具好莱坞风格的预告片。你还可以通过 iMovie Theater 在各种设备上欣赏这些作品。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 iMovie 剪辑 &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="band">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-hardware phone-screen">
+                                <div class="phone-image-band phone-app-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">库乐队</h3>
+                                <p class="phone-app-text">在 Mac 上制作绝妙旋律，简单到离谱。它拥有直观的界面，以及一套完整的声音资源库，让你能够如专业制作人一般学习、演奏、录制和共享乐曲，一切就这么简单轻松。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解库乐队 &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="pages">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-hardware phone-screen">
+                                <div class="phone-image-pages phone-app-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">Pages 文稿</h3>
+                                <p class="phone-app-text">这款功能强大的文字处理软件，能满足你的各种所需，令制作出的文档看起来漂亮，读起来也漂亮。你可在 Mac 和 iOS 设备之间无缝切换，还可与使用 Microsoft Word 的其他人轻松协作。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 Pages 文稿 &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="numbers">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-hardware phone-screen">
+                                <div class="phone-image-numbers phone-app-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">Numbers 表格</h3>
+                                <p class="phone-app-text">创建精密的电子表格，添加引人注目的交互式图表、表格和图像，让你的数据生动显现。你可在 Mac 和 iOS 设备之间无缝切换，还可与使用 Microsoft Excel 的其他人轻松协作。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 Numbers 表格 &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="keynote">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-hardware phone-screen">
+                                <div class="phone-image-keynote phone-app-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">Keynote 讲演</h3>
+                                <p class="phone-app-text">通过赏心悦目的演示文稿，让你的想法得以生动呈现。运用多种强大工具和炫目效果，让你的观众目不转睛。你可在 Mac 和 iOS 设备之间无缝切换，还可与使用 Microsoft PowerPoint 的其他人轻松协作。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 Keynote 讲演 &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="safari">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-hardware phone-screen">
+                                <div class="phone-image-safari phone-app-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">Safari 浏览器</h3>
+                                <p class="phone-app-text">Safari 浏览器的各种创新功能让你尽享网络的更多精彩。节能技术让你上网浏览的时间更长，内置隐私功能比以往更为强大，你可以在各种设备之间无缝切换浏览，还可以轻松分享你喜爱的页面。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 Safari 浏览器 &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                </mt-swipe>
             </div>
             <!--专业APP-->
-            <div class="section-setting">
+            <div class="section-setting pro-app">
                 <!--介绍-->
                 <div class="section-content">
                     <h3 class="typography-headline">专业 APP</h3>
@@ -522,7 +614,71 @@
                         </div>
                     </div>
                 </div>
+                <!--移动端内容-->
+                <mt-swipe :auto="0" :show-indicator="true">
+                    <mt-swipe-item class="final">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-pro-hardware phone-screen">
+                                <div class="phone-image-pro-FinalCut phone-app-pro-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">Final Cut Pro X</h3>
+                                <p class="phone-app-text">为了满足如今剪辑师们四溢的灵感，Final Cut Pro 提供开创性的视频剪辑功能、强大的媒体组织整理能力和杰出的性能，并针对 Mac 电脑和 macOS Mojave 进行了全面优化。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 Final Cut Pro X &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="logic">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-pro-hardware phone-screen">
+                                <div class="phone-image-logic phone-app-pro-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">Logic Pro X</h3>
+                                <p class="phone-app-text">Logic Pro 在你的 Mac 上构建起一座完备的录音和 MIDI 工作室，以别开生面的方式满足你作曲、录音、编辑和混音的各种所需。有了大量功能齐备的插件，以及数千种声音和循环乐段，无论你想创作哪种音乐，都能为你提供从灵感初现到完成最后的母带的各种所需。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 Logic Pro X &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="motion">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-pro-hardware phone-screen">
+                                <div class="phone-image-motion phone-app-pro-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">Motion</h3>
+                                <p class="phone-app-text">Motion 是一款强大的动态图形工具，可帮助你轻松制作电影风格的 2D 及 3D 字幕、流畅的转场和逼真的特效，一切效果即时可见。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 Motion &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="compressor">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-pro-hardware phone-screen">
+                                <div class="phone-image-compressor phone-app-pro-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">Compressor</h3>
+                                <p class="phone-app-text">从 Final Cut Pro 中导出项目的功能变得更强大、更灵活。你可以自定义输出设置，使用分布式编码功能提高工作效率，并且可以轻松将影片打包提交至 iTunes Store。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 Compressor &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                    <mt-swipe-item class="MainStage">
+                        <div class="phone-app-content">
+                            <figure class="phone-image-pro-hardware phone-screen">
+                                <div class="phone-image-MainStage phone-app-pro-inner-image"></div>
+                            </figure>
+                            <div class="phone-app-details">
+                                <h3 class="phone-app-title">MainStage 3</h3>
+                                <p class="phone-app-text">专为现场演出打造的全屏幕界面，灵活的硬件操控，以及众多与 Logic Pro X 完全兼容的插件和音效，将你的 Mac 变身现场演出装备。</p>
+                                <a href="javascript:;" class="phone-app-link">进一步了解 MainStage 3 &gt;</a>
+                            </div>
+                        </div>
+                    </mt-swipe-item>
+                </mt-swipe>
             </div>
+
         </section>
         <!--macOS Mojave-->
         <section class="section-setting theme-dark macOS">
@@ -584,7 +740,7 @@
             </div>
             <!--Content-->
             <!--left-->
-            <div class="section-content">
+            <div class="section-content ">
                 <h3 class="typography-headline">Mac 商务应用</h3>
                 <p class="typography-intro">以强大的装备，让你的商务事业更上一层楼。</p>
                 <a href="#" class="link-mg">了解 Mac 商务应用 &gt;</a>
@@ -599,6 +755,7 @@
 <script src="js/vue.js"></script>
 <script src="js/axios.min.js"></script>
 <script src="js/qs.min.js"></script>
+<script src="js/mint-ui/index.js"></script>
 <script src="js/header.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/mac.js"></script>
